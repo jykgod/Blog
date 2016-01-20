@@ -10,20 +10,26 @@
 // }
 //2016.1.19	尝试把canvas和panel定义分开？
 function Canvas(){
-	this.x = 0;
-	this.y = 0;
-	this.w = 1;
-	this.h = 1;
 	this.canvas;
 }
 Canvas.prototype = {
-	createWithFatherName : function(fatherName)
+	setPosition : function(x , y , w , h)
+	{
+		this.canvas.width = w;
+		this.canvas.height = h;
+		this.canvas.x = x;
+		this.canvas.y = y;
+	},
+	createWithFatherName : function( fatherName )
+	{
+		var fatherNode = document.getElementById( fatherName );
+		this.canvas = document.createElement('canvas');
+		this.setPosition( 0 , 0 , 1 , 1 );
+	},
+	createWithFatherNameAndPosition : function( fatherName , x , y , w , h )
 	{
 		var fatherNode = document.getElementById(fatherName);
 		this.canvas = document.createElement('canvas');
-		this.canvas.width = this.w;
-		this.canvas.height = this.h;
-		this.canvas.x = this.x;
-		this.canvas.y = this.y;
+		this.setPosition( x , y , w , h );
 	}
 }

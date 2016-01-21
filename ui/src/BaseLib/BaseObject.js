@@ -1,8 +1,12 @@
+/*
+
+*/
 function BaseObject(){
     this.mChanged = true;
     this.mVisible = true;
     this.mPointerOn = false;
     this.mTransparent = false;
+    this.mComponents = null;
     this.mLevel = 0;
     this.color = "#FFFFFF";
     this.mCanvas;
@@ -47,7 +51,7 @@ setVisible : function( visible ){
     this.mVisible = visible;
 },
 setCanvas : function(canvas){
-    this.mCanvas = new Canvas(canvas);
+    this.mCanvas = canvas;
 },
 getCanvas : function(){
     return this.mCanvas;
@@ -67,7 +71,15 @@ pointerOnIt : function(x,y){
         }
     return this.mPointerOn = false;
 },
- create : function(){
+ create : function(canvas){
+    this.mCanvas = canvas;
+    this.mComponents = new ListNode( null );
+ },
+ addComponent : function(obj){
+    addObjectInList( this.mComponents , obj );
+ },
+ removeComponent : function(obj){
+    removeObjectFromList( this.mComponents , obj );
  },
 setPosition : function(x,y){
     this.x = x;

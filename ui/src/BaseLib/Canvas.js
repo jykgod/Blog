@@ -9,9 +9,14 @@
 //     this.h = canvas.height;
 // }
 //2016.1.19	尝试把canvas和panel定义分开？
+/**
+ * HIT:canvas means the canvas which in html5
+ * mCanvas means this class;
+ * @constructor
+ */
 function Canvas(){
 	this.canvas = null;
-	this.colliderManager = null;
+	this.mColliderManager = null;
 }
 Canvas.prototype = {
 	setPosition : function(x , y , w , h)
@@ -26,13 +31,13 @@ Canvas.prototype = {
 		var fatherNode = document.getElementById( fatherName );
 		this.canvas = document.createElement('canvas');
 		this.setPosition( 0 , 0 , 1 , 1 );
-		this.colliderManager = new ColliderManager();
+		this.mColliderManager = new ColliderManager(this);
 	},
 	createWithFatherNameAndPosition : function( fatherName , x , y , w , h )
 	{
 		var fatherNode = document.getElementById(fatherName);
 		this.canvas = document.createElement('canvas');
 		this.setPosition( x , y , w , h );
-		this.colliderManager = new ColliderManager();
+		this.mColliderManager = new ColliderManager(this);
 	}
 }

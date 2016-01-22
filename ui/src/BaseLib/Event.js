@@ -72,36 +72,25 @@ EventUtil.getEvent = function() {
 
 function addEventFunc( obj )
 {
-    EventUtil.addEventHandler(obj.getCanvas().canvas,"click",function(event)
+    EventUtil.addEventHandler(obj.mCanvas.canvas,"click",function(event)
     {
         event=EventUtil.getEvent(event);
-        if(obj.getIfVisible()&&obj.getIfPointerOn()){
-            obj.onClick(event.pageX,event.pageY);
-        }
+        obj.onClick(event.pageX,event.pageY);
     });
-    EventUtil.addEventHandler(obj.getCanvas().canvas,"mousemove",function(event)
+    EventUtil.addEventHandler(obj.mCanvas.canvas,"mousemove",function(event)
     {
         event=EventUtil.getEvent(event);
-        if(obj.getIfVisible()){
-            if(obj.pointerOnIt(event.pageX,event.pageY)){
-                obj.onMouseMove(event.pageX,event.pageY);
-            }
-
-        }
+        obj.onMouseMove(event.pageX,event.pageY);
     });
-    EventUtil.addEventHandler(obj.getCanvas().canvas,"mousedown",function(event)
+    EventUtil.addEventHandler(obj.mCanvas.canvas,"mousedown",function(event)
     {
         event=EventUtil.getEvent(event);
-        if(obj.getIfVisible()) {
-            obj.onMouseDown(event.pageX,event.pageY);
-        }
+        obj.onMouseDown(event.pageX,event.pageY);
 
     });
-    EventUtil.addEventHandler(obj.getCanvas().canvas,"mouseup",function(event)
+    EventUtil.addEventHandler(obj.mCanvas.canvas,"mouseup",function(event)
     {
         event=EventUtil.getEvent(event);
-        if(obj.getIfVisible()){
-            obj.onMouseUp(event.pageX,event.pageY);
-        }
+        obj.onMouseUp(event.pageX,event.pageY);
     });
 }

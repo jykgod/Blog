@@ -3,16 +3,16 @@
  */
 function Texture()
 {
-    BaseObject.call( this );
+    DrawableObject.call( this );
     this.src = null;
 }
 
-for (var i in BaseObject.prototype){
-    Texture.prototype[i] = BaseObject.prototype[i];
+for (var i in DrawableObject.prototype){
+    Texture.prototype[i] = DrawableObject.prototype[i];
 }
 
 Texture.prototype.createWith2Factor = function( canvas , src )
 {
-    this.mCanvas = canvas;
+    this.create(canvas);
     this.src = src;
 }

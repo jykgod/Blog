@@ -59,58 +59,58 @@
 //        removeObjectFromList(this.objectListHead,object);
 //    }
 //}
-function Panel(canvas){
-    this.objectListHead = new ListNode(null);
-    this.mCanvas = new Canvas(canvas);
-}
-Panel.prototype = {
-    draw :  function () {                 //redraw the visible objects when they are changed;
-        var now = this.objectListHead;
-        var reDrawObjectListHead = new ListNode(null);
-        var nReDrawObjectListHead = new ListNode(null);
-        while(now.next != null){
-            now = now.next;
-            if(now.data.getIfVisible()){
-                if(now.data.getIfChange()) {
-                    addObjectInList(reDrawObjectListHead,now.data);
-                }
-                else{
-                    addObjectInList(nReDrawObjectListHead,now.data);
-                }
-            }
-        }
-        while(true){
-            var a = reDrawObjectListHead;
-            while(a.next != null){
-                a = a.next;//alert("shit");
-                if( !a.visited ) break;
-            }
-            if(a.visited == true || a.data == null) break;
-            a.visited = true;
-            var b = nReDrawObjectListHead;
-            var pre = nReDrawObjectListHead;
-            while(b.next != null) {
-                pre = b;
-                b = b.next;
-                if (a.data.getIfCross(b.data)) {
-                        addObjectInList(reDrawObjectListHead, b.data);
-                        pre.next = b.next;
-                    }
-                }
-            }
-        now = reDrawObjectListHead;
-        while(now.next != null){
-            //alert("pause");
-            now = now.next;
-            now.data.draw();
-        }
-    },
-    addObject : function( object ){
-        object.setCanvas(this.mCanvas.canvas);
-        addEventFunc( object );
-        addObjectInList( this.objectListHead, object);
-    },
-    removeObject : function( object ){
-        removeObjectFromList(this.objectListHead,object);
-    }
-}
+//function Panel(canvas){
+//    this.objectListHead = new ListNode(null);
+//    this.mCanvas = new Canvas(canvas);
+//}
+//Panel.prototype = {
+//    draw :  function () {                 //redraw the visible objects when they are changed;
+//        var now = this.objectListHead;
+//        var reDrawObjectListHead = new ListNode(null);
+//        var nReDrawObjectListHead = new ListNode(null);
+//        while(now.next != null){
+//            now = now.next;
+//            if(now.data.getIfVisible()){
+//                if(now.data.getIfChange()) {
+//                    addObjectInList(reDrawObjectListHead,now.data);
+//                }
+//                else{
+//                    addObjectInList(nReDrawObjectListHead,now.data);
+//                }
+//            }
+//        }
+//        while(true){
+//            var a = reDrawObjectListHead;
+//            while(a.next != null){
+//                a = a.next;//alert("shit");
+//                if( !a.visited ) break;
+//            }
+//            if(a.visited == true || a.data == null) break;
+//            a.visited = true;
+//            var b = nReDrawObjectListHead;
+//            var pre = nReDrawObjectListHead;
+//            while(b.next != null) {
+//                pre = b;
+//                b = b.next;
+//                if (a.data.getIfCross(b.data)) {
+//                        addObjectInList(reDrawObjectListHead, b.data);
+//                        pre.next = b.next;
+//                    }
+//                }
+//            }
+//        now = reDrawObjectListHead;
+//        while(now.next != null){
+//            //alert("pause");
+//            now = now.next;
+//            now.data.draw();
+//        }
+//    },
+//    addObject : function( object ){
+//        object.setCanvas(this.mCanvas.canvas);
+//        addEventFunc( object );
+//        addObjectInList( this.objectListHead, object);
+//    },
+//    removeObject : function( object ){
+//        removeObjectFromList(this.objectListHead,object);
+//    }
+//}

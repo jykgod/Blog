@@ -15,23 +15,24 @@ for (var i in BaseObject.prototype){
  */
 Collider.prototype.createWith1Factor = function( father )
 {
-    this.x = father.x;
-    this.y = father.y;
+    this.create( father.mCanvas );
+    this.x = 0;
+    this.y = 0;
     this.w = father.w;
     this.h = father.h;
-    this.mLevel = father.mLevel;
-    this.mCanvas = father.canvas;
+    this.mLevel = 0;
     this.mCanvas.mColliderManager.addCollider( this );
 }
 Collider.prototype.createWith5Factors = function( canvas , x , y , w , h ,level )
 {
+    this.create( canvas );
     this.x = x;
     this.y = y;
     this.w = w;
     this.h = h;
     this.mLevel = level;
-    canvas.mColliderManager.addCollider( this );
-    this.mCanvas = canvas;
+    this.mCanvas.mColliderManager.addCollider( this );
+    //this.mCanvas = canvas;
 }
 
 Collider.prototype.onClick = function(){};

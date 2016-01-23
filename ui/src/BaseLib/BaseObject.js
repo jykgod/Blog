@@ -8,6 +8,7 @@ function BaseObject(){
     //this.mPointerOn = false;
     //this.mTransparent = false;
     this.mComponents = null;
+    this.mFather = null;
     this.mLevel = 0;
     //this.color = "#FFFFFF";
     this.mCanvas;
@@ -84,10 +85,11 @@ getIfCross : function(object){
 },
  create : function(canvas){
     this.mCanvas = canvas;
-    this.mComponents = new ListNode( null );
+    this.mComponents = new List( null );
  },
  addComponent : function(obj){
     this.mComponents.add(obj);
+     obj.mFather = this;
  },
  removeComponent : function(obj){
     this.mComponents.remove(obj);

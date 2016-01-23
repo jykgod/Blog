@@ -3,12 +3,7 @@ function Button(){
     this.mVisible = true;
     this.mPointerOn = false;
     this.mTransparent = false;
-    this.mLevel = 0;
-    this.mCanvas;
-    this.x = 0;
-    this.y = 0;
-    this.w = 50;
-    this.h = 50;
+
     this.text = "button";
     this.color = "#FFFFFF";
     this.textColor = "#000000";
@@ -57,24 +52,4 @@ Button.prototype.draw = function(){
        this.drawImage();
     }
     this.setChange(false);
-}
-Button.prototype.clickResponse = function(){
-
-}
-Button.prototype.onClick = function(x,y){
-}
-Button.prototype.onMouseDown = function(x,y){
-    if(this.mPointerOn) {
-        var ctx=this.getCanvas().canvas.getContext("2d");
-        ctx.clearRect(this.x, this.y, this.w, this.h);
-        this.isPressDown = true;
-    }
-    this.setChange(true);
-}
-Button.prototype.onMouseUp = function(x,y) {
-    if (this.isPressDown) {
-        if(this.mPointerOn) this.clickResponse();
-        this.isPressDown = false;
-        this.setChange(true);
-    }
 }

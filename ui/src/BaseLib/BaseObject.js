@@ -82,22 +82,15 @@ getIfCross : function(object){
     var th = object.h;
     return tx<=this.x + this.w && this.x <= tx +tw && ty<=this.y + this.h && this.y <= ty +th;
 },
-//pointerOnIt : function(x,y){
-//    if(x>(this.x+this.mCanvas.x)&&x<(this.x+this.mCanvas.x+this.w))
-//        if(y>(this.y+this.mCanvas.y)&&y<(this.y+this.mCanvas.y+this.h)){
-//            return this.mPointerOn = true;
-//        }
-//    return this.mPointerOn = false;
-//},
  create : function(canvas){
     this.mCanvas = canvas;
     this.mComponents = new ListNode( null );
  },
  addComponent : function(obj){
-    addObjectInList( this.mComponents , obj );
+    this.mComponents.add(obj);
  },
  removeComponent : function(obj){
-    removeObjectFromList( this.mComponents , obj );
+    this.mComponents.remove(obj);
  },
 setPosition : function(x,y){
     this.x = x;

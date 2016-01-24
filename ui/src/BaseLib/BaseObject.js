@@ -88,7 +88,11 @@ getCanvas : function(){
 },
 getIfCross : function(object){
     if(this.mCanvas.canvas === object.getCanvas().canvas) ;else return false;
-    return this.rect.isCross(object.rect);
+    var fatherPosition1 = this.getFatherPosition();
+    var rect1 = new Rect ( fatherPosition1.x + this.x , fatherPosition1.y + this.y , this.w , this. h );
+    var fatherPosition2 = this.getFatherPosition();
+    var rect2 = new Rect ( fatherPosition2.x + this.x , fatherPosition2.y + this.y , this.w , this. h );
+    return rect1.isCross( rect2 );
 },
  create : function(canvas){
     this.mCanvas = canvas;
@@ -115,8 +119,14 @@ getFatherPosition : function(){
         this.x = this.mFather.x + this.mFather.getFatherPosition().x;
         this.y = this.mFather.y + this.mFather.getFatherPosition().y;
     }
+    else return function(){
+        this.x = 0;
+        this.y = 0;
+    }
 },
 pointIn : function(x,y){
-    return this.rect.pointIn(x,y);
+    var fatherPosition = this.getFatherPosition();
+    var rect = new Rect ( fatherPosition.x + this.x , fatherPosition.y + this.y , this.w , this. h );
+    return rect.pointIn(x,y);
 }
 }

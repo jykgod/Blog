@@ -16,10 +16,7 @@ for (var i in BaseObject.prototype){
 Collider.prototype.createWith1Factor = function( father )
 {
     this.create( father.mCanvas );
-    this.x = 0;
-    this.y = 0;
-    this.w = father.w;
-    this.h = father.h;
+    this.rect = new Rect( 0 , 0 , father.w , father.h );
     this.mLevel = 0;
     this.mCanvas.mColliderManager.addCollider( this );
 }

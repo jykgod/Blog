@@ -19,3 +19,8 @@ Rect.prototype.translate = function(x,y)
     this.x += x;
     this.y += y;
 }
+
+Rect.prototype.isCross = function(rect)
+{
+    return rect.x<=this.x + this.w && this.x <= rect.x + rect.w && rect.y<=this.y + this.h && this.y <= rect.y + rect.h;
+}

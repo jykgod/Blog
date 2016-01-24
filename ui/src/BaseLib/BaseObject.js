@@ -88,11 +88,7 @@ getCanvas : function(){
 },
 getIfCross : function(object){
     if(this.mCanvas.canvas === object.getCanvas().canvas) ;else return false;
-    var tx = object.x;
-    var ty = object.y;
-    var tw = object.w;
-    var th = object.h;
-    return tx<=this.x + this.w && this.x <= tx +tw && ty<=this.y + this.h && this.y <= ty +th;
+    return this.rect.isCross(object.rect);
 },
  create : function(canvas){
     this.mCanvas = canvas;

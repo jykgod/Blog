@@ -114,3 +114,8 @@
 //        removeObjectFromList(this.objectListHead,object);
 //    }
 //}
+Panel = function()
+{
+    BaseObject.call(this);
+}
+

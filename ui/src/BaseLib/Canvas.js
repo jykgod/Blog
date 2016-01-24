@@ -18,6 +18,7 @@ function Canvas(){
 	this.canvas = null;
 	this.mColliderManager = null;
 	this.mDrawableManager = null;
+	this.mContext = null;
 }
 Canvas.prototype = {
 	setPosition : function(x , y , w , h)
@@ -34,13 +35,14 @@ Canvas.prototype = {
 		this.setPosition( 0 , 0 , 1 , 1 );
 		this.mColliderManager = new ColliderManager(this);
 		this.mDrawableManager = new DrawableObjectManager(this);
+		this.mContext = this.canvas.getContext("2d");
 	},
-	createWithFatherNameAndPosition : function( fatherName , x , y , w , h )
-	{
+	createWithFatherNameAndPosition : function( fatherName , x , y , w , h ) {
 		var fatherNode = document.getElementById(fatherName);
 		this.canvas = document.createElement('canvas');
-		this.setPosition( x , y , w , h );
+		this.setPosition(x, y, w, h);
 		this.mColliderManager = new ColliderManager(this);
 		this.mDrawableManager = new DrawableObjectManager(this);
-	}
+		this.mContext = this.canvas.getContext("2d");
+	},
 }

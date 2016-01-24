@@ -9,10 +9,39 @@ function BaseObject(){
     this.mFather = null;
     this.mLevel = 0;
     this.mCanvas;
-    this.x = 0;
-    this.y = 0;
-    this.w = 0;
-    this.h = 0;
+    this.rect = new Rect(0,0,0,0);
+    Object.defineProperty(this,'x',{
+        get: function(){
+            return this.rect.x;
+        },
+        set: function(newValue){
+            this.rect.x = newValue;
+        }
+    });
+    Object.defineProperty(this,'y',{
+        get: function(){
+            return this.rect.y;
+        },
+        set: function(newValue){
+            this.rect.y = newValue;
+        }
+    });
+    Object.defineProperty(this,'w',{
+        get: function(){
+            return this.rect.w;
+        },
+        set: function(newValue){
+            this.rect.w = newValue;
+        }
+    });
+    Object.defineProperty(this,'h',{
+        get: function(){
+            return this.rect.h;
+        },
+        set: function(newValue){
+            this.rect.h = newValue;
+        }
+    });
 }
 BaseObject.prototype = {
 draw : function(){},
@@ -92,7 +121,7 @@ getFatherPosition : function(){
         this.mLevel = this.mFather.mLevel + this.mFather.getFatherPosition().mLevel;
     }
 },
-pointInRect : function(x,y){
-    return ( x >= this.x && y >= this.y && x <= this.x + this.w && y <= this.y + this.h );
+pointIn : function(x,y){
+    return this.rect.pointIn(x,y);
 }
 }

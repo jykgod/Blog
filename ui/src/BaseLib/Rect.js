@@ -1,7 +1,7 @@
 /**
  * Created by jiangyuke on 2016/1/24.
  */
-function Rect()
+function Rect(x,y,w,h)
 {
     this.x = x;
     this.y = y;
@@ -9,7 +9,7 @@ function Rect()
     this.h = h;
 }
 
-Rect.prototype.PointIn = function(x,y)
+Rect.prototype.pointIn = function(x,y)
 {
     return ( this.x <= x && this.x + this.w >= x && this.y <= y && this.y + this.h >= y );
 }

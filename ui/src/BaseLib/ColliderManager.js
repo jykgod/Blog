@@ -24,7 +24,7 @@ function ColliderManager()
     {
         this.collderList.Ergodic( null , function( nothing , collider )
         {
-            if( collider.getIfVisible() && collider.pointInRect( x , y ) )
+            if( collider.getIfVisible() && collider.pointIn( x , y ) )
             {
                 collider.onClick();
                 return true;
@@ -36,7 +36,7 @@ function ColliderManager()
     {
         this.collderList.Ergodic( null , function( nothing , collider )
         {
-            if( collider.getIfVisible() && collider.pointInRect( x , y ) )
+            if( collider.getIfVisible() && collider.pointIn( x , y ) )
             {
                 collider.onMouseDown();
                 return true;
@@ -48,7 +48,7 @@ function ColliderManager()
     {
         this.collderList.Ergodic( this , function( colliderManager , collider )
         {
-            if( collider.getIfVisible() && collider.pointInRect( x , y ) )
+            if( collider.getIfVisible() && collider.pointIn( x , y ) )
             {
                 colliderManager.mPointerOnCollider = collider;
                 collider.onMouseMove();
@@ -61,7 +61,7 @@ function ColliderManager()
     {
         this.collderList.Ergodic( null , function( nothing , collider )
         {
-            if( collider.getIfVisible() && collider.pointInRect( x , y ) )
+            if( collider.getIfVisible() && collider.pointIn( x , y ) )
             {
                 collider.onMouseUp();
                 return true;

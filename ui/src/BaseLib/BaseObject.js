@@ -8,7 +8,7 @@ function BaseObject(){
     this.mComponents = null;
     this.mFather = null;
     this.mLevel = 0;
-    this.mCanvas;
+    this.mCanvas = null;
     this.rect = new Rect(0,0,0,0);
     Object.defineProperty(this,'x',{
         get: function(){
@@ -118,7 +118,6 @@ getFatherPosition : function(){
     return function(){
         this.x = this.mFather.x + this.mFather.getFatherPosition().x;
         this.y = this.mFather.y + this.mFather.getFatherPosition().y;
-        this.mLevel = this.mFather.mLevel + this.mFather.getFatherPosition().mLevel;
     }
 },
 pointIn : function(x,y){

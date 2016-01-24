@@ -2,7 +2,9 @@ function ColliderManager()
 {
     this.mCanvas;
     this.mPointerOnCollider;
-    this.collderList = new List(function( a , b ){ return a.mLevel > b.mLevel;});
+    this.collderList = new List(function( a , b ){
+        return a.mLevel > b.mLevel;
+    });
     this.create = function( canvas )
     {
         addEventFunc( this );
@@ -22,10 +24,14 @@ function ColliderManager()
     }
     this.onClick( x , y )
     {
-        this.collderList.Ergodic( null , function( nothing , collider )
+        var tmp = function(){
+            this.level = -1;
+        };
+        this.collderList.Ergodic( tmp , function( tmp , collider )
         {
             if( collider.getIfVisible() && collider.pointIn( x , y ) )
             {
+                tmp.level == collider.mLevel;
                 collider.onClick();
                 return true;
             }

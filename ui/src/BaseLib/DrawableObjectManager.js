@@ -8,7 +8,15 @@ DrawableObjectManager = function()
     this.create = function(canvas)
     {
         this.mCanvas = canvas;
-        this.DrawableObjectList = new List( function(a,b) {return a.mLevel < b.mLevel;} );
+        this.DrawableObjectList = new List( function(a,b) {
+            return a.mLevel < b.mLevel;
+        });
+    }
+    this.draw = function()
+    {
+        this.DrawableObjectList.Ergodic(null,function(_null,now){
+            now.draw();
+        });
     }
     this.addObject = function(obj)
     {

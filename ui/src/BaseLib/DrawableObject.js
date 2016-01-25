@@ -46,7 +46,7 @@ DrawableObject.prototype.drawOutLine = function() {
 }
 DrawableObject.prototype.create = function(canvas)
 {
-    this.mCanvas = canvas;
+    BaseObject.prototype.create.call(this,canvas);
     this.mCanvas.mDrawableManager.addObject(this);
 }
 

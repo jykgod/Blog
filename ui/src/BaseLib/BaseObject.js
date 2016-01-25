@@ -11,40 +11,39 @@ function BaseObject(){
     this.mCanvas = null;
     this.rect = new Rect(0,0,0,0);
     Object.defineProperty(this,'x',{
-        get: function(){
+        Get: function(){
             return this.rect.x;
         },
-        set: function(newValue){
+        Set: function(newValue){
             this.rect.x = newValue;
         }
     });
     Object.defineProperty(this,'y',{
-        get: function(){
+        Get: function(){
             return this.rect.y;
         },
-        set: function(newValue){
+        Set: function(newValue){
             this.rect.y = newValue;
         }
     });
     Object.defineProperty(this,'w',{
-        get: function(){
+        Get: function(){
             return this.rect.w;
         },
-        set: function(newValue){
+        Set: function(newValue){
             this.rect.w = newValue;
         }
     });
     Object.defineProperty(this,'h',{
-        get: function(){
+        Get: function(){
             return this.rect.h;
         },
-        set: function(newValue){
+        Set: function(newValue){
             this.rect.h = newValue;
         }
     });
 }
 BaseObject.prototype = {
-draw : function(){},
 getLevel : function(){
     return this.mLevel;
 },
@@ -64,7 +63,7 @@ setVisible : function( visible ){
     this.mVisible = visible;
     if (this.mComponents != null)
     {
-        this.mComponents.Ergodic( visible , function( visible , obj )
+        this.mComponents.Ergodic( visible && this.mFatherVisible , function( visible , obj )
         {
             obj.setFatherVisible( visible );
         });
@@ -74,7 +73,7 @@ setFatherVisible : function( visible ){
     this.mFatherVisible = visible;
     if (this.mComponents != null)
     {
-        this.mComponents.Ergodic( visible , function( visible , obj )
+        this.mComponents.Ergodic( visible && this.mVisible , function( visible , obj )
         {
             obj.setFatherVisible( visible );
         });

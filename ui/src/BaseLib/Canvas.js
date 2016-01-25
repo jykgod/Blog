@@ -21,30 +21,39 @@ function Canvas(){
 	this.mContext = null;
 }
 Canvas.prototype = {
-	setPosition : function(x , y , w , h)
+	setPosition : function(x , y , w , h , level)
 	{
 		this.canvas.width = w;
 		this.canvas.height = h;
-		this.canvas.x = x;
-		this.canvas.y = y;
+		this.canvas.style.left = x;
+		this.canvas.style.top = y;
+		this.canvas.style.zIndex = level;
 	},
 	createWithFatherName : function( fatherName )
 	{
 		var fatherNode = document.getElementById( fatherName );
 		this.canvas = document.createElement('canvas');
 		fatherNode.appendChild(this.canvas);
-		this.setPosition( 0 , 0 , 1 , 1 );
-		this.mColliderManager = new ColliderManager(this);
-		this.mDrawableManager = new DrawableObjectManager(this);
+		this.setPosition( 0 , 0 , 1 , 1 , 1);
+		this.mColliderManager = new ColliderManager();
+		this.mDrawableManager = new DrawableObjectManager();
+		this.mColliderManager.create( this );
+		this.mDrawableManager.create( this );
+		var temp = this;
+		setInterval(function(){temp.mDrawableManager.draw()},60);
 		this.mContext = this.canvas.getContext("2d");
 	},
-	createWithFatherNameAndPosition : function( fatherName , x , y , w , h ) {
+	createWithFatherNameAndPosition : function( fatherName , x , y , w , h , level ) {
 		var fatherNode = document.getElementById(fatherName);
 		this.canvas = document.createElement('canvas');
 		fatherNode.appendChild(this.canvas);
-		this.setPosition(x, y, w, h);
-		this.mColliderManager = new ColliderManager(this);
-		this.mDrawableManager = new DrawableObjectManager(this);
+		this.setPosition(x, y, w, h , level );
+		this.mColliderManager = new ColliderManager();
+		this.mDrawableManager = new DrawableObjectManager();
+		this.mColliderManager.create( this );
+		this.mDrawableManager.create( this );
+		var temp = this;
+		setInterval(function(){temp.mDrawableManager.draw()},60);
 		this.mContext = this.canvas.getContext("2d");
-	},
+	}
 }

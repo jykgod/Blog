@@ -7,8 +7,8 @@ function ColliderManager()
     });
     this.create = function( canvas )
     {
-        addEventFunc( this );
         this.mCanvas = canvas;
+        addEventFunc( this );
     }
     this.addCollider = function ( collider )
     {
@@ -22,57 +22,95 @@ function ColliderManager()
     {
         this.collderList.remove( collider );
     }
-    this.onClick( x , y )
+    this.onClick = function( x , y )
     {
         var tmp = function(){
-            this.level = -1;
+            this.level = -90000;
+            this.x = x;
+            this.y = y;
         };
         this.collderList.Ergodic( tmp , function( tmp , collider )
         {
-            if( collider.getIfVisible() && collider.pointIn( x , y ) )
+            if( collider.getIfVisible() &&
+                collider.pointIn( tmp.x , tmp.y ) &&
+                (tmp.level == -90000 || tmp.level == collider.mLevel))
             {
-                tmp.level == collider.mLevel;
+                tmp.level = collider.mLevel;
                 collider.onClick();
-                return true;
             }
-            return false;
+            else if(tmp.level != -90000)
+            {
+                return false;
+            }
         });
     }
-    this.onMouseDown( x , y )
+    this.onMouseDown = function( x , y )
     {
-        this.collderList.Ergodic( null , function( nothing , collider )
+        var tmp = function(){
+            this.level = -90000;
+            this.x = x;
+            this.y = y;
+        };
+        this.collderList.Ergodic( tmp , function( tmp , collider )
         {
-            if( collider.getIfVisible() && collider.pointIn( x , y ) )
+            if( collider.getIfVisible() &&
+                collider.pointIn( tmp.x , tmp.y ) &&
+                (tmp.level == -90000 || tmp.level == collider.mLevel))
             {
+                tmp.level = collider.mLevel;
                 collider.onMouseDown();
-                return true;
             }
-            return false;
+            else if(tmp.level != -90000)
+            {
+                return false;
+            }
         });
     }
-    this.onMouseMove( x , y )
+    this.onMouseMove = function( x , y )
     {
-        this.collderList.Ergodic( this , function( colliderManager , collider )
+        var tmp = function(){
+            this.x = x;
+            this.y = y;
+            this.level = -90000;
+            this.colliderManager = null;
+        };
+        tmp.colliderManager = this;
+        this.collderList.Ergodic( tmp , function( tmp , collider )
         {
-            if( collider.getIfVisible() && collider.pointIn( x , y ) )
+            if( collider.getIfVisible() &&
+                collider.pointIn( tmp.x , tmp.y ) &&
+                (tmp.level == -90000 || tmp.level == collider.mLevel))
             {
-                colliderManager.mPointerOnCollider = collider;
+                tmp.level = collider.mLevel;
+                tmp.colliderManager.mPointerOnCollider = collider;
                 collider.onMouseMove();
-                return true;
             }
-            return false;
+            else if(tmp.level != -90000)
+            {
+                return false;
+            }
         });
     }
-    this.onMouseUp( x , y )
+    this.onMouseUp = function( x , y )
     {
-        this.collderList.Ergodic( null , function( nothing , collider )
+        var tmp = function(){
+            this.x = x;
+            this.y = y;
+            this.level = -90000;
+        };
+        this.collderList.Ergodic( tmp , function( tmp , collider )
         {
-            if( collider.getIfVisible() && collider.pointIn( x , y ) )
+            if( collider.getIfVisible() &&
+                collider.pointIn( tmp.x , tmp.y ) &&
+                (tmp.level == -90000 || tmp.level == collider.mLevel))
             {
+                tmp.level = collider.mLevel;
                 collider.onMouseUp();
-                return true;
             }
-            return false;
+            else if(tmp.level != -90000)
+            {
+                return false;
+            }
         });
     }
 }

@@ -11,45 +11,39 @@ function BaseObject(){
     this.mCanvas = null;
     this.rect = new Rect(0,0,0,0);
     Object.defineProperty(this,'x',{
-        Get: function(){
+        get: function(){
             return this.rect.x;
         },
-        Set: function(newValue){
+        set: function(newValue){
             this.rect.x = newValue;
         }
     });
     Object.defineProperty(this,'y',{
-        Get: function(){
+        get: function(){
             return this.rect.y;
         },
-        Set: function(newValue){
+        set: function(newValue){
             this.rect.y = newValue;
         }
     });
     Object.defineProperty(this,'w',{
-        Get: function(){
+        get: function(){
             return this.rect.w;
         },
-        Set: function(newValue){
+        set: function(newValue){
             this.rect.w = newValue;
         }
     });
     Object.defineProperty(this,'h',{
-        Get: function(){
+        get: function(){
             return this.rect.h;
         },
-        Set: function(newValue){
+        set: function(newValue){
             this.rect.h = newValue;
         }
     });
 }
 BaseObject.prototype = {
-getLevel : function(){
-    return this.mLevel;
-},
-setLevel : function( level ){
-    this.mLevel = level;
-},
 getIfChange : function(){
     return this.mChanged;
 },
@@ -113,15 +107,19 @@ setSize : function(w,h){
     this.h = h;
 },
 getFatherPosition : function(){
-    if( this.mFather != 0 )
-    return function(){
-        this.x = this.mFather.x + this.mFather.getFatherPosition().x;
-        this.y = this.mFather.y + this.mFather.getFatherPosition().y;
+    if( this.mFather != null ) {
+        function pos(obj) {
+            this.x = obj.mFather.x + obj.mFather.getFatherPosition().x;
+            this.y = obj.mFather.y + obj.mFather.getFatherPosition().y;
+        }
+        return new pos(this);
     }
-    else return function(){
-        this.x = 0;
-        this.y = 0;
-    }
+    else
+        return new function()
+        {
+            this.x = 0;
+            this.y = 0;
+        }
 },
 pointIn : function(x,y){
     var fatherPosition = this.getFatherPosition();

@@ -73,3 +73,14 @@
 //var sub = new SubType();
 //sub.create();
 //alert(sub.x);
+var canvas = new Canvas();
+canvas.createWithFatherNameAndPosition("fatherDiv",0,0,1000,1000,-1);
+var texture = new Texture();
+texture.create(canvas,"../asset/texture/test1.jpg",null);
+texture.loadTexture();
+texture.fixSizeAsTextureSize();
+var texture2 = new Texture();
+texture2.create(canvas,"../asset/texture/test2.jpg",null);
+texture2.loadTexture();
+texture2.fixSizeAsTextureSize();
+texture2.setLevel(-1);

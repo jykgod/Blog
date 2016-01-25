@@ -14,6 +14,39 @@ for(var i in BaseObject.prototype)
     DrawableObject.prototype[i] = BaseObject.prototype[i];
 }
 
+//Object.defineProperty(DrawableObject,'x',{
+//    Get: function(){
+//        return this.rect.x;
+//    },
+//    Set: function(newValue){
+//        this.rect.x = newValue;
+//    }
+//});
+//Object.defineProperty(DrawableObject,'y',{
+//    Get: function(){
+//        return this.rect.y;
+//    },
+//    Set: function(newValue){
+//        this.rect.y = newValue;
+//    }
+//});
+//Object.defineProperty(DrawableObject,'w',{
+//    Get: function(){
+//        return this.rect.w;
+//    },
+//    Set: function(newValue){
+//        this.rect.w = newValue;
+//    }
+//});
+//Object.defineProperty(DrawableObject,'h',{
+//    Get: function(){
+//        return this.rect.h;
+//    },
+//    Set: function(newValue){
+//        this.rect.h = newValue;
+//    }
+//});
+
 DrawableObject.prototype.draw = function() {}
 DrawableObject.prototype.drawShadow = function() {
     if(this.mShadowMargin == 0 || this.mOutLineMargin != 0)
@@ -47,6 +80,13 @@ DrawableObject.prototype.drawOutLine = function() {
 DrawableObject.prototype.create = function(canvas)
 {
     BaseObject.prototype.create.call(this,canvas);
+    this.mCanvas.mDrawableManager.addObject(this);
+}
+
+DrawableObject.prototype.setLevel = function(level)
+{
+    this.mLevel = level;
+    this.mCanvas.mDrawableManager.removeObject(this);
     this.mCanvas.mDrawableManager.addObject(this);
 }
 

@@ -14,10 +14,14 @@ DrawableObjectManager = function()
     }
     this.draw = function()
     {
+        this.mCanvas.mContext.clearRect(0,0,this.mCanvas.canvas.width,this.mCanvas.canvas.height);
+        //alert("1");
         this.DrawableObjectList.Ergodic(null,function(_null,now){
             now.drawShadow();
             now.drawOutLine();
             now.draw();
+            //alert("2");
+
         });
     }
     this.addObject = function(obj)

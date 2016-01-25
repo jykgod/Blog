@@ -7,18 +7,18 @@ function List( cmp )
     {
         var now = this.pHead;
         var p = new ListNode( obj );
-        if( this.cmp == null || this.cmp == undefined || this.pHead == null)
+        if( this.cmp == null || this.cmp == undefined || this.pHead == null || cmp( obj , this.pHead.data))
         {
             p.next = this.pHead;
             this.pHead = p;
             return;
         }
         var pre;
-        while( now.next != null )
+        while( now != null )
         {
             pre = now;
             now = now.next;
-            if( cmp( obj.data , now.data ) || now.next == null )
+            if( now == null || cmp( obj , now.data ) )
             {
                 p.next = now;
                 pre.next = p;
@@ -29,7 +29,7 @@ function List( cmp )
     this.remove = function( obj )
     {
         if ( this.pHead == null ) return;
-        if ( this.pHead === obj )
+        if ( this.pHead.data === obj )
         {
             this.pHead = this.pHead.next;
             return;
@@ -39,7 +39,7 @@ function List( cmp )
         var now = pre.next;
         while(now != null)
         {
-            if(now === obj)
+            if(now.data === obj)
             {
                 pre.next = now.next;
                 return;
@@ -59,7 +59,7 @@ function List( cmp )
         var now = this.pHead;
         while(now != null)
         {
-            cmd ( passThroughParam , now);
+            cmd ( passThroughParam , now.data);
             now = now.next;
         }
     }

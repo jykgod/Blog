@@ -51,3 +51,17 @@ Texture.prototype.draw = function()
     this.drawTexture();
     this.canvas.mContext.globalAlpha = tempAlpha;
 }
+Texture.prototype.drawOutLine = function()
+{
+    return;
+}
+Texture.prototype.drawShadow = function()
+{
+    if( this.mShadowMargin == 0 )
+        return;
+    var fatherPosition = this.getFatherPosition();
+    var tmpColor = this.mCanvas.mContext.fillStyle;
+    this.mCanvas.mContext.fillStyle = "#000000";
+    this.mCanvas.mContext.fillRect( this.x + fatherPosition.x + this.mShadowMargin,this.y + fatherPosition.y + this.mShadowMargin ,this.w ,this.h );
+    this.mCanvas.mContext.fillStyle = tmpColor;
+}

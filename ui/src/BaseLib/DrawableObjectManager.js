@@ -15,6 +15,8 @@ DrawableObjectManager = function()
     this.draw = function()
     {
         this.DrawableObjectList.Ergodic(null,function(_null,now){
+            now.drawShadow();
+            now.drawOutLine();
             now.draw();
         });
     }

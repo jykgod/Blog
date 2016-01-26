@@ -7,6 +7,7 @@ DrawableObject = function()
     this.mAlpha = 1;
     this.mShadowMargin = 0;
     this.mOutLineMargin = 0;
+    this.mColor = "#000000";
 }
 
 for(var i in BaseObject.prototype)
@@ -53,10 +54,13 @@ DrawableObject.prototype.drawShadow = function() {
         return;
     this.x += this.mShadowMargin;
     this.y += this.mShadowMargin;
-    var tmpColor = this.mCanvas.mContext.fillStyle;
+    //var tmpColor = this.mCanvas.mContext.fillStyle;
+    var tmpColor = this.mColor;
+    this.mColor = "#000000";
     this.mCanvas.mContext.fillStyle = "#000000";
     this.draw();
-    this.mCanvas.mContext.fillStyle = tmpColor;
+    this.mColor = tmpColor;
+    //this.mCanvas.mContext.fillStyle = tmpColor;
     this.x -= this.mShadowMargin;
     this.y -= this.mShadowMargin;
 }
@@ -68,10 +72,13 @@ DrawableObject.prototype.drawOutLine = function() {
     this.y -= this.mOutLineMargin;
     this.w += 2*this.mOutLineMargin;
     this.h += 2*this.mOutLineMargin;
-    var tmpColor = this.mCanvas.mContext.fillStyle;
+    //var tmpColor = this.mCanvas.mContext.fillStyle;
+    var tmpColor = this.mColor;
+    this.mColor = "#000000";
     this.mCanvas.mContext.fillStyle = "#000000";
     this.draw();
-    this.mCanvas.mContext.fillStyle = tmpColor;
+    this.mColor = tmpColor;
+    //this.mCanvas.mContext.fillStyle = tmpColor;
     this.x += this.mOutLineMargin;
     this.y += this.mOutLineMargin;
     this.w -= 2*this.mOutLineMargin;

@@ -16,4 +16,7 @@ colorRect.create(canvas,"#ff0000");
 colorRect.setLevel(100);
 colorRect.setPosition(10,10);
 colorRect.setSize(100 , 30);
-colorRect.setVisible(false);
+//colorRect.setVisible(false);
+var label = new Label();
+label.create(canvas, "<li><a href=\"/tags/index.asp\" title=\"HTML 4.01 / XHTML 1.0 参考手册\">标签列表（字母排序）</a>.</li>");
+label.setLevel(1000);

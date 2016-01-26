@@ -16,3 +16,4 @@ colorRect.create(canvas,"#ff0000");
 colorRect.setLevel(100);
 colorRect.setPosition(10,10);
 colorRect.setSize(100 , 30);
+colorRect.setVisible(false);

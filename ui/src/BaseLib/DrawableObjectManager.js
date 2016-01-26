@@ -17,6 +17,8 @@ DrawableObjectManager = function()
         this.mCanvas.mContext.clearRect(0,0,this.mCanvas.canvas.width,this.mCanvas.canvas.height);
         //alert("1");
         this.DrawableObjectList.Ergodic(null,function(_null,now){
+            if(now.mVisible == false || now.mFatherVisible == false)
+                return;
             now.drawShadow();
             now.drawOutLine();
             now.draw();

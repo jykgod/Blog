@@ -16,5 +16,6 @@ Label.prototype.create = function (canvas, text) {
 }
 
 Label.prototype.draw = function () {
+    this.mCanvas.mContext.fillStyle = this.mColor;
     this.mCanvas.mContext.fillText(this.mText, this.x, this.y);
 }

@@ -21,3 +21,6 @@ var label = new Label();
 label.create(canvas, "123");
 label.setLevel(1000);
 label.setPosition(20, 20);
+var htmlLabel = new HtmlFormatLabel();
+htmlLabel.setSize(100, 100);
+htmlLabel.create(canvas, "<h1>haha</h1>")

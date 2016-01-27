@@ -1,3 +1,14 @@
+//var marked = require('marked');
+//marked.setOptions({
+//    renderer: new marked.Renderer(),
+//    gfm: true,
+//    tables: true,
+//    breaks: false,
+//    pedantic: false,
+//    sanitize: true,
+//    smartLists: true,
+//    smartypants: false
+//});
 var canvas = new Canvas();
 canvas.createWithFatherNameAndPosition("fatherDiv",0,0,1000,1000,-1);
 //var texture = new Texture();
@@ -21,7 +32,12 @@ colorRect.setSize(100 , 30);
 //label.create(canvas, "123");
 //label.setLevel(0);
 //label.setPosition(20, 20);
-var htmlLabel = new HtmlFormatLabel();
-htmlLabel.setSize(1000, 100);
-htmlLabel.create(canvas, "<h1>haha</h1><h2>hehe</h2>>");
-htmlLabel.setLevel(99);
+//var htmlLabel = new HtmlFormatLabel();
+//htmlLabel.setSize(1000, 100);
+//htmlLabel.create(canvas, "<h1>haha</h1><h2>hehe</h2>>");
+//htmlLabel.setLevel(99);
+
+var markDownLabel = new MarkDownFormatLabel();
+markDownLabel.setSize(1000, 100);
+markDownLabel.create(canvas, '# haha');
+markDownLabel.setLevel(99);

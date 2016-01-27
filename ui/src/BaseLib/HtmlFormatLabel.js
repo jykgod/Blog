@@ -6,6 +6,7 @@ HtmlFormatLabel = function () {
     this.img = null;
     this.pText = "";
     Object.defineProperty(this, "mText", {
+        configurable : true,
         get: function () {
             return this.pText;
         },

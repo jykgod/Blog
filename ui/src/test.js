@@ -1,13 +1,13 @@
 //var marked = require('marked');
 hljs.initHighlightingOnLoad();
-marked.setOptions(
-    {
-        renderer: new marked.Renderer(),
-        highlight: function (code) {
-            hljs.highlightAuto(code).value;
-        }
-    }
-);
+//marked.setOptions(
+//    {
+//        renderer: new marked.Renderer(),
+//        highlight: function (code) {
+//            hljs.highlightAuto(code).value;
+//        }
+//    }
+//);
 //marked.setOptions({
 //    renderer: new marked.Renderer(),
 //    gfm: true,
@@ -31,11 +31,11 @@ canvas.createWithFatherNameAndPosition("fatherDiv",0,0,1000,1000,-1);
 //texture2.fixSizeAsTextureSize();
 //texture2.mAlpha = 0.3;
 //texture2.setLevel(-1);
-var colorRect = new ColorRect();
-colorRect.create(canvas,"#ff0000");
-colorRect.setLevel(100);
-colorRect.setPosition(10,10);
-colorRect.setSize(100 , 30);
+//var colorRect = new ColorRect();
+//colorRect.create(canvas,"#ff0000");
+//colorRect.setLevel(100);
+//colorRect.setPosition(10,10);
+//colorRect.setSize(100 , 30);
 //colorRect.setVisible(false);
 //var label = new Label();
 //label.create(canvas, "123");
@@ -48,5 +48,5 @@ colorRect.setSize(100 , 30);
 
 var markDownLabel = new MarkDownFormatLabel();
 markDownLabel.setSize(1000, 100);
-markDownLabel.create(canvas, '```javascript```');
+markDownLabel.create(canvas, '[link text](http://url.com/ "title")\n[link text](http://url.com/)');
 markDownLabel.setLevel(99);

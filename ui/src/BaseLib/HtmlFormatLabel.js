@@ -27,11 +27,15 @@ HtmlFormatLabel.prototype.create = function (canvas, text) {
     this.mText = text;
 }
 HtmlFormatLabel.prototype.updateImage = function () {
+    //var data = '<head><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">';
+    //data +='<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>';
+    //data +='<script>hljs.initHighlightingOnLoad();</script></head>';
     var data = '<svg xmlns="http://www.w3.org/2000/svg" width="' + this.w + '" height = "' + this.h + '">';
     data += '<foreignObject width="100%" height="100%">';
     data += '<div xmlns="http://www.w3.org/1999/xhtml" >';
     data += this.mText;
     data += '</div></foreignObject></svg>';
+    console.log(data);
     var DOMURL = window.URL || window.webkitURL || window;
     this.img = new Image();
     var svg = new Blob([data], {type: 'image/svg+xml;charset=utf-8'});

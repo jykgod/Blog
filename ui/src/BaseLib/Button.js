@@ -17,7 +17,7 @@
 //Button.prototype.draw = function(){
 //    var ctx=this.getCanvas().canvas.getContext("2d");
 //    if(this.mTransparent) ctx.alpha= this.alpha;
-//    /*-----------------------clear the rect---------------------------*/
+//    /*-----------------------clear the mRect---------------------------*/
 //      if (this.showShadow) {
 //           if(this.isPressDown == false){
 //               ctx.clearRect(this.x, this.y, this.w, this.h);

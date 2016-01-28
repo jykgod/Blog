@@ -27,7 +27,7 @@
 //    if ( this.getIfChange() == false) return;
 //    var ctx=this.getCanvas().canvas.getContext("2d");
 //    if(this.mTransparent) ctx.alpha= this.alpha;
-//    /*-----------------------clear the rect---------------------------*/
+//    /*-----------------------clear the mRect---------------------------*/
 //    if(this.mTransparent) {
 //            ctx.clearRect(this.x, this.y, this.x + this.w, this.y + this.h);
 //    }

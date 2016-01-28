@@ -59,8 +59,8 @@ DrawableObject.prototype.create = function(canvas)
 
 DrawableObject.prototype.setLevel = function(level)
 {
-    this.mLevel = level;
-    if ( this.mCanvas == null )
+    BaseObject.prototype.setLevel.call(this,level);
+    if ( this.mCanvas == null || this.mCanvas == undefined)
         return;
     this.mCanvas.mDrawableManager.removeObject(this);
     this.mCanvas.mDrawableManager.addObject(this);

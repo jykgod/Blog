@@ -16,7 +16,7 @@ for (var i in BaseObject.prototype){
 Collider.prototype.create = function( father , level )
 {
     BaseObject.prototype.create.call(this , father.mCanvas );
-    this.rect = new Rect( 0 , 0 , father.w , father.h );
+    this.mRect = new Rect( 0 , 0 , father.w , father.h );
     this.mLevel = level;
     this.mCanvas.mColliderManager.addCollider( this );
 }

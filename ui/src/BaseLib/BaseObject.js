@@ -9,37 +9,37 @@ function BaseObject(){
     this.mFather = null;
     this.mLevel = 0;
     this.mCanvas = null;
-    this.rect = new Rect(0,0,0,0);
+    this.mRect = new Rect(0,0,0,0);
     Object.defineProperty(this,'x',{
         get: function(){
-            return this.rect.x;
+            return this.mRect.x;
         },
         set: function(newValue){
-            this.rect.x = newValue;
+            this.mRect.x = newValue;
         }
     });
     Object.defineProperty(this,'y',{
         get: function(){
-            return this.rect.y;
+            return this.mRect.y;
         },
         set: function(newValue){
-            this.rect.y = newValue;
+            this.mRect.y = newValue;
         }
     });
     Object.defineProperty(this,'w',{
         get: function(){
-            return this.rect.w;
+            return this.mRect.w;
         },
         set: function(newValue){
-            this.rect.w = newValue;
+            this.mRect.w = newValue;
         }
     });
     Object.defineProperty(this,'h',{
         get: function(){
-            return this.rect.h;
+            return this.mRect.h;
         },
         set: function(newValue){
-            this.rect.h = newValue;
+            this.mRect.h = newValue;
         }
     });
 }
@@ -120,6 +120,15 @@ getFatherPosition : function(){
             this.x = 0;
             this.y = 0;
         }
+},
+setLevel : function(level){
+    if(level == this.mLevel) return;
+    var temp = level - this.mLevel;
+    this.mLevel = level;
+    this.mComponents.Ergodic(temp,function(temp,now)
+    {
+        now.setLevel(now.mLevel + temp);
+    });
 },
 pointIn : function(x,y){
     var fatherPosition = this.getFatherPosition();

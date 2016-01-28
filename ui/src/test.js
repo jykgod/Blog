@@ -1,4 +1,13 @@
 //var marked = require('marked');
+hljs.initHighlightingOnLoad();
+marked.setOptions(
+    {
+        renderer: new marked.Renderer(),
+        highlight: function (code) {
+            hljs.highlightAuto(code).value;
+        }
+    }
+);
 //marked.setOptions({
 //    renderer: new marked.Renderer(),
 //    gfm: true,
@@ -39,5 +48,5 @@ colorRect.setSize(100 , 30);
 
 var markDownLabel = new MarkDownFormatLabel();
 markDownLabel.setSize(1000, 100);
-markDownLabel.create(canvas, '# haha');
+markDownLabel.create(canvas, '```javascript```');
 markDownLabel.setLevel(99);

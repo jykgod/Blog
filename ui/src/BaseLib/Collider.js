@@ -21,6 +21,15 @@ Collider.prototype.create = function( father , level )
     this.mCanvas.mColliderManager.addCollider( this );
 }
 
+Collider.prototype.setLevel = function (level) {
+    BaseObject.prototype.setLevel.call(this, level);
+    if (this.mCanvas == null || this.mCanvas == undefined)
+        return;
+    this.mCanvas.mColliderManager.removeObject(this);
+    this.mCanvas.mColliderManager.addObject(this);
+}
+
+
 Collider.prototype.onClick = function(){};
 Collider.prototype.onMouseDown = function(){};
 Collider.prototype.onMouseUp = function(){};

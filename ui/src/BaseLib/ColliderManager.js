@@ -1,7 +1,7 @@
 function ColliderManager()
 {
     this.mCanvas;
-    this.mPointerOnCollider;
+    this.mPointerOnColliders = new List(null);
     this.collderList = new List(function( a , b ){
         return a.mLevel > b.mLevel;
     });
@@ -36,7 +36,7 @@ function ColliderManager()
                 (tmp.level == -90000 || tmp.level == collider.mLevel))
             {
                 tmp.level = collider.mLevel;
-                collider.onClick();
+                collider.onClick( tmp.x , tmp.y );
             }
             else if(tmp.level != -90000)
             {
@@ -58,7 +58,7 @@ function ColliderManager()
                 (tmp.level == -90000 || tmp.level == collider.mLevel))
             {
                 tmp.level = collider.mLevel;
-                collider.onMouseDown();
+                collider.onMouseDown( tmp.x , tmp.y );
             }
             else if(tmp.level != -90000)
             {
@@ -75,6 +75,7 @@ function ColliderManager()
             this.colliderManager = null;
         };
         tmp.colliderManager = this;
+        this.mPointerOnColliders.clear();
         this.collderList.Ergodic( tmp , function( tmp , collider )
         {
             if( collider.getIfVisible() &&
@@ -82,8 +83,8 @@ function ColliderManager()
                 (tmp.level == -90000 || tmp.level == collider.mLevel))
             {
                 tmp.level = collider.mLevel;
-                tmp.colliderManager.mPointerOnCollider = collider;
-                collider.onMouseMove();
+                tmp.colliderManager.mPointerOnColliders.add(collider);
+                collider.onMouseMove( tmp.x , tmp.y );
             }
             else if(tmp.level != -90000)
             {
@@ -105,11 +106,11 @@ function ColliderManager()
                 (tmp.level == -90000 || tmp.level == collider.mLevel))
             {
                 tmp.level = collider.mLevel;
-                collider.onMouseUp();
+                collider.onMouseUp( tmp.x , tmp.y );
             }
-            else if(tmp.level != -90000)
+            if( collider.getIfVisible() )
             {
-                return false;
+                collider.onRelease( tmp.x , tmp.y );
             }
         });
     }

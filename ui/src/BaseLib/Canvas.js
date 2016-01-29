@@ -19,6 +19,7 @@ function Canvas(){
 	this.mColliderManager = null;
 	this.mDrawableManager = null;
 	this.mContext = null;
+	this.interval = null ;
 }
 Canvas.prototype = {
 	setPosition : function(x , y , w , h , zIndex)
@@ -40,8 +41,8 @@ Canvas.prototype = {
 		this.mDrawableManager = new DrawableObjectManager();
 		this.mColliderManager.create( this );
 		this.mDrawableManager.create( this );
-		var temp = this;
-		setInterval(function(){temp.mDrawableManager.draw()},60);
+		//var temp = this;
+		//this.interval = setInterval(function(){temp.mDrawableManager.draw()},1000);
 		this.mContext = this.canvas.getContext("2d");
 	},
 	createWithFatherNameAndPosition : function( fatherName , x , y , w , h , zIndex ) {
@@ -53,8 +54,18 @@ Canvas.prototype = {
 		this.mDrawableManager = new DrawableObjectManager();
 		this.mColliderManager.create( this );
 		this.mDrawableManager.create( this );
-		var temp = this;
-		setInterval(function(){temp.mDrawableManager.draw()},60);
+		//var temp = this;
+		//this.interval = setInterval(function(){temp.mDrawableManager.draw()},1000);
 		this.mContext = this.canvas.getContext("2d");
+	},
+	setUpdateDeltaTime : function( time ){
+		if(this.interval != null) {
+			clearInterval(this.interval);
+		}
+		var temp = this;
+		this.interval = setInterval(function(){temp.mDrawableManager.draw()},time);
+	},
+	update : function(){
+		this.mDrawableManager.draw();
 	}
 }

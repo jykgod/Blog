@@ -3,6 +3,7 @@ function List( cmp )
 {
     this.pHead = null;
     this.cmp = cmp;
+    this.count = 0;
     this.add = function( obj )
     {
         var now = this.pHead;
@@ -11,6 +12,7 @@ function List( cmp )
         {
             p.next = this.pHead;
             this.pHead = p;
+            this.count ++;
             return;
         }
         var pre;
@@ -22,6 +24,7 @@ function List( cmp )
             {
                 p.next = now;
                 pre.next = p;
+                this.count ++;
                 break;
             }
         }
@@ -32,6 +35,7 @@ function List( cmp )
         if ( this.pHead.data === obj )
         {
             this.pHead = this.pHead.next;
+            this.count --;
             return;
         }
 
@@ -42,11 +46,17 @@ function List( cmp )
             if(now.data === obj)
             {
                 pre.next = now.next;
+                this.count --;
                 return;
             }
             pre = now;
             now = now.next;
         }
+    }
+    this.clear = function()
+    {
+        this.pHead = null;
+        this.count = 0;
     }
     /**
      * ergodic function
@@ -59,7 +69,7 @@ function List( cmp )
         var now = this.pHead;
         while(now != null)
         {
-            cmd ( passThroughParam , now.data);
+            if( cmd ( passThroughParam , now.data) == false ) break;
             now = now.next;
         }
     }

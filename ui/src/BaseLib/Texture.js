@@ -28,17 +28,25 @@ Texture.prototype.loadTexture = function()
     this.img = new Image();
     this.img.src = this.src;
 }
-Texture.prototype.fixSize = function()
+Texture.prototype.waitForLoad = function(cmd)
 {
     if(this.img == null || this.img.width == 0) return;
-    this.setSize(this.img.width,this.img.height);
+    cmd();
     clearInterval( this.interval );
+}
+
+Texture.prototype.doAfterLoad = function(cmd)
+{
+    var temp = this;
+    this.interval = setInterval(function(){temp.waitForLoad(cmd);},100);
 }
 
 Texture.prototype.fixSizeAsTextureSize = function()
 {
     var temp = this;
-    this.interval = setInterval(function(){temp.fixSize();},1000);
+    this.doAfterLoad(function(){
+            temp.setSize(temp.img.width,temp.img.height)
+    });
 }
 
 Texture.prototype.drawTexture = function()

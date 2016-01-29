@@ -30,8 +30,8 @@ Collider.prototype.setLevel = function (level) {
 }
 
 
-Collider.prototype.onClick = function(){};
-Collider.prototype.onMouseDown = function(){};
-Collider.prototype.onMouseUp = function(){};
-Collider.prototype.onMouseMove = function(){};
-
+Collider.prototype.onClick = function(x,y){};
+Collider.prototype.onMouseDown = function(x,y){};
+Collider.prototype.onMouseUp = function(x,y){};
+Collider.prototype.onMouseMove = function(x,y){};
+Collider.prototype.onRelease = function(x,y){};

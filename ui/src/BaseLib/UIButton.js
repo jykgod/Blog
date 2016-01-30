@@ -34,11 +34,11 @@ UIButton.prototype.createWithColorRect = function(canvas ,color , text , font)
 {
     BaseObject.prototype.create.call(this,canvas);
     this.colorRect = new ColorRect();
-    this.colorRect.create(canvas,color,font);
+    this.colorRect.create(canvas,color);
     this.colorRect.setLevel(0);
 
     this.label = new Label();
-    this.label.create(canvas,text);
+    this.label.create(canvas,text,font);
     this.label.setLevel(1);
 
     this.collider = new Collider();

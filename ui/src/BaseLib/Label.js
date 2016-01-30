@@ -14,7 +14,7 @@ for (var i in DrawableObject.prototype) {
 Label.prototype.create = function (canvas, text , font) {
     DrawableObject.prototype.create.call(this, canvas);
     this.mText = text;
-    if(font != null || font != undefined)
+    if(font != null && font != undefined)
         this.mFont = font;
 }
 
@@ -22,7 +22,7 @@ Label.prototype.draw = function () {
     this.mCanvas.mContext.textAlign="center";
     this.mCanvas.mContext.textBaseline = "middle";
     if(this.mFont != null)
-        this.mCanvas.font= this.mFont;
+        this.mCanvas.mContext.font= this.mFont;
     this.mCanvas.mContext.fillStyle = this.mColor;
     var fatherPosition = this.getFatherPosition();
     //console.log(fatherPosition);

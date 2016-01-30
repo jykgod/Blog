@@ -24,7 +24,7 @@ function ColliderManager()
     }
     this.onClick = function( x , y )
     {
-        var tmp = function(){
+        var tmp =new function(){
             this.level = -90000;
             this.x = x;
             this.y = y;
@@ -46,7 +46,7 @@ function ColliderManager()
     }
     this.onMouseDown = function( x , y )
     {
-        var tmp = function(){
+        var tmp =new function(){
             this.level = -90000;
             this.x = x;
             this.y = y;
@@ -68,7 +68,7 @@ function ColliderManager()
     }
     this.onMouseMove = function( x , y )
     {
-        var tmp = function(){
+        var tmp =new function(){
             this.x = x;
             this.y = y;
             this.level = -90000;
@@ -94,7 +94,7 @@ function ColliderManager()
     }
     this.onMouseUp = function( x , y )
     {
-        var tmp = function(){
+        var tmp =new function(){
             this.x = x;
             this.y = y;
             this.level = -90000;

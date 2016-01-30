@@ -1,37 +1,57 @@
 /**
  * Created by Administrator on 2016/1/30.
  */
-function BackGroundUI(manager)
+function MainMenuUI(manager,canvas)
 {
     UIBase.call(this,manager);
-    this.canvas;
+    this.canvas = canvas;
         this.baseNode;
             this.panel;
                 //MenuButton
 }
 
 for(var i in UIBase.prototype) {
-    BackGroundUI.prototype[i] = UIBase.prototype[i];
+    MainMenuUI.prototype[i] = UIBase.prototype[i];
 }
 
-BackGroundUI.prototype.start = function()
+MainMenuUI.prototype.start = function()
 {
     UIBase.prototype.start.call(this);
 
-    this.canvas = new Canvas();
-    this.canvas.createWithFatherNameAndPosition("fatherDiv",0,0,1600,900,0);
+    var homePageButton = new UIButton();
+    homePageButton.createWithColorRect(this.canvas,"#66CCFF","主 页","bold 14px 宋体");
+    homePageButton.setShadowMargin(5);
+    homePageButton.setSize(100,50);
 
-    this.texture = new Texture();
-    this.texture.mShadowMargin = 10;
-    this.texture.setSize(800,450);
-    this.texture.create(this.canvas,"../asset/texture/test1.jpg");
-    this.texture.loadTexture();
-    var temp = this;
-    this.texture.doAfterLoad(function(){
-        temp.canvas.update();
-    });
+    var blogPageButton = new UIButton();
+    blogPageButton.createWithColorRect(this.canvas,"#BD72F0","博 文","bold 14px 宋体");
+    blogPageButton.setShadowMargin(5);
+    blogPageButton.setSize(100,50);
 
-    this.baseNode = new BaseObject();
-    this.baseNode.create(this.canvas);
-    this.baseNode.addComponent(this.texture);
+    var texturePageButton = new UIButton();
+    texturePageButton.createWithColorRect(this.canvas,"#CC3333","相 册","bold 14px 宋体");
+    texturePageButton.setShadowMargin(5);
+    texturePageButton.setSize(100,50);
+
+    var chatPageButton = new UIButton();
+    chatPageButton.createWithColorRect(this.canvas,"#009933","留言板","bold 14px 宋体");
+    chatPageButton.setShadowMargin(5);
+    chatPageButton.setSize(100,50);
+
+    var creativePageButton = new UIButton();
+    creativePageButton.createWithColorRect(this.canvas,"#FF9999","创意空间","bold 14px 宋体");
+    creativePageButton.setShadowMargin(5);
+    creativePageButton.setSize(100,50);
+
+    this.panel = new Panel();
+    this.panel.create(this.canvas);
+    this.panel.setSize(1600,900);
+    this.panel.setPosition(100,100);
+    this.panel.offsetX = 50;
+    this.panel.addComponent(homePageButton);
+    this.panel.addComponent(blogPageButton);
+    this.panel.addComponent(texturePageButton);
+    this.panel.addComponent(chatPageButton);
+    this.panel.addComponent(creativePageButton);
+    this.panel.resetPosition();
 }

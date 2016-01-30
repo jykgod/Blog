@@ -17,5 +17,6 @@ ColorRect.prototype.create = function( canvas , color )
 ColorRect.prototype.draw = function( )
 {
     this.mCanvas.mContext.fillStyle = this.mColor;
-    this.mCanvas.mContext.fillRect( this.x, this.y , this.w , this.h );
+    var fatherPosition = this.getFatherPosition();
+    this.mCanvas.mContext.fillRect( this.x + fatherPosition.x, this.y + fatherPosition.y, this.w , this.h );
 }

@@ -15,7 +15,7 @@ BackGroundUI.prototype.start = function()
     UIBase.prototype.start.call(this);
 
     this.canvas = new Canvas();
-    this.canvas.createWithFatherNameAndPosition("fatherDiv",0,0,1600,900,0);
+    this.canvas.createWithFatherNameAndPosition("fatherDiv",0,0,1600,900,-100);
 
     this.texture = new Texture();
     this.texture.mShadowMargin = 10;

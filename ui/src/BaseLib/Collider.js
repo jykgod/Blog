@@ -7,7 +7,7 @@ function Collider()
 }
 
 for (var i in BaseObject.prototype){
-    Collider.prototype[i] = Collider.prototype[i];
+    Collider.prototype[i] = BaseObject.prototype[i];
 }
 /**
  * create function

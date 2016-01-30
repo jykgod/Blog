@@ -51,3 +51,7 @@ var uiManager = new UIManager();
 uiManager.create();
 
 var backGroundUI = new BackGroundUI(uiManager);
+var mainCanvas = new Canvas();
+mainCanvas.createWithFatherNameAndPosition("fatherDiv",0,0,1600,900,0);
+mainCanvas.setUpdateDeltaTime(60);
+var mainMenu = new MainMenuUI(uiManager,mainCanvas);

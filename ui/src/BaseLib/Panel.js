@@ -18,14 +18,13 @@ Panel.prototype.resetPosition = function()
     fix.maxX = this.w;
     fix.offsetX = this.offsetX;
     fix.offsetY = this.offsetY;
-    this.mComponents.Ergodic( fix , function(now){
+    this.mComponents.Ergodic( fix , function(fix,now){
         if(fix.x + now.w > fix.maxX)
         {
            fix.x = 0;
            fix.y = fix.y + fix.offsetY;
         }
-        now.x = fix.x;
-        now.y = fix.y;
-        fix.x = now.x + now.w + fix.offsetX;
+        now.setPosition(fix.x,fix.y);
+        fix.x = fix.x + now.w + fix.offsetX;
     } );
 }

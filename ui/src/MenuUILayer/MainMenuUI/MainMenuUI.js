@@ -21,26 +21,31 @@ MainMenuUI.prototype.start = function()
     var homePageButton = new UIButton();
     homePageButton.createWithColorRect(this.canvas,"#66CCFF","主 页","bold 14px 宋体");
     homePageButton.setShadowMargin(5);
+    homePageButton.colorRect.mAlpha = 0.8;
     homePageButton.setSize(100,50);
 
     var blogPageButton = new UIButton();
     blogPageButton.createWithColorRect(this.canvas,"#BD72F0","博 文","bold 14px 宋体");
     blogPageButton.setShadowMargin(5);
+    blogPageButton.colorRect.mAlpha = 0.8;
     blogPageButton.setSize(100,50);
 
     var texturePageButton = new UIButton();
     texturePageButton.createWithColorRect(this.canvas,"#CC3333","相 册","bold 14px 宋体");
     texturePageButton.setShadowMargin(5);
+    texturePageButton.colorRect.mAlpha = 0.8;
     texturePageButton.setSize(100,50);
 
     var chatPageButton = new UIButton();
     chatPageButton.createWithColorRect(this.canvas,"#009933","留言板","bold 14px 宋体");
     chatPageButton.setShadowMargin(5);
+    chatPageButton.colorRect.mAlpha = 0.8;
     chatPageButton.setSize(100,50);
 
     var creativePageButton = new UIButton();
     creativePageButton.createWithColorRect(this.canvas,"#FF9999","创意空间","bold 14px 宋体");
     creativePageButton.setShadowMargin(5);
+    creativePageButton.colorRect.mAlpha = 0.8;
     creativePageButton.setSize(100,50);
 
     this.panel = new Panel();
@@ -48,10 +53,10 @@ MainMenuUI.prototype.start = function()
     this.panel.setSize(1600,900);
     this.panel.setPosition(100,100);
     this.panel.offsetX = 50;
-    this.panel.addComponent(homePageButton);
-    this.panel.addComponent(blogPageButton);
-    this.panel.addComponent(texturePageButton);
-    this.panel.addComponent(chatPageButton);
     this.panel.addComponent(creativePageButton);
+    this.panel.addComponent(chatPageButton);
+    this.panel.addComponent(texturePageButton);
+    this.panel.addComponent(blogPageButton);
+    this.panel.addComponent(homePageButton);
     this.panel.resetPosition();
 }

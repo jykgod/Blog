@@ -44,11 +44,11 @@ UIButton.prototype.createWithColorRect = function(canvas ,color , text , font)
     this.collider = new Collider();
     this.collider.create(this,0);
     var tmp = this;
-    this.collider.onClick = function(x,y){tmp.onClick(x,y);}
-    this.collider.onMouseDown = function(x,y){tmp.onMouseDown(x,y);}
-    this.collider.onMouseUp = function(x,y){tmp.onMouseUp(x,y);}
-    this.collider.onMouseMove = function(x,y){tmp.onMouseMove(x,y);}
-    this.collider.onRelease = function(x,y){tmp.onRelease(x,y);}
+    this.collider.onClick = function(x,y){tmp.preOnClick(x,y);}
+    this.collider.onMouseDown = function(x,y){tmp.preOnMouseDown(x,y);}
+    this.collider.onMouseUp = function(x,y){tmp.preOnMouseUp(x,y);}
+    this.collider.onMouseMove = function(x,y){tmp.preOnMouseMove(x,y);}
+    this.collider.onRelease = function(x,y){tmp.preOnRelease(x,y);}
 
     this.addComponent(this.colorRect);
     this.addComponent(this.label);
@@ -114,7 +114,7 @@ UIButton.prototype.preOnMouseUp = function(x,y){
 UIButton.prototype.preOnMouseMove = function(x,y){
     this.onMouseMove(x,y);
 };
-UIButton.prototype.preOnRelease = function()
+UIButton.prototype.preOnRelease = function(x,y)
 {
     this.pressDown = false;
     if(this.tempShadowMargin != 0)

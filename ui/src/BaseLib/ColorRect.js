@@ -16,7 +16,10 @@ ColorRect.prototype.create = function( canvas , color )
 
 ColorRect.prototype.draw = function( )
 {
+    var tempAlpha = this.mCanvas.mContext.globalAlpha;
+    this.mCanvas.mContext.globalAlpha = this.mAlpha;
     this.mCanvas.mContext.fillStyle = this.mColor;
     var fatherPosition = this.getFatherPosition();
     this.mCanvas.mContext.fillRect( this.x + fatherPosition.x, this.y + fatherPosition.y, this.w , this.h );
+    this.mCanvas.mContext.globalAlpha = tempAlpha;
 }

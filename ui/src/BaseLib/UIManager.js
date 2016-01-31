@@ -44,3 +44,14 @@ UIManager.prototype.update = function(){
     });
 
 }
+
+UIManager.prototype.onResize = function(){
+    this.UIList.Ergodic(this,function(manager,now)
+    {
+        if(now.initialed == true)
+        {
+            now.onResize();
+            return;
+        }
+    });
+}

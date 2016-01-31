@@ -28,3 +28,7 @@ UIBase.prototype.end = function()
     this.manager = null;
 }
 
+UIBase.prototype.onResize = function()
+{
+
+}

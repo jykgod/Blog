@@ -50,6 +50,11 @@
 var uiManager = new UIManager();
 uiManager.create();
 
+function onResize()
+{
+    uiManager.onResize();
+}
+
 var backGroundUI = new BackGroundUI(uiManager);
 var mainCanvas = new Canvas();
 mainCanvas.createWithFatherNameAndPosition("fatherDiv",0,0,1600,900,0);

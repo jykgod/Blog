@@ -38,3 +38,9 @@ UIBase.prototype.onResize = function()
 {
 
 }
+
+UIBase.prototype.setVisible = function(show)
+{
+    if(show == true) console.log("show " + this.name);
+    this.baseNode.setVisible(show);
+}

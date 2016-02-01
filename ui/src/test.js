@@ -55,8 +55,10 @@ function onResize()
     uiManager.onResize();
 }
 
-var backGroundUI = new BackGroundUI(uiManager);
+var bgCanvas = new Canvas();
+bgCanvas.createWithFatherNameAndPosition("fatherDiv",0,0,window.innerWidth,window.innerHeight,-100);
+var backGroundUI = new BackGroundUI(uiManager,bgCanvas);
 var mainCanvas = new Canvas();
-mainCanvas.createWithFatherNameAndPosition("fatherDiv",0,0,1600,900,0);
+mainCanvas.createWithFatherNameAndPosition("fatherDiv",0,0,window.innerWidth,window.innerHeight,0);
 mainCanvas.setUpdateDeltaTime(60);
 var mainMenu = new MainMenuUI(uiManager,mainCanvas);

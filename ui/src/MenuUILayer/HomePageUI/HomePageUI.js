@@ -1,10 +1,9 @@
 /**
  * Created by Administrator on 2016/1/31.
  */
-function HomePageUI(manager)
+function HomePageUI(manager,canvas)
 {
-    UIBase.call(this,manager);
-    this.baseNode = null;
+    UIBase.call(this,manager,canvas,"HomePageUI");
 }
 
 for(var i in UIBase.prototype)
@@ -20,5 +19,4 @@ HomePageUI.prototype.start = function()
 HomePageUI.prototype.end = function()
 {
     UIBase.prototype.end.call(this);
-    this.baseNode.setVisible(false);
 }

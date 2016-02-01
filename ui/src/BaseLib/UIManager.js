@@ -55,3 +55,16 @@ UIManager.prototype.onResize = function(){
         }
     });
 }
+
+UIManager.prototype.getUIByName = function(UIName){
+    var ret = function(){ this.ui = null;}
+    this.UIList.Ergodic(ret,function(ret,now)
+    {
+        if(now.name == UIName)
+        {
+            ret.ui = now;
+            return false;
+        }
+    });
+    return ret.ui;
+}

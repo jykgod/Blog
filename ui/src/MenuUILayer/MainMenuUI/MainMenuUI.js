@@ -34,7 +34,7 @@ MainMenuUI.prototype.start = function()
     var temp = this;
     var canvas = new Canvas();
     canvas.createWithFatherNameAndPosition('fatherDiv', 100, 150, window.innerWidth - 100, window.innerHeight - 150, 1);
-    canvas.setUpdateDeltaTime(60);
+    canvas.setUpdateDeltaTime(40);
     var homePageButton = new UIButton();
     homePageButton.createWithColorRect(this.mCanvas,"#66CCFF","Öק Ò³","bold 14px ËÎÌו");
     homePageButton.setShadowMargin(5);

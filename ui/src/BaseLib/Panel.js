@@ -18,8 +18,14 @@ Panel.prototype.resetPosition = function()
     fix.maxX = this.w;
     fix.offsetX = this.offsetX;
     fix.offsetY = this.offsetY;
+    fix.RealyMaxX = 0;
+    fix.RealyMaxY = 0;
     this.mComponents.Ergodic( fix , function(fix,now){
         now.setPosition(fix.x,fix.y);
+        if(fix.RealyMaxX < fix.x + now.w)
+            fix.RealyMaxX = fix.x + now.w;
+        if(fix.RealyMaxY < fix.y + now.h)
+            fix.RealyMaxY = fix.y + now.h;
         if(fix.x + now.w * 2 > fix.maxX)
         {
             fix.x = 0;
@@ -28,4 +34,5 @@ Panel.prototype.resetPosition = function()
         else
             fix.x = fix.x + now.w + fix.offsetX;
     } );
+    this.setSize(fix.RealyMaxX,fix.RealyMaxY);
 }

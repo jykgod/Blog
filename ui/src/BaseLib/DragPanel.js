@@ -20,24 +20,6 @@ DragPanel.prototype.create = function (canvas) {
     Panel.prototype.create.call(this, canvas);
     this.mCollider = new Collider();
     this.mCollider.create(this, 0);
-    var temp = this;
-    this.mCollider.onMouseDown = function (x, y) {
-        temp.onPressed = true;
-        temp.onMouseDown(x, y);
-    }
-    this.mCollider.onClick = function (x, y) {
-        temp.onClick(x, y);
-    }
-    this.mCollider.onMouseMove = function (x, y) {
-        temp.onMouseMove(x, y);
-    }
-    this.mCollider.onMouseUp = function (x, y) {
-        temp.onMouseUp(x, y);
-    }
-    this.mCollider.onRelease = function (x, y) {
-        temp.onPressed = false;
-        temp.onRelease(x, y);
-    }
 }
 
 DragPanel.prototype.setSize(w, h)

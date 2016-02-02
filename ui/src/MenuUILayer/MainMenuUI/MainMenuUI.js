@@ -32,6 +32,8 @@ MainMenuUI.prototype.start = function()
 {
     UIBase.prototype.start.call(this);
     var temp = this;
+    var canvas = new Canvas();
+    canvas.createWithFatherName('fatherDiv', 100, 150, window.innerWidth - 100, window.innerHeight - 150, 1);
     var homePageButton = new UIButton();
     homePageButton.createWithColorRect(this.mCanvas,"#66CCFF","Ö÷ Ò³","bold 14px ËÎÌå");
     homePageButton.setShadowMargin(5);
@@ -47,7 +49,7 @@ MainMenuUI.prototype.start = function()
         var ui = temp.manager.getUIByName("HomePageUI");
         if(ui == null)
         {
-            temp.pageList.push( new HomePageUI(temp.manager,temp.mCanvas) );
+            temp.pageList.push(new HomePageUI(temp.manager, canvas));
         }else
         {
             ui.setVisible(true);
@@ -69,7 +71,7 @@ MainMenuUI.prototype.start = function()
         var ui = temp.manager.getUIByName("BlogPageUI");
         if(ui == null)
         {
-            temp.pageList.push( new BlogPageUI(temp.manager,temp.mCanvas) );
+            temp.pageList.push(new BlogPageUI(temp.manager, canvas));
         }else
         {
             ui.setVisible(true);
@@ -91,7 +93,7 @@ MainMenuUI.prototype.start = function()
         var ui = temp.manager.getUIByName("TexturePageUI");
         if(ui == null)
         {
-            temp.pageList.push( new TexturePageUI(temp.manager,temp.mCanvas) );
+            temp.pageList.push(new TexturePageUI(temp.manager, canvas));
         }else
         {
             ui.setVisible(true);
@@ -113,7 +115,7 @@ MainMenuUI.prototype.start = function()
         var ui = temp.manager.getUIByName("ChatPageUI");
         if(ui == null)
         {
-            temp.pageList.push( new ChatPageUI(temp.manager,temp.mCanvas) );
+            temp.pageList.push(new ChatPageUI(temp.manager, canvas));
         }else
         {
             ui.setVisible(true);
@@ -135,7 +137,7 @@ MainMenuUI.prototype.start = function()
         var ui = temp.manager.getUIByName("CreativePageUI");
         if(ui == null)
         {
-            temp.pageList.push( new CreativePageUI(temp.manager,temp.mCanvas) );
+            temp.pageList.push(new CreativePageUI(temp.manager, canvas));
         }else
         {
             ui.setVisible(true);
@@ -157,7 +159,7 @@ MainMenuUI.prototype.start = function()
 
     this.baseNode.addComponent(this.buttonPanel);
 
-    this.pageList.push( new HomePageUI(this.manager,this.mCanvas) );
+    this.pageList.push(new HomePageUI(this.manager, canvas));
 
 }
 

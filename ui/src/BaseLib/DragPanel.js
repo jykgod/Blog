@@ -40,7 +40,7 @@ DragPanel.prototype.create = function (canvas) {
     }
 }
 
-DragPanel.prototype.setSize(w, h)
+DragPanel.prototype.setSize = function(w, h)
 {
     Panel.prototype.setSize.call(this, w, h);
     if (this.mCollider != null)

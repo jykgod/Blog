@@ -77,3 +77,8 @@ DragPanel.prototype.onMouseMove = function (x, y) {
         this.setPosition(resultX, resultY);
     }
 }
+
+
+DragPanel.prototype.onMouseUp = function(w, h){}
+DragPanel.prototype.onClick = function(w, h){}
+DragPanel.prototype.onRelease = function(w, h){}

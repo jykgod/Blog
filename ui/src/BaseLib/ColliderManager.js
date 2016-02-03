@@ -38,7 +38,7 @@ function ColliderManager()
                 tmp.level = collider.mLevel;
                 collider.onClick( tmp.x , tmp.y );
             }
-            else if(tmp.level != -90000)
+            else if(tmp.level != -90000 && tmp.level != collider.mLevel)
             {
                 return false;
             }
@@ -60,7 +60,7 @@ function ColliderManager()
                 tmp.level = collider.mLevel;
                 collider.onMouseDown( tmp.x , tmp.y );
             }
-            else if(tmp.level != -90000)
+            else if(tmp.level != -90000 && tmp.level != collider.mLevel)
             {
                 return false;
             }
@@ -86,7 +86,7 @@ function ColliderManager()
                 tmp.colliderManager.mPointerOnColliders.add(collider);
                 collider.onMouseMove( tmp.x , tmp.y );
             }
-            else if(tmp.level != -90000)
+            else if(tmp.level != -90000 && tmp.level != collider.mLevel)
             {
                 return false;
             }

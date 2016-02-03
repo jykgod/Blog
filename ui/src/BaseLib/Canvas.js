@@ -20,10 +20,20 @@ function Canvas(){
 	this.mDrawableManager = null;
 	this.mContext = null;
 	this.interval = null ;
+	this.x;
+	this.y;
+	this.w;
+	this.h;
+	this.z;
 }
 Canvas.prototype = {
 	setPosition : function(x , y , w , h , zIndex)
 	{
+		this.x = x;
+		this.y = y;
+		this.w = w;
+		this.h = h;
+		this.z = zIndex;
 		this.canvas.width = w;
 		this.canvas.height = h;
 		this.canvas.style.left = x;

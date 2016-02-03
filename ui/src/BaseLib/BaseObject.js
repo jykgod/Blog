@@ -132,7 +132,7 @@ setLevel : function(level){
 },
 pointIn : function(x,y){
     var fatherPosition = this.getFatherPosition();
-    var rect = new Rect ( fatherPosition.x + this.x , fatherPosition.y + this.y , this.w , this. h );
+    var rect = new Rect ( fatherPosition.x + this.x + this.mCanvas.x, fatherPosition.y + this.y + this.mCanvas.y, this.w , this. h );
     return rect.pointIn(x,y);
 }
 }

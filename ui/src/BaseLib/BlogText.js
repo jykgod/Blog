@@ -24,6 +24,7 @@ BlogText.prototype.setRect = function(x,y,w,h)
     this.frame.style.height = h;
     this.frame.style.position = "absolute";
     this.frame.style.border = "0";
+    this.frame.style.display = "none";
 }
 
 BlogText.prototype.createWithFatherName = function(fatherName)

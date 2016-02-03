@@ -5,6 +5,7 @@ function BlogPageUI(manager,canvas)
 {
     UIBase.call(this,manager,canvas,"BlogPageUI");
     this.blogList = null;
+    this.blogContent = null;
 }
 
 for(var i in UIBase.prototype)
@@ -29,6 +30,10 @@ BlogPageUI.prototype.start = function()
     this.blogList.offsetY = 20;
     this.blogList.dragMaxBottomFixY = window.innerHeight - 150;
     this.blogList.mAxisYMove = true;
+
+    this.blogContent = new BlogText();
+    this.blogContent.createWithFatherNameAndPosition("fatherDiv", 100, 150, innerWidth - 100, innerHeight - 150, 2);
+
     this.addBlogButton(10,"aha");
     this.addBlogButton(11,"aha");
     this.addBlogButton(12,"aha");
@@ -55,6 +60,17 @@ BlogPageUI.prototype.update = function()
     this.blogList.updatePanelPosition();
 }
 
+BlogPageUI.prototype.showBlogText = function (id) {
+    this.blogContent.setText('```javascript\nfunction func(){\n\tvar i = 1;\n}\n```');
+    this.blogContent.setVisible(true);
+    this.blogList.setVisible(false);
+}
+
+BlogPageUI.prototype.setVisible = function (visible) {
+    if (visible == false)
+        this.blogContent.setVisible(false);
+}
+
 BlogPageUI.prototype.addBlogButton = function(id,text)
 {
     var blogButton = new UIButton();
@@ -62,9 +78,11 @@ BlogPageUI.prototype.addBlogButton = function(id,text)
     blogButton.setShadowMargin(10);
     blogButton.label.mColor = "#333333";
     blogButton.setSize(1000,200);
+    var temp = this;
     blogButton.onClick = function()
     {
         console.log("click blog id:",id);
+        temp.showBlogText(id);
     }
     this.blogList.addComponent(blogButton);
     this.blogList.resetPosition();

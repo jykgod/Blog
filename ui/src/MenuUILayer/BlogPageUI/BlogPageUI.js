@@ -52,7 +52,7 @@ BlogPageUI.prototype.end = function()
 
 BlogPageUI.prototype.update = function()
 {
-    this.blogList.setPosition(this.blogList.deltaX + this.blogList.x,this.blogList.deltaY + this.blogList.y);
+    this.blogList.updatePanelPosition();
 }
 
 BlogPageUI.prototype.addBlogButton = function(id,text)

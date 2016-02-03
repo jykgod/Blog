@@ -107,6 +107,9 @@ DragPanel.prototype.onMouseMove = function (x, y) {
     }
 }
 
+DragPanel.prototype.updatePanelPosition = function () {
+    this.setPosition(this.deltaX + this.x, this.deltaY + this.y);
+}
 
 DragPanel.prototype.onMouseUp = function(w, h){}
 DragPanel.prototype.onClick = function(w, h){}

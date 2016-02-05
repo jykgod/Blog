@@ -3,14 +3,7 @@
  */
 function MessagaHelper()
 {
-    if ( this.Instance == null )
-    {
-        this.Instance = this;
-    }
-    return this.Instance;
-
-    this.postMessageToServer = function(url,name,header,value)
-    {
+    this.postMessageToServer = function (url, name, header, value) {
         $.ajax({
             cache: false,
             async: false,
@@ -19,10 +12,10 @@ function MessagaHelper()
             type: "POST",
             traditional: true,
             data: header + value,
-            error: function(){
-                console.log("Error!MessageName:"+name+"Value:"+value);
+            error: function () {
+                console.log("Error!MessageName:" + name + "Value:" + value);
             },
-            success:function (data){
+            success: function (data) {
                 switch (name) {
                     case "MSG_RQL_LOGIN":
                         this.msg_rlt_login(data);
@@ -106,5 +99,62 @@ function MessagaHelper()
             }
         });
     }
+    this.msg_rlt_login = function (data) {
+    }
+    this.msg_rlt_register = function (data) {
+    }
+    this.msg_rlt_set_motto = function (data) {
+    }
+    this.msg_rlt_get_motto = function (data) {
+    }
+    this.msg_rlt_mark = function (data) {
+    }
+    this.msg_rlt_cancel_mark = function (data) {
+    }
+    this.msg_rlt_marked = function (data) {
+    }
+    this.msg_rlt_mark_list = function (data) {
+    }
+    this.msg_rlt_add_document = function (data) {
+    }
+    this.msg_rlt_get_document = function (data) {
+    }
+    this.msg_rlt_get_document_list = function (data) {
+    }
+    this.msg_rlt_get_document_list_by_type = function (data) {
+    }
+    this.msg_rlt_get_document_list_size = function (data) {
+    }
+    this.msg_rlt_get_document_list_by_type_size = function (data) {
+    }
+    this.msg_rlt_add_document_reader = function (data) {
+    }
+    this.msg_rlt_replay_one_document = function (data) {
+    }
+    this.msg_rlt_get_message_list = function (data) {
+    }
+    this.msg_rlt_get_message = function (data) {
+    }
+    this.msg_rlt_mark_message_as_read = function (data) {
+    }
+    this.msg_rlt_send_message = function (data) {
+    }
+    this.msg_rlt_read_all_message = function (data) {
+    }
+    this.msg_rlt_remove_message = function (data) {
+    }
+    this.msg_rlt_remove_all_message = function (data) {
+    }
+    this.msg_rlt_check_upload_image_access = function (data) {
+    }
+    this.msg_rlt_upload_image = function (data) {
+    }
+    this.msg_rlt_get_image = function (data) {
+    }
+    if ( this.Instance == null )
+    {
+        this.Instance = this;
+    }
+    return this.Instance;
 }
 MessageHelper.prototype.Instance = null;

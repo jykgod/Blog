@@ -157,7 +157,8 @@ MainMenuUI.prototype.start = function()
     this.buttonPanel.addComponent(homePageButton);
     this.buttonPanel.resetPosition();
     //this.onResize();
-
+    var messageHelper = new MessageHelper();
+    messageHelper.postMessageToServer("http://127.0.0.1:10200/register","MSG_RQL_REGISTER",'{"username":"jyk4","password":"123"}');
     this.baseNode.addComponent(this.buttonPanel);
 
     this.pageList.push(new HomePageUI(this.manager, canvas));

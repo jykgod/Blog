@@ -6,7 +6,7 @@ function UIButton()
     this.tempShadowMargin = 0;
     this.label = null;
     this.collider = null;
-    this.pressDown = false;
+    this.onPressed = false;
     this.refDeltaTime = 200;
     this.lastHitTime = new Date();
     this.mShadowMargin = 0;
@@ -82,15 +82,18 @@ UIButton.prototype.createWithTexture = function(canvas ,src ,clipRect , text,fon
 
 UIButton.prototype.preOnClick = function(x,y){
     var time = new Date();
+    console.log("click");
     if(this.refDeltaTime > time.getTime() - this.lastHitTime)
     {
         return;
     }
+    console.log("click2");
     this.lastHitTime = this.refDeltaTime;
     this.onClick(x,y);
 };
 UIButton.prototype.preOnMouseDown = function(x,y){
-    this.pressDown = true;
+    this.onPressed = true;
+    console.log("down");
     if(this.mShadowMargin != 0)
     {
         if(this.colorRect != null)
@@ -105,9 +108,10 @@ UIButton.prototype.preOnMouseDown = function(x,y){
     this.onMouseDown(x,y);
 };
 UIButton.prototype.preOnMouseUp = function(x,y){
-    if(this.pressDown == true)
+    console.log("up");
+    if(this.onPressed == true)
     {
-        UIButton.prototype.onClick();
+        this.preOnClick();
     }
     this.onMouseUp(x,y);
 };
@@ -116,7 +120,8 @@ UIButton.prototype.preOnMouseMove = function(x,y){
 };
 UIButton.prototype.preOnRelease = function(x,y)
 {
-    this.pressDown = false;
+    console.log("release");
+    this.onPressed = false;
     if(this.tempShadowMargin != 0)
     {
         this.setShadowMargin(this.tempShadowMargin);

@@ -36,7 +36,8 @@ function ColliderManager()
                 (tmp.level == -90000 || tmp.level == collider.mLevel))
             {
                 tmp.level = collider.mLevel;
-                collider.onClick( tmp.x , tmp.y );
+                collider.onRelease( tmp.x , tmp.y );
+                //collider.onClick( tmp.x , tmp.y );
             }
             else if(tmp.level != -90000 && tmp.level != collider.mLevel)
             {

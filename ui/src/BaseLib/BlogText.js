@@ -47,8 +47,8 @@ BlogText.prototype.createWithFatherNameAndPosition = function(fatherName,x,y,w,h
 
 BlogText.prototype.setText = function(text)
 {
-    var data = '<head><link rel="stylesheet" href="BaseLib/highlight/styles/default.css">';
-    data +='<script src="BaseLib/highlight/highlight.pack.js"></script>';
+    var data = '<head><link rel="stylesheet" href="ui/src/BaseLib/highlight/styles/default.css">';
+    data +='<script src="ui/src/BaseLib/highlight/highlight.pack.js"></script>';
     data +='<script>hljs.initHighlightingOnLoad();</script></head>';
     data += marked(text) ;
     var theDoc =  this.frame.contentWindow;

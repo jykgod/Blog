@@ -15,7 +15,7 @@ for(var i in UIBase.prototype)
 
 BlogPageUI.prototype.onResize = function()
 {
-    this.mCanvas.setPosition(100,150,innerWidth-100,innerHeight - 150,1);
+    this.mCanvas.setPosition(0,150,innerWidth-100,innerHeight - 150,1);
     this.blogList.dragMaxBottomFixY = window.innerHeight - 150;
 }
 

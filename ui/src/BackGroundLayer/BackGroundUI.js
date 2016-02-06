@@ -16,7 +16,7 @@ BackGroundUI.prototype.onResize = function()
     this.texture.setSize(window.innerWidth,window.innerHeight);
 
     //this.colorRect.setPosition(0.05 * window.innerWidth,0.15 * window.innerHeight);
-    this.colorRect.setSize(window.innerWidth,window.innerHeight);
+    this.colorRect.setSize(window.innerWidth,window.innerHeight - 150);
 
     this.mCanvas.update();
 }
@@ -37,8 +37,8 @@ BackGroundUI.prototype.start = function()
     this.colorRect = new ColorRect();
     this.colorRect.create(this.mCanvas,"#000000");
     this.colorRect.mAlpha = 0.5;
-    this.colorRect.setPosition(100,150);
-    this.colorRect.setSize(window.innerWidth - 100,window.innerHeight - 150);
+    this.colorRect.setPosition(0,150);
+    this.colorRect.setSize(window.innerWidth,window.innerHeight - 150);
     //this.colorRect.setPosition(0.1 * window.innerWidth,0.15 * window.innerHeight);
     //this.colorRect.setSize(window.innerWidth * 0.9,window.innerHeight * 0.85);
     this.colorRect.setLevel(1);

@@ -33,7 +33,7 @@ MainMenuUI.prototype.start = function()
     UIBase.prototype.start.call(this);
     var temp = this;
     var canvas = new Canvas();
-    canvas.createWithFatherNameAndPosition('fatherDiv', 100, 150, window.innerWidth - 100, window.innerHeight - 150, 1);
+    canvas.createWithFatherNameAndPosition('fatherDiv', 0, 170, window.innerWidth , window.innerHeight - 150, 0);
     canvas.setUpdateDeltaTime(40);
     var homePageButton = new UIButton();
     homePageButton.createWithColorRect(this.mCanvas,"#66CCFF","Ö÷ Ò³","bold 14px ËÎÌå");
@@ -65,6 +65,7 @@ MainMenuUI.prototype.start = function()
     blogPageButton.setSize(100,50);
     blogPageButton.onClick = function()
     {
+        console.log("shit");
         for(var i = 0;i < temp.pageList.length ; i ++)
         {
             temp.pageList[i].setVisible(false);
@@ -148,7 +149,7 @@ MainMenuUI.prototype.start = function()
     this.buttonPanel = new Panel();
     this.buttonPanel.create(this.mCanvas);
     this.buttonPanel.setSize(window.innerWidth,window.innerHeight);
-    this.buttonPanel.setPosition(100,100);
+    this.buttonPanel.setPosition(0,100);
     this.buttonPanel.offsetX = 50;
     this.buttonPanel.addComponent(creativePageButton);
     this.buttonPanel.addComponent(chatPageButton);
@@ -157,9 +158,11 @@ MainMenuUI.prototype.start = function()
     this.buttonPanel.addComponent(homePageButton);
     this.buttonPanel.resetPosition();
     //this.onResize();
-    var messageHelper = new MessageHelper();
-    messageHelper.postMessageToServer("http://127.0.0.1:10200/register","MSG_RQL_REGISTER",'{"username":"jyk4","password":"123"}');
+    //var messageHelper = new MessageHelper();
+    //messageHelper.postMessageToServer("http://127.0.0.1:10200/register","MSG_RQL_REGISTER",'{"username":"jyk4","password":"123"}');
     this.baseNode.addComponent(this.buttonPanel);
+
+    var loginUI = new LoginUI(this.manager, canvas);
 
     this.pageList.push(new HomePageUI(this.manager, canvas));
 

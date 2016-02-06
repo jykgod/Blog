@@ -3,15 +3,18 @@
  */
 function MessagaHelper()
 {
-    this.postMessageToServer = function (url, name, header, value) {
+    this.postMessageToServer = function (url, name, header, value,username,password) {
         $.ajax({
             cache: false,
             async: false,
             ContentType: "application/x-www-form-urlencoded; charset=utf-8",
-            url: url,
+            //url: url,
+            url: "127.0.0.1:10200",
             type: "POST",
             traditional: true,
-            data: header + value,
+            data: value,
+            username: username,
+            password: password,
             error: function () {
                 console.log("Error!MessageName:" + name + "Value:" + value);
             },
@@ -100,6 +103,7 @@ function MessagaHelper()
         });
     }
     this.msg_rlt_login = function (data) {
+
     }
     this.msg_rlt_register = function (data) {
     }

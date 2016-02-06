@@ -6,6 +6,7 @@ function MainMenuUI(manager,canvas)
     UIBase.call(this,manager,canvas,"MainMenuUI");
     this.buttonPanel;
     this.pageList = new Array();
+    this.pageCanvas = null;
 }
 
 for(var i in UIBase.prototype) {
@@ -14,7 +15,8 @@ for(var i in UIBase.prototype) {
 
 MainMenuUI.prototype.onResize = function()
 {
-    //this.mCanvas.setPosition(0,0,window.innerWidth,window.innerHeight,0);
+    this.mCanvas.setPosition(0,0,window.innerWidth,window.innerHeight,0);
+    this.pageCanvas.setPosition(0,150,innerWidth-100,innerHeight - 150,1);
     //
     //if(this.buttonPanel == null || this.buttonPanel == undefined) return;
     //
@@ -32,9 +34,9 @@ MainMenuUI.prototype.start = function()
 {
     UIBase.prototype.start.call(this);
     var temp = this;
-    var canvas = new Canvas();
-    canvas.createWithFatherNameAndPosition('fatherDiv', 0, 170, window.innerWidth , window.innerHeight - 150, 0);
-    canvas.setUpdateDeltaTime(40);
+    this.pageCanvas = new Canvas();
+    this.pageCanvas.createWithFatherNameAndPosition('fatherDiv', 0, 150, window.innerWidth , window.innerHeight - 150, 1);
+    this.pageCanvas.setUpdateDeltaTime(40);
     var homePageButton = new UIButton();
     homePageButton.createWithColorRect(this.mCanvas,"#66CCFF","Ö÷ Ò³","bold 14px ËÎÌå");
     homePageButton.setShadowMargin(5);
@@ -50,7 +52,7 @@ MainMenuUI.prototype.start = function()
         var ui = temp.manager.getUIByName("HomePageUI");
         if(ui == null)
         {
-            temp.pageList.push(new HomePageUI(temp.manager, canvas));
+            temp.pageList.push(new HomePageUI(temp.manager, temp.pageCanvas));
         }else
         {
             ui.setVisible(true);
@@ -73,7 +75,7 @@ MainMenuUI.prototype.start = function()
         var ui = temp.manager.getUIByName("BlogPageUI");
         if(ui == null)
         {
-            temp.pageList.push(new BlogPageUI(temp.manager, canvas));
+            temp.pageList.push(new BlogPageUI(temp.manager, temp.pageCanvas));
         }else
         {
             ui.setVisible(true);
@@ -95,7 +97,7 @@ MainMenuUI.prototype.start = function()
         var ui = temp.manager.getUIByName("TexturePageUI");
         if(ui == null)
         {
-            temp.pageList.push(new TexturePageUI(temp.manager, canvas));
+            temp.pageList.push(new TexturePageUI(temp.manager, temp.pageCanvas));
         }else
         {
             ui.setVisible(true);
@@ -117,7 +119,7 @@ MainMenuUI.prototype.start = function()
         var ui = temp.manager.getUIByName("ChatPageUI");
         if(ui == null)
         {
-            temp.pageList.push(new ChatPageUI(temp.manager, canvas));
+            temp.pageList.push(new ChatPageUI(temp.manager, temp.pageCanvas));
         }else
         {
             ui.setVisible(true);
@@ -139,7 +141,7 @@ MainMenuUI.prototype.start = function()
         var ui = temp.manager.getUIByName("CreativePageUI");
         if(ui == null)
         {
-            temp.pageList.push(new CreativePageUI(temp.manager, canvas));
+            temp.pageList.push(new CreativePageUI(temp.manager, temp.pageCanvas));
         }else
         {
             ui.setVisible(true);
@@ -162,9 +164,9 @@ MainMenuUI.prototype.start = function()
     //messageHelper.postMessageToServer("http://127.0.0.1:10200/register","MSG_RQL_REGISTER",'{"username":"jyk4","password":"123"}');
     this.baseNode.addComponent(this.buttonPanel);
 
-    var loginUI = new LoginUI(this.manager, canvas);
+    var loginUI = new LoginUI(this.manager, temp.pageCanvas);
 
-    this.pageList.push(new HomePageUI(this.manager, canvas));
+    this.pageList.push(new HomePageUI(this.manager, temp.pageCanvas));
 
 }
 

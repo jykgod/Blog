@@ -11,12 +11,6 @@ function UIBase(manager,canvas,name){
     this.manager.addUI(this);
 }
 
-//UIBase.prototype.create = function(manager)
-//{
-//    this.manager = manager;
-//    this.manager.addUI(this);
-//}
-
 UIBase.prototype.start = function()
 {
     this.initialed = true;

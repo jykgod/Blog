@@ -82,18 +82,15 @@ UIButton.prototype.createWithTexture = function(canvas ,src ,clipRect , text,fon
 
 UIButton.prototype.preOnClick = function(x,y){
     var time = new Date();
-    console.log("click");
     if(this.refDeltaTime > time.getTime() - this.lastHitTime)
     {
         return;
     }
-    console.log("click2");
     this.lastHitTime = this.refDeltaTime;
     this.onClick(x,y);
 };
 UIButton.prototype.preOnMouseDown = function(x,y){
     this.onPressed = true;
-    console.log("down");
     if(this.mShadowMargin != 0)
     {
         if(this.colorRect != null)
@@ -108,7 +105,6 @@ UIButton.prototype.preOnMouseDown = function(x,y){
     this.onMouseDown(x,y);
 };
 UIButton.prototype.preOnMouseUp = function(x,y){
-    console.log("up");
     if(this.onPressed == true)
     {
         this.preOnClick();
@@ -120,7 +116,6 @@ UIButton.prototype.preOnMouseMove = function(x,y){
 };
 UIButton.prototype.preOnRelease = function(x,y)
 {
-    console.log("release");
     this.onPressed = false;
     if(this.tempShadowMargin != 0)
     {

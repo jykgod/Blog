@@ -15,8 +15,7 @@ for(var i in UIBase.prototype)
 
 BlogPageUI.prototype.onResize = function()
 {
-    this.mCanvas.setPosition(0,150,innerWidth-100,innerHeight - 150,1);
-    this.blogList.dragMaxBottomFixY = window.innerHeight - 150;
+    this.blogList.dragMaxBottomFixY = window.innerHeight - 170;
 }
 
 BlogPageUI.prototype.start = function()
@@ -25,14 +24,13 @@ BlogPageUI.prototype.start = function()
     this.blogList = new DragPanel();
     this.blogList.create(this.mCanvas);
     console.log("start blog page");
-    this.blogList.setSize(1000,window.innerHeight - 150);
-    this.blogList.setPosition(0,0);
+    this.blogList.setSize(1000,window.innerHeight - 170);
     this.blogList.offsetY = 20;
-    this.blogList.dragMaxBottomFixY = window.innerHeight - 150;
+    this.blogList.dragMaxBottomFixY = window.innerHeight - 170;
     this.blogList.mAxisYMove = true;
 
     this.blogContent = new BlogText();
-    this.blogContent.createWithFatherNameAndPosition("fatherDiv", 100, 150, innerWidth - 100, innerHeight - 150, 2);
+    this.blogContent.createWithFatherNameAndPosition("fatherDiv", 100, 170, innerWidth - 100, innerHeight - 170, 2);
 
     this.addBlogButton(10,"aha");
     this.addBlogButton(11,"aha");
@@ -48,6 +46,7 @@ BlogPageUI.prototype.start = function()
     //this.blogList.addComponent();
 
     this.baseNode.addComponent(this.blogList);
+    this.baseNode.setPosition(100,20);
 }
 
 BlogPageUI.prototype.end = function()

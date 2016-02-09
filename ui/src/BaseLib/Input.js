@@ -4,14 +4,20 @@
 function Input()
 {
     this.input = null;
-    this.x = 0;
-    this.y = 0;
-    this.w = 0;
-    this.h = 0;
     this.z = 0;
 }
+Input.prototype.setPosition = function( x , y )
+{
+    this.input.style.left = x;
+    this.input.style.top = y;
+}
 
-Input.prototype.setPosition(x,y,w,h,zIndex)
+Input.prototype.value = function()
+{
+    return this.input.value;
+}
+
+Input.prototype.setPositionAndSize = function(x,y,w,h,zIndex)
 {
     this.x = x;
     this.y = y;
@@ -31,6 +37,7 @@ Input.prototype.create = function(fatherName,type)
     this.input = document.createElement('input');
     this.input.type = type;
     this.input.style.position = "absolute";
-    this.setPosition(0,0,100,10,0);
-    fatherNode.appendChild(fatherNode);
+    this.input.maxLength = 15;
+    this.setPositionAndSize(0,0,100,10,0);
+    fatherNode.appendChild(this.input);
 }

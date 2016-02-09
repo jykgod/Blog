@@ -27,8 +27,8 @@ Collider.prototype.setLevel = function (level) {
     BaseObject.prototype.setLevel.call(this, level);
     if (this.mCanvas == null || this.mCanvas == undefined)
         return;
-    this.mCanvas.mColliderManager.removeObject(this);
-    this.mCanvas.mColliderManager.addObject(this);
+    this.mCanvas.mColliderManager.removeCollider(this);
+    this.mCanvas.mColliderManager.addCollider(this);
 }
 
 

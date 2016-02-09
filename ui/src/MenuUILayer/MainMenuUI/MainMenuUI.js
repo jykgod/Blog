@@ -16,7 +16,7 @@ for(var i in UIBase.prototype) {
 MainMenuUI.prototype.onResize = function()
 {
     this.mCanvas.setPosition(0,0,window.innerWidth,window.innerHeight,0);
-    this.pageCanvas.setPosition(0,150,innerWidth-100,innerHeight - 150,1);
+    this.pageCanvas.setPosition(0,150,window.innerWidth-100,window.innerHeight - 150,1);
     //
     //if(this.buttonPanel == null || this.buttonPanel == undefined) return;
     //

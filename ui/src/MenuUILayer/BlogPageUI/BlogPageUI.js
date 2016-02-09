@@ -30,7 +30,7 @@ BlogPageUI.prototype.start = function()
     this.blogList.mAxisYMove = true;
 
     this.blogContent = new BlogText();
-    this.blogContent.createWithFatherNameAndPosition("fatherDiv", 100, 170, innerWidth - 100, innerHeight - 170, 2);
+    this.blogContent.createWithFatherNameAndPosition("fatherDiv", 300, 170, innerWidth - 100, innerHeight - 170, 2);
 
     this.addBlogButton(10,"aha");
     this.addBlogButton(11,"aha");
@@ -46,7 +46,7 @@ BlogPageUI.prototype.start = function()
     //this.blogList.addComponent();
 
     this.baseNode.addComponent(this.blogList);
-    this.baseNode.setPosition(100,20);
+    this.baseNode.setPosition(300,20);
 }
 
 BlogPageUI.prototype.end = function()

@@ -15,11 +15,11 @@ function LoginUI(manager,canvas)
     this.backGround = null;
     this.translateRect = null;
 
+    this.loginNode = null;
     this.usernameInput = null;
     this.passwordInput = null;
     this.usernameLabel = null;
     this.passwordLabel = null;
-
     this.loginBtn = null;
 }
 
@@ -76,14 +76,19 @@ LoginUI.prototype.start = function()
     {
         console.log( "username:" + temp.usernameInput.value() );
         console.log( "password:" + temp.passwordInput.value() );
+        var messageHelper = new MessageHelper();
+        messageHelper.Instance.postMessageToServer("http://127.0.0.1:10200/login","MSG_RQL_LOGIN",'',temp.usernameInput.value(),temp.passwordInput.value());
     }
 
+    this.loginNode = new BaseObject();
+    this.loginNode.create(this.mCanvas);
+    this.loginNode.addComponent(this.loginBtn);
+    this.loginNode.addComponent(this.passwordLabel);
+    this.loginNode.addComponent(this.usernameLabel);
 
-    this.baseNode.addComponent(this.loginBtn);
+    this.baseNode.addComponent(this.loginNode);
     this.baseNode.addComponent(this.backGround);
     this.baseNode.addComponent(this.translateRect);
-    this.baseNode.addComponent(this.passwordLabel);
-    this.baseNode.addComponent(this.usernameLabel);
     this.baseNode.setLevel(1000);
 
 }
@@ -102,8 +107,26 @@ LoginUI.prototype.update = function()
             this.baseNode.setPosition(-200 * ( 1 - translate ), this.baseNode.y);
         else
             this.baseNode.setPosition(-200 * translate, this.baseNode.y);
-        this.usernameInput.setPosition( this.baseNode.x + 10 , this.usernameInput.y);
-        this.passwordInput.setPosition( this.baseNode.x + 10 , this.passwordInput.y);
+        var logicHelper = new LogicHelper();
+        if (logicHelper.getIfLogin() == true)
+        {
+            if(this.loginNode.getIfVisible() == true)
+            {
+                this.usernameInput.setVisible(false);
+                this.passwordInput.setVisible(false);
+                this.loginNode.setVisible(false);
+            }
+        }
+        else {
+            if(this.loginNode.getIfVisible() == false)
+            {
+                this.usernameInput.setVisible(true);
+                this.passwordInput.setVisible(true);
+                this.loginNode.setVisible(true);
+            }
+            this.usernameInput.setPosition(this.baseNode.x + 10, this.usernameInput.y);
+            this.passwordInput.setPosition(this.baseNode.x + 10, this.passwordInput.y);
+        }
     }
 }
 LoginUI.prototype.end = function()

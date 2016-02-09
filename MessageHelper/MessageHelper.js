@@ -30,7 +30,7 @@ MessageHelper.prototype.postMessageToServer = function (url, name, value,usernam
         success: function (data) {
             switch (name) {
                 case "MSG_RQL_LOGIN":
-                    temp.msg_rlt_login(data);
+                    temp.msg_rlt_login(data,username,password);
                     break;
                 case "MSG_RQL_REGISTER":
                     temp.msg_rlt_register(data);
@@ -111,9 +111,15 @@ MessageHelper.prototype.postMessageToServer = function (url, name, value,usernam
         }
     });
 }
-MessageHelper.prototype.msg_rlt_login = function (data) {
-    if(data != null && data.return == 200)
-    console.log("success" + data);
+MessageHelper.prototype.msg_rlt_login = function (data,username,password) {
+    var logicHelper = new LogicHelper();
+    if(data != null && data.return == 200) {
+        logicHelper.setLocalUser(username,password);
+        console.log("success" + data);
+    }else
+    {
+        logicHelper.logout();
+    }
 }
 MessageHelper.prototype.msg_rlt_register = function (data) {
     console.log("success" + data);

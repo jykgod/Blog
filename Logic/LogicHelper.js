@@ -21,7 +21,7 @@ LogicHelper.prototype.setLocalUser = function(username,password)
 
 LogicHelper.prototype.getIfLogin = function()
 {
-    return this.localUser != null;
+    return (this.localUser != null);
 }
 
 LogicHelper.prototype.logout = function()

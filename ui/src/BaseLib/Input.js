@@ -31,6 +31,14 @@ Input.prototype.setPositionAndSize = function(x,y,w,h,zIndex)
     this.input.style.zIndex = zIndex;
 }
 
+Input.prototype.setVisible = function(visible)
+{
+    if(visible == false)
+        this.frame.style.display = "none";
+    else
+        this.frame.style.display = "block";
+}
+
 Input.prototype.create = function(fatherName,type)
 {
     var fatherNode = document.getElementById( fatherName );

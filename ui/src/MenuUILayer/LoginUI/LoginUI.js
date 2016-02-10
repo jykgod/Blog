@@ -56,17 +56,17 @@ LoginUI.prototype.start = function()
     this.passwordInput.create("fatherDiv","password");
     this.passwordInput.setPositionAndSize(10,400,100,20,10);
     this.usernameLabel = new Label();
-    this.usernameLabel.create(this.mCanvas,"username","bold 24px ËÎÌå");
+    this.usernameLabel.create(this.mCanvas,"username","bold 24px å®‹ä½“");
     this.usernameLabel.setPosition(60,130);
     this.usernameLabel.setLevel(10);
     this.passwordLabel = new Label();
-    this.passwordLabel.create(this.mCanvas,"password","bold 24px ËÎÌå");
+    this.passwordLabel.create(this.mCanvas,"password","bold 24px å®‹ä½“");
     this.passwordLabel.setLevel(10);
     this.passwordLabel.setPosition(60,230);
 
     var temp = this;
     this.loginBtn = new UIButton();
-    this.loginBtn.createWithColorRect(this.mCanvas,"#dd0000","login","bold 14px ËÎÌå");
+    this.loginBtn.createWithColorRect(this.mCanvas,"#dd0000","login","bold 14px å®‹ä½“");
     this.loginBtn.setSize(100,50);
     this.loginBtn.colorRect.mAlpha = 0.8;
     this.loginBtn.setPosition(20,300);

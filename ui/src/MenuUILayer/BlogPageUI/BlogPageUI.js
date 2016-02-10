@@ -73,7 +73,7 @@ BlogPageUI.prototype.setVisible = function (visible) {
 BlogPageUI.prototype.addBlogButton = function(id,text)
 {
     var blogButton = new UIButton();
-    blogButton.createWithColorRect(this.mCanvas,"#dddddd",text,"bold 14px ËÎÌå");
+    blogButton.createWithColorRect(this.mCanvas,"#dddddd",text,"bold 14px å®‹ä½“");
     blogButton.setShadowMargin(10);
     blogButton.label.mColor = "#333333";
     blogButton.setSize(1000,200);

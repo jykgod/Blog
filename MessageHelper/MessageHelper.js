@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2016/2/4.
  */
-//以下的单例模式写法也许存在一些问题，以后再做修改
+//浠ヤ笅鐨勫崟渚嬫ā寮忓啓娉曚篃璁稿瓨鍦ㄤ竴浜涢棶棰橈紝浠ュ悗鍐嶅仛淇敼
 function MessageHelper()
 {
     if ( this.Instance == null )
@@ -120,6 +120,7 @@ MessageHelper.prototype.msg_rlt_login = function (data,username,password) {
     {
         logicHelper.logout();
     }
+    console.log("success" + data.return);
 }
 MessageHelper.prototype.msg_rlt_register = function (data) {
     console.log("success" + data);

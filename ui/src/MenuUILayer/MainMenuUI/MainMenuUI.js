@@ -38,7 +38,7 @@ MainMenuUI.prototype.start = function()
     this.pageCanvas.createWithFatherNameAndPosition('fatherDiv', 0, 150, window.innerWidth , window.innerHeight - 150, 1);
     this.pageCanvas.setUpdateDeltaTime(40);
     var homePageButton = new UIButton();
-    homePageButton.createWithColorRect(this.mCanvas,"#66CCFF","Ö÷ Ò³","bold 14px ËÎÌå");
+    homePageButton.createWithColorRect(this.mCanvas,"#66CCFF","ä¸» é¡µ","bold 14px å®‹ä½“");
     homePageButton.setShadowMargin(5);
     homePageButton.label.mColor = "#333333";
     homePageButton.colorRect.mAlpha = 0.8;
@@ -60,7 +60,7 @@ MainMenuUI.prototype.start = function()
     }
 
     var blogPageButton = new UIButton();
-    blogPageButton.createWithColorRect(this.mCanvas,"#BD72F0","²© ÎÄ","bold 14px ËÎÌå");
+    blogPageButton.createWithColorRect(this.mCanvas,"#BD72F0","åš æ–‡","bold 14px å®‹ä½“");
     blogPageButton.setShadowMargin(5);
     blogPageButton.label.mColor = "#333333";
     blogPageButton.colorRect.mAlpha = 0.8;
@@ -83,7 +83,7 @@ MainMenuUI.prototype.start = function()
     }
 
     var texturePageButton = new UIButton();
-    texturePageButton.createWithColorRect(this.mCanvas,"#CC3333","Ïà ²á","bold 14px ËÎÌå");
+    texturePageButton.createWithColorRect(this.mCanvas,"#CC3333","ç›¸ å†Œ","bold 14px å®‹ä½“");
     texturePageButton.setShadowMargin(5);
     texturePageButton.label.mColor = "#333333";
     texturePageButton.colorRect.mAlpha = 0.8;
@@ -105,7 +105,7 @@ MainMenuUI.prototype.start = function()
     }
 
     var chatPageButton = new UIButton();
-    chatPageButton.createWithColorRect(this.mCanvas,"#009933","ÁôÑÔ°å","bold 14px ËÎÌå");
+    chatPageButton.createWithColorRect(this.mCanvas,"#009933","ç•™è¨€æ¿","bold 14px å®‹ä½“");
     chatPageButton.setShadowMargin(5);
     chatPageButton.label.mColor = "#333333";
     chatPageButton.colorRect.mAlpha = 0.8;
@@ -127,7 +127,7 @@ MainMenuUI.prototype.start = function()
     }
 
     var creativePageButton = new UIButton();
-    creativePageButton.createWithColorRect(this.mCanvas,"#FF9999","´´Òâ¿Õ¼ä","bold 14px ËÎÌå");
+    creativePageButton.createWithColorRect(this.mCanvas,"#FF9999","åˆ›æ„ç©ºé—´","bold 14px å®‹ä½“");
     creativePageButton.setShadowMargin(5);
     creativePageButton.label.mColor = "#333333";
     creativePageButton.colorRect.mAlpha = 0.8;

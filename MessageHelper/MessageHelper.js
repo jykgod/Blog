@@ -112,17 +112,25 @@ MessageHelper.prototype.postMessageToServer = function (url, name, value,usernam
     });
 }
 MessageHelper.prototype.msg_rlt_login = function (data,username,password) {
-    var logicHelper = new LogicHelper();
+    var logicHelper = LogicHelper.prototype.getInstance();
     if(data != null && data.return == 200) {
         logicHelper.setLocalUser(username,password);
-        console.log("success" + data);
+        console.log("success:" + username+";pssword:"+password);
     }else
     {
         logicHelper.logout();
+        alert("您输入的账号或者密码有误,\n请重新输入");
     }
-    console.log("success" + data.return);
 }
 MessageHelper.prototype.msg_rlt_register = function (data) {
+    if(data != null && data.return == 200)
+    {
+        alert("注册成功!");
+    }
+    else
+    {
+        alert("注册失败!");
+    }
     console.log("success" + data);
 }
 MessageHelper.prototype.msg_rlt_set_motto = function (data) {

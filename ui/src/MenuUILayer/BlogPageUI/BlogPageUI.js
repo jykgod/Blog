@@ -6,6 +6,12 @@ function BlogPageUI(manager,canvas)
     UIBase.call(this,manager,canvas,"BlogPageUI");
     this.blogList = null;
     this.blogContent = null;
+    /**
+     * state = 0 means the list page
+     * state = 1 means the content page
+     * @type {number}
+     */
+    this.state = 0;
 }
 
 for(var i in UIBase.prototype)
@@ -66,8 +72,22 @@ BlogPageUI.prototype.showBlogText = function (id) {
 }
 
 BlogPageUI.prototype.setVisible = function (visible) {
-    if (visible == false)
+    UIBase.prototype.setVisible.call(this,visible);
+    if (visible == false) {
+        this.blogList.setVisible(false);
         this.blogContent.setVisible(false);
+    }else {
+        if(this.state == 1)
+        {
+            this.blogList.setVisible(false);
+            this.blogContent.setVisible(true);
+        }
+        else
+        {
+            this.blogList.setVisible(true);
+            this.blogContent.setVisible(false);
+        }
+    }
 }
 
 BlogPageUI.prototype.addBlogButton = function(id,text)
@@ -81,6 +101,7 @@ BlogPageUI.prototype.addBlogButton = function(id,text)
     blogButton.onClick = function()
     {
         console.log("click blog id:",id);
+        temp.state = 1;
         temp.showBlogText(id);
     }
     this.blogList.addComponent(blogButton);

@@ -5,6 +5,7 @@ function BlogPageUI(manager,canvas)
 {
     UIBase.call(this,manager,canvas,"BlogPageUI");
     this.blogList = null;
+    this.blogListNode = null;
     this.blogContent = null;
     /**
      * state = 0 means the list page
@@ -12,6 +13,8 @@ function BlogPageUI(manager,canvas)
      * @type {number}
      */
     this.state = 0;
+
+    this.backBtn = null;
 }
 
 for(var i in UIBase.prototype)
@@ -27,6 +30,7 @@ BlogPageUI.prototype.onResize = function()
 BlogPageUI.prototype.start = function()
 {
     UIBase.prototype.start.call(this);
+    var temp = this;
     this.blogList = new DragPanel();
     this.blogList.create(this.mCanvas);
     console.log("start blog page");
@@ -35,24 +39,32 @@ BlogPageUI.prototype.start = function()
     this.blogList.dragMaxBottomFixY = window.innerHeight - 170;
     this.blogList.mAxisYMove = true;
 
+    this.blogListNode = new BaseObject();
+    this.blogListNode.create(this.mCanvas);
+    this.blogListNode.addComponent(this.blogList);
+    this.blogListNode.setPosition(300,0);
+
+    this.backBtn = new UIButton();
+    this.backBtn.createWithColorRect(this.mCanvas,"#aaaaaa","返 回","bold 14px 宋体");
+    this.backBtn.setShadowMargin(5);
+    this.backBtn.colorRect.mAlpha = 0.8;
+    this.backBtn.setSize(100,50);
+    this.backBtn.onClick = function()
+    {
+        temp.state = 0;
+    }
+    this.backBtn.setVisible(false);
+
     this.blogContent = new BlogText();
     this.blogContent.createWithFatherNameAndPosition("fatherDiv", 300, 170, innerWidth - 100, innerHeight - 170, 2);
 
-    this.addBlogButton(10,"aha");
-    this.addBlogButton(11,"aha");
-    this.addBlogButton(12,"aha");
-    this.addBlogButton(13,"aha");
-    this.addBlogButton(14,"aha");
-    this.addBlogButton(15,"aha");
-    this.addBlogButton(16,"aha");
-    this.addBlogButton(17,"aha");
-    this.addBlogButton(18,"aha");
-    this.addBlogButton(19,"aha");
-    this.addBlogButton(20,"aha");
     //this.blogList.addComponent();
 
-    this.baseNode.addComponent(this.blogList);
-    this.baseNode.setPosition(300,20);
+    this.baseNode.addComponent(this.backBtn);
+    this.baseNode.addComponent(this.blogListNode);
+    this.baseNode.setPosition(0,20);
+    var messageHelper = new MessageHelper();
+    messageHelper.Instance.postMessageToServer("/getDocumentListByAuthor","MSG_RQL_GET_DOCUMENT_LIST",'{author="jyk",page="1"}');
 }
 
 BlogPageUI.prototype.end = function()
@@ -63,29 +75,42 @@ BlogPageUI.prototype.end = function()
 BlogPageUI.prototype.update = function()
 {
     this.blogList.updatePanelPosition();
+    if(this.state == 1)
+    {
+        this.blogContent.setVisible(true);
+        this.blogListNode.setVisible(false);
+        this.backBtn.setVisible(true);
+    }else
+    {
+        this.blogContent.setVisible(false);
+        this.blogListNode.setVisible(true);
+        this.backBtn.setVisible(false);
+    }
 }
 
 BlogPageUI.prototype.showBlogText = function (id) {
-    this.blogContent.setText('```javascript\nfunction func(){\n\tvar i = 1;\n}\n```');
-    this.blogContent.setVisible(true);
-    this.blogList.setVisible(false);
+    var messageHelper = new MessageHelper();
+    messageHelper.Instance.postMessageToServer("/getDocument","MSG_RQL_GET_DOCUMENT",'{id="'+id+'"}');
 }
 
 BlogPageUI.prototype.setVisible = function (visible) {
     UIBase.prototype.setVisible.call(this,visible);
     if (visible == false) {
-        this.blogList.setVisible(false);
+        this.blogListNode.setVisible(false);
         this.blogContent.setVisible(false);
+        this.backBtn.setVisible(false);
     }else {
         if(this.state == 1)
         {
-            this.blogList.setVisible(false);
+            this.blogListNode.setVisible(false);
             this.blogContent.setVisible(true);
+            this.backBtn.setVisible(true);
         }
         else
         {
-            this.blogList.setVisible(true);
+            this.blogListNode.setVisible(true);
             this.blogContent.setVisible(false);
+            this.backBtn.setVisible(false);
         }
     }
 }
@@ -93,7 +118,7 @@ BlogPageUI.prototype.setVisible = function (visible) {
 BlogPageUI.prototype.addBlogButton = function(id,text)
 {
     var blogButton = new UIButton();
-    blogButton.createWithColorRect(this.mCanvas,"#dddddd",text,"bold 14px 宋体");
+    blogButton.createWithColorRect(this.mCanvas,"#dddddd",text,"bold 24px 宋体");
     blogButton.setShadowMargin(10);
     blogButton.label.mColor = "#333333";
     blogButton.setSize(1000,200);
@@ -102,7 +127,7 @@ BlogPageUI.prototype.addBlogButton = function(id,text)
     {
         console.log("click blog id:",id);
         temp.state = 1;
-        temp.showBlogText(id);
+        temp.showBlogText(id)
     }
     this.blogList.addComponent(blogButton);
     this.blogList.resetPosition();

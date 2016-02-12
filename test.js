@@ -47,7 +47,7 @@
 //markDownText.setText("```javascript\nfunction a(){\n\tvar i = 0;\n}\n```");
 //markDownText.setVisible(true);
 
-var uiManager = new UIManager();
+var uiManager = UIManager.prototype.getInstance();
 uiManager.create();
 
 function onResize()

@@ -7,6 +7,15 @@ function UIManager()
     this.interval = null;
 }
 
+UIManager.prototype.Instance = null;
+
+UIManager.prototype.getInstance = function()
+{
+    if ( UIManager.prototype.Instance == null )
+        UIManager.prototype.Instance = new UIManager();
+    return UIManager.prototype.Instance;
+}
+
 UIManager.prototype.create = function()
 {
     this.UIList = new List(null);

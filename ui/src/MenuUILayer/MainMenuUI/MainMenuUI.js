@@ -17,17 +17,6 @@ MainMenuUI.prototype.onResize = function()
 {
     this.mCanvas.setPosition(0,0,window.innerWidth,window.innerHeight,0);
     this.pageCanvas.setPosition(0,150,window.innerWidth-100,window.innerHeight - 150,1);
-    //
-    //if(this.buttonPanel == null || this.buttonPanel == undefined) return;
-    //
-    //this.buttonPanel.mComponents.Ergodic(null,function(_null,now){
-    //    now.setSize(window.innerWidth * 0.05,window.innerHeight * 0.06);
-    //});
-    //
-    ////this.buttonPanel.setSize(window.innerWidth * 100,window.innerHeight * 100);
-    //this.buttonPanel.setPosition(window.innerWidth * 0.05,window.innerHeight * 0.09);
-    //this.buttonPanel.offsetX = window.innerWidth * 0.05;
-    //this.buttonPanel.resetPosition();
 }
 
 MainMenuUI.prototype.start = function()

@@ -17,7 +17,7 @@ MessageHelper.prototype.postMessageToServer = function (url, name, value,usernam
         dataType: 'json',
         url: url,
         type: "POST",
-        data: value,
+        data: JSON.stringify(value),
         beforeSend:function(XML){
             if(username != undefined) {
                 XML.setRequestHeader('username', username);
@@ -148,18 +148,23 @@ MessageHelper.prototype.msg_rlt_mark_list = function (data) {
 MessageHelper.prototype.msg_rlt_add_document = function (data) {
 }
 MessageHelper.prototype.msg_rlt_get_document = function (data) {
-    var uiManager = UIManager.prototype.getInstance();
-    var blogUI = uiManager.getUIByName("BlogPageUI");
-    console.log(data);
-    if( blogUI.blogContent != null )
-        blogUI.blogContent.setText( data.body );
+    if(data.return == 200) {
+        data = data.data;
+        var uiManager = UIManager.prototype.getInstance();
+        var blogUI = uiManager.getUIByName("BlogPageUI");
+        if (blogUI.blogContent != null)
+            blogUI.blogContent.setText(decodeURIComponent(data.body));
+    }
 }
 MessageHelper.prototype.msg_rlt_get_document_list = function (data) {
-    var uiManager = UIManager.prototype.getInstance();
-    var blogUI = uiManager.getUIByName("BlogPageUI");
-    console.log(data);
-    for(var i = 0 ; i<data.length;i++)
-        blogUI.addBlogButton(data[i].id,data[i].preview);
+    if(data.return == 200) {
+        data = data.data;
+        var uiManager = UIManager.prototype.getInstance();
+        var blogUI = uiManager.getUIByName("BlogPageUI");
+        console.log(data);
+        for (var i = 0; i < data.length; i++)
+            blogUI.addBlogButton(data[i].id, decodeURIComponent( data[i].preview ));
+    }
 }
 MessageHelper.prototype.msg_rlt_get_document_list_by_type = function (data) {
 }

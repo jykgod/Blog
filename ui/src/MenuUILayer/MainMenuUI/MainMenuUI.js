@@ -149,8 +149,9 @@ MainMenuUI.prototype.start = function()
     this.buttonPanel.addComponent(homePageButton);
     this.buttonPanel.resetPosition();
     //this.onResize();
-    //var messageHelper = new MessageHelper();
+    var messageHelper = new MessageHelper();
     //messageHelper.postMessageToServer("http://127.0.0.1:10200/register","MSG_RQL_REGISTER",'{"username":"jyk4","password":"123"}');
+    messageHelper.postMessageToServer("http://127.0.0.1:10200/addDocument","MSG_RQL_ADD_DOCUMENT",{title:encodeURIComponent("测试"),body:encodeURIComponent("正文"),preview:53},"jyk","123");
     this.baseNode.addComponent(this.buttonPanel);
 
     var loginUI = new LoginUI(this.manager, temp.pageCanvas);

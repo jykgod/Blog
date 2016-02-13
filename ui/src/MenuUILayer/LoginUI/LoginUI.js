@@ -57,7 +57,7 @@ function LoginUI(manager,canvas)
                     console.log( "username:" + temp.usernameInput.value() );
                     console.log( "password:" + temp.passwordInput.value() );
                     var messageHelper = new MessageHelper();
-                    messageHelper.Instance.postMessageToServer("/login","MSG_RQL_LOGIN",'',temp.usernameInput.value(),temp.passwordInput.value());
+                    messageHelper.Instance.postMessageToServer("/login","MSG_RQL_LOGIN",{},temp.usernameInput.value(),temp.passwordInput.value());
                 }
             }
 
@@ -69,7 +69,7 @@ function LoginUI(manager,canvas)
                     console.log( "username:" + temp.usernameInput.value() );
                     console.log( "password:" + temp.passwordInput.value() );
                     var messageHelper = new MessageHelper();
-                    messageHelper.Instance.postMessageToServer("/register","MSG_RQL_REGISTER",'{username="'+temp.usernameInput.value()+'",password="'+temp.passwordInput.value()+'"}');
+                    messageHelper.Instance.postMessageToServer("/register","MSG_RQL_REGISTER",{ username : temp.usernameInput.value(),password : temp.passwordInput.value()});
                 }
             }
 

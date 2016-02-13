@@ -54,7 +54,8 @@ HtmlFormatLabel.prototype.setSize = function (w,h) {
 
 HtmlFormatLabel.prototype.draw = function () {
     var fatherPosition = this.getFatherPosition();
-    this.mCanvas.mContext.drawImage(this.img, this.x + fatherPosition.x, this.y + fatherPosition.y, this.w, this.h);
+    if(this.img != null)
+        this.mCanvas.mContext.drawImage(this.img, this.x + fatherPosition.x, this.y + fatherPosition.y, this.w, this.h);
 }
 
 HtmlFormatLabel.prototype.drawShadow = function () {

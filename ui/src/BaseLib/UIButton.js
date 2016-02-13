@@ -10,6 +10,13 @@ function UIButton()
     this.refDeltaTime = 200;
     this.lastHitTime = new Date();
     this.mShadowMargin = 0;
+    /**
+     * 0 : normal
+     * 1 : html
+     * 2 : markDown
+     * @type {number}
+     */
+    this.mLabelType = 0;
 }
 
 for(var i in BaseObject.prototype)
@@ -26,20 +33,44 @@ UIButton.prototype.setSize = function(w,h)
         this.texture.setSize(w,h);
     if(this.collider != null)
         this.collider.setSize(w,h);
-    if(this.label != null)
-        this.label.setPosition(this.w / 2,this.h / 2);
+    if(this.label != null) {
+        this.label.setSize(this.w,this.h);
+        if (this.mLabelType == 0)
+            this.label.setPosition(this.w / 2, this.h / 2);
+    }
 }
 
-UIButton.prototype.createWithColorRect = function(canvas ,color , text , font)
+UIButton.prototype.createWithColorRect = function(canvas ,color , text , font , labelType)
 {
     BaseObject.prototype.create.call(this,canvas);
     this.colorRect = new ColorRect();
     this.colorRect.create(canvas,color);
     this.colorRect.setLevel(0);
 
-    this.label = new Label();
-    this.label.create(canvas,text,font);
-    this.label.setLevel(1);
+    if(labelType != undefined && labelType != null)
+    {
+        this.mLabelType = labelType;
+    }
+    if(this.mLabelType == 0) {
+        this.label = new Label();
+        this.label.create(canvas, text, font);
+        this.label.setLevel(1);
+    }
+    else if(this.mLabelType == 1)
+    {
+        this.label = new HtmlFormatLabel();
+        this.label.create(canvas, text);
+        this.label.setSize(this.w,this.h);
+        this.label.setLevel(1);
+    }
+    else if(this.mLabelType == 2)
+    {
+        //console.log(text);
+        this.label = new MarkDownFormatLabel();
+        this.label.create(canvas, text);
+        this.label.setSize(this.w,this.h);
+        this.label.setLevel(1);
+    }
 
     this.collider = new Collider();
     this.collider.create(this,0);
@@ -62,9 +93,29 @@ UIButton.prototype.createWithTexture = function(canvas ,src ,clipRect , text,fon
     this.texture.create(canvas,src,clipRect);
     this.texture.setLevel(0);
 
-    this.label = new Label();
-    this.label.create(canvas,text,font);
-    this.label.setLevel(1);
+    if(labelType != undefined && labelType != null)
+    {
+        this.mLabelType = labelType;
+    }
+    if(this.mLabelType == 0) {
+        this.label = new Label();
+        this.label.create(canvas, text, font);
+        this.label.setLevel(1);
+    }
+    else if(this.mLabelType == 1)
+    {
+        this.label = new HtmlFormatLabel();
+        this.label.create(canvas, text);
+        this.label.setSize(this.w,this.h);
+        this.label.setLevel(1);
+    }
+    else if(this.mLabelType == 2)
+    {
+        this.label = new MarkDownFormatLabel();
+        this.label.create(canvas, text);
+        this.label.setSize(this.w,this.h);
+        this.label.setLevel(1);
+    }
 
     this.collider = new Collider();
     this.collider.create(this,0);

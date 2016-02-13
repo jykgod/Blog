@@ -37,10 +37,7 @@
 //htmlLabel.create(canvas, "<h1>haha</h1><h2>hehe</h2>>");
 //htmlLabel.setLevel(99);
 
-//var markDownLabel = new MarkDownFormatLabel();
-//markDownLabel.setSize(1000, 100);
-//markDownLabel.create(canvas, '# haha');
-//markDownLabel.setLevel(99);
+
 //
 //var markDownText = new BlogText();
 //markDownText.createWithFatherNameAndPosition('fatherDiv',200,0,1000,1000,10);
@@ -57,6 +54,10 @@ function onResize()
 
 var bgCanvas = new Canvas();
 bgCanvas.createWithFatherNameAndPosition("fatherDiv",0,0,window.innerWidth,window.innerHeight,-100);
+//var markDownLabel = new MarkDownFormatLabel();
+//markDownLabel.create(bgCanvas, '# haha');
+//markDownLabel.setSize(1000, 100);
+//markDownLabel.setLevel(99);
 var backGroundUI = new BackGroundUI(uiManager,bgCanvas);
 var mainCanvas = new Canvas();
 mainCanvas.createWithFatherNameAndPosition("fatherDiv",0,0,window.innerWidth,window.innerHeight,0);

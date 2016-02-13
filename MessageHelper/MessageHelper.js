@@ -161,9 +161,10 @@ MessageHelper.prototype.msg_rlt_get_document_list = function (data) {
         data = data.data;
         var uiManager = UIManager.prototype.getInstance();
         var blogUI = uiManager.getUIByName("BlogPageUI");
-        console.log(data);
-        for (var i = 0; i < data.length; i++)
-            blogUI.addBlogButton(data[i].id, decodeURIComponent( data[i].preview ));
+        for (var i = 0; i < data.length; i++) {
+            console.log(data[i].preview);
+            blogUI.addBlogButton(data[i].id, decodeURIComponent(data[i].preview));
+        }
     }
 }
 MessageHelper.prototype.msg_rlt_get_document_list_by_type = function (data) {

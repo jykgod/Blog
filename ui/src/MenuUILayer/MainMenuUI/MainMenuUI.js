@@ -16,7 +16,7 @@ for(var i in UIBase.prototype) {
 MainMenuUI.prototype.onResize = function()
 {
     this.mCanvas.setPosition(0,0,window.innerWidth,window.innerHeight,0);
-    this.pageCanvas.setPosition(0,150,window.innerWidth-100,window.innerHeight - 150,1);
+    this.pageCanvas.setPosition(0,150,window.innerWidth,window.innerHeight - 150,1);
 }
 
 MainMenuUI.prototype.start = function()
@@ -151,7 +151,7 @@ MainMenuUI.prototype.start = function()
     //this.onResize();
     var messageHelper = new MessageHelper();
     //messageHelper.postMessageToServer("http://127.0.0.1:10200/register","MSG_RQL_REGISTER",'{"username":"jyk4","password":"123"}');
-    messageHelper.postMessageToServer("http://127.0.0.1:10200/addDocument","MSG_RQL_ADD_DOCUMENT",{title:encodeURIComponent("测试"),body:encodeURIComponent("正文"),preview:53},"jyk","123");
+    //messageHelper.postMessageToServer("http://127.0.0.1:10200/addDocument","MSG_RQL_ADD_DOCUMENT",{title:encodeURIComponent("测试"),body:encodeURIComponent('```javascript\nfunction haha(){\n\tvar a = 100;\n}\n```'),preview:100},"jyk","123");
     this.baseNode.addComponent(this.buttonPanel);
 
     var loginUI = new LoginUI(this.manager, temp.pageCanvas);

@@ -151,7 +151,7 @@ MainMenuUI.prototype.start = function()
     //this.onResize();
     var messageHelper = new MessageHelper();
     //messageHelper.postMessageToServer("http://127.0.0.1:10200/register","MSG_RQL_REGISTER",'{"username":"jyk4","password":"123"}');
-    //messageHelper.postMessageToServer("http://127.0.0.1:10200/addDocument","MSG_RQL_ADD_DOCUMENT",{title:encodeURIComponent("测试"),body:encodeURIComponent('```javascript\nfunction haha(){\n\tvar a = 100;\n}\n```'),preview:100},"jyk","123");
+    //messageHelper.postMessageToServer("http://127.0.0.1:10200/addDocument","MSG_RQL_ADD_DOCUMENT",{title:encodeURIComponent("测试"),body:encodeURIComponent('# kill me baby\n```c\n#include<stdio.h> \nint main()\n\t{\n\t\tprintf("hello world!");\n\t}\n```'),preview:200},"jyk","123");
     this.baseNode.addComponent(this.buttonPanel);
 
     var loginUI = new LoginUI(this.manager, temp.pageCanvas);

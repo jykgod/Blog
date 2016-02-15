@@ -85,6 +85,7 @@ BlogPageUI.prototype.end = function()
 
 BlogPageUI.prototype.update = function()
 {
+    if(this.baseNode.mVisible == false) return;
     this.blogList.updatePanelPosition();
     if(this.state == 1)
     {

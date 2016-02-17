@@ -34,12 +34,31 @@
 <script type="text/javascript" defer="defer" src="ui/src/MenuUILayer/TexturePageUI/TexturePageUI.js"></script>
 <script type="text/javascript" defer="defer" src="ui/src/MenuUILayer/LoginUI/LoginUI.js"></script>
 
+<script type="text/javascript" defer="defer" src="ui/src/DuoShuoUILayer/DuoShuoUI.js"></script>
+
 <script type="text/javascript" defer="defer" src="Logic/LogicHelper.js"></script>
 <script type="text/javascript" defer="defer" src="Logic/UserObject.js"></script>
 <script type="text/javascript" defer="defer" src="MessageHelper/MessageHelper.js"></script>
 
 <script type="text/javascript" defer="defer" src="test.js"></script>
 <body style="overflow:hidden" onresize="javascript:onResize();">
-<div id="fatherDiv" />
+<div id="fatherDiv" ></div>
+<!--&lt;!&ndash; 多说评论框 start &ndash;&gt;-->
+<div id="dsDiv" class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址" ></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"jykblog"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!--&lt;!&ndash; 多说公共JS代码 end &ndash;&gt;-->
+
 </body>
 

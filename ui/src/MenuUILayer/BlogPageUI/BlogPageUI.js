@@ -104,6 +104,7 @@ BlogPageUI.prototype.update = function()
 
 BlogPageUI.prototype.showBlogText = function (id) {
     var messageHelper = new MessageHelper();
+    this.blogContent.id = id;
     messageHelper.Instance.postMessageToServer("/getDocument","MSG_RQL_GET_DOCUMENT",{id:id});
 }
 

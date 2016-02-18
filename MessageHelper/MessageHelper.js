@@ -150,6 +150,8 @@ MessageHelper.prototype.msg_rlt_add_document = function (data) {
 MessageHelper.prototype.msg_rlt_get_document = function (data) {
     if(data.return == 200) {
         data = data.data;
+        var ds = DuoShuoUI.prototype.getInstance();
+        ds.div.dataTitle = data.title;
         var uiManager = UIManager.prototype.getInstance();
         var blogUI = uiManager.getUIByName("BlogPageUI");
         if (blogUI.blogContent != null)

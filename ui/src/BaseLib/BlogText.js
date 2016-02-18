@@ -6,6 +6,7 @@ function BlogText()
     this.mRect = new Rect(0,0,1,1);
     this.zIndex = 0;
     this.frame = null;
+    this.id = "";
 }
 
 BlogText.prototype.setLevel = function(zIndex)
@@ -58,8 +59,14 @@ BlogText.prototype.setText = function(text)
 
 BlogText.prototype.setVisible = function(visible)
 {
-    if(visible == false)
+    if(visible == false) {
         this.frame.style.display = "none";
-    else
+        var ds = DuoShuoUI.prototype.getInstance();
+        ds.div.dataThreadKey = this.id;
+        this.frame.appendChild( DuoShuoUI.prototype.getInstance() );
+    }
+    else {
+        ds.div.dataThreadKey = "0";
         this.frame.style.display = "block";
+    }
 }

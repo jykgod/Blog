@@ -63,7 +63,7 @@ BlogText.prototype.setVisible = function(visible)
         this.frame.style.display = "none";
         var ds = DuoShuoUI.prototype.getInstance();
         ds.div.dataThreadKey = this.id;
-        this.frame.appendChild( DuoShuoUI.prototype.getInstance() );
+        this.frame.appendChild( ds.div );
     }
     else {
         ds.div.dataThreadKey = "0";

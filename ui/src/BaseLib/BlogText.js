@@ -59,9 +59,9 @@ BlogText.prototype.setText = function(text)
 
 BlogText.prototype.setVisible = function(visible)
 {
+    var ds = DuoShuoUI.prototype.getInstance();
     if(visible == false) {
         this.frame.style.display = "none";
-        var ds = DuoShuoUI.prototype.getInstance();
         ds.div.dataThreadKey = this.id;
         this.frame.appendChild( ds.div );
     }

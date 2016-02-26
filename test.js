@@ -54,15 +54,9 @@ function onResize()
 
 var bgCanvas = new Canvas();
 bgCanvas.createWithFatherNameAndPosition("fatherDiv",0,0,window.innerWidth,window.innerHeight,-100);
-//var markDownLabel = new MarkDownFormatLabel();
-//markDownLabel.create(bgCanvas, '# haha');
-//markDownLabel.setSize(1000, 100);
-//markDownLabel.setLevel(99);
 var backGroundUI = new BackGroundUI(uiManager,bgCanvas);
 var mainCanvas = new Canvas();
 mainCanvas.createWithFatherNameAndPosition("fatherDiv",0,0,window.innerWidth,window.innerHeight,0);
 mainCanvas.setUpdateDeltaTime(60);
 var mainMenu = new MainMenuUI(uiManager,mainCanvas);
 var div = document.getElementById("fatherDiv");
-var ds = DuoShuoUI.prototype.getInstance();
-ds.setSize(1000,ds.div.style.height);

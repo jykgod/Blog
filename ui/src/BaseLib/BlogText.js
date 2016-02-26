@@ -52,6 +52,20 @@ BlogText.prototype.setText = function(text)
     data +='<script src="ui/src/BaseLib/highlight/highlight.pack.js"></script>';
     data +='<script>hljs.initHighlightingOnLoad();</script></head>';
     data += marked(text) ;
+    <!--&lt;!&ndash; 多说评论框 start &ndash;&gt;-->
+    data += '<div id="dsDiv" class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址" ></div>';
+    data += '<script type="text/javascript">'
+    data += 'var duoshuoQuery = {short_name:"jykblog"};'
+    data += '(function() {'
+    data += 'var ds = document.createElement("script");'
+    data += 'ds.type = "text/javascript";ds.async = true;'
+    data += 'ds.src = (document.location.protocol == "https:" ? "https:" : "http:") + "//static.duoshuo.com/embed.js";'
+    data += 'ds.charset = "UTF-8";'
+    data += '(document.getElementsByTagName("head")[0]';
+    data += '|| document.getElementsByTagName("body")[0]).appendChild(ds);'
+    data += '})();'
+    data += '</script>'
+
     var theDoc =  this.frame.contentWindow;
     theDoc.document.write(data);
     theDoc.document.close();
@@ -59,14 +73,10 @@ BlogText.prototype.setText = function(text)
 
 BlogText.prototype.setVisible = function(visible)
 {
-    var ds = DuoShuoUI.prototype.getInstance();
     if (visible == true) {
         this.frame.style.display = "block";
-        ds.div.dataThreadKey = this.id;
-        this.frame.appendChild( ds.div );
     }
     else {
-        ds.div.dataThreadKey = "0";
         this.frame.style.display = "none";
     }
 }

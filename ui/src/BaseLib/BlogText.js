@@ -7,6 +7,7 @@ function BlogText()
     this.zIndex = 0;
     this.frame = null;
     this.id = "";
+    this.firstInited = false;
 }
 
 BlogText.prototype.setLevel = function(zIndex)
@@ -53,19 +54,29 @@ BlogText.prototype.setText = function(text)
     data +='<script>hljs.initHighlightingOnLoad();</script></head>';
     data += marked(text) ;
     <!--&lt;!&ndash; 多说评论框 start &ndash;&gt;-->
-    data += '<div id="dsDiv" class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址" ></div>';
-    data += '<script type="text/javascript">'
-    data += 'var duoshuoQuery = {short_name:"jykblog"};'
-    data += '(function() {'
-    data += 'var ds = document.createElement("script");'
-    data += 'ds.type = "text/javascript";ds.async = true;'
-    data += 'ds.src = (document.location.protocol == "https:" ? "https:" : "http:") + "//static.duoshuo.com/embed.js";'
-    data += 'ds.charset = "UTF-8";'
-    data += '(document.getElementsByTagName("head")[0]';
-    data += '|| document.getElementsByTagName("body")[0]).appendChild(ds);'
-    data += '})();'
-    data += '</script>'
-
+    if (this.firstInited == false) {
+        data += '<div id="dsDiv" class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址" ></div>';
+        data += '<script type="text/javascript">'
+        data += 'var duoshuoQuery = {short_name:"jykblog"};'
+        data += '(function() {'
+        data += 'var ds = document.createElement("script");'
+        data += 'ds.type = "text/javascript";ds.async = true;'
+        data += 'ds.src = (document.location.protocol == "https:" ? "https:" : "http:") + "//static.duoshuo.com/embed.js";'
+        data += 'ds.charset = "UTF-8";'
+        data += '(document.getElementsByTagName("head")[0]';
+        data += '|| document.getElementsByTagName("body")[0]).appendChild(ds);'
+        data += '})();'
+        data += '</script>'
+        this.firstInited = true;
+    }
+    var fatherNode = document.getElementById('fatherDiv');
+    if (this.frame != null) {
+        fatherNode.removeChild(this.frame);
+    }
+    this.frame = document.createElement('iframe');
+    fatherNode.appendChild(this.frame);
+    this.setLevel(this.zIndex);
+    this.setRect(this.mRect.x, this.mRect.y, this.mRect.w, this.mRect.h);
     var theDoc =  this.frame.contentWindow;
     theDoc.document.write(data);
     theDoc.document.close();

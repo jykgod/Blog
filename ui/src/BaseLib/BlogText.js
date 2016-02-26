@@ -52,6 +52,7 @@ BlogText.prototype.setText = function(text)
     data +='<script src="ui/src/BaseLib/highlight/highlight.pack.js"></script>';
     data +='<script>hljs.initHighlightingOnLoad();</script></head>';
     data += marked(text) ;
+    alert(text);
     <!--&lt;!&ndash; 多说评论框 start &ndash;&gt;-->
     data += '<div id="dsDiv" class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址" ></div>';
     data += '<script type="text/javascript">'

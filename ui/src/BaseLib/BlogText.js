@@ -91,12 +91,14 @@ BlogText.prototype.setVisible = function(visible)
     }
     else {
         //this.frame.style.display = "none";
-        var fatherNode = document.getElementById(this.fatherName);
+        alert(this.frame);
         if (this.frame != null) {
+            var fatherNode = document.getElementById(this.fatherName);
             var theDoc = this.frame.contentWindow;
             theDoc.document.write("");
             theDoc.document.close();
             fatherNode.removeChild(this.frame);
+            this.frame = null;
             //传说IE会导致内存泄露
             if (navigator.userAgent.indexOf("MSIE") > 0) {
                 CollectGarbage();

@@ -8,6 +8,7 @@ function BlogText()
     this.frame = null;
     this.id = "";
     this.firstInited = false;
+    this.fatherName = "";
 }
 
 BlogText.prototype.setLevel = function(zIndex)
@@ -31,9 +32,7 @@ BlogText.prototype.setRect = function(x,y,w,h)
 
 BlogText.prototype.createWithFatherName = function(fatherName)
 {
-    var fatherNode = document.getElementById( fatherName );
-    this.frame = document.createElement('iframe');
-    fatherNode.appendChild(this.frame);
+    this.fatherName = fatherName;
     this.setLevel(0);
     this.setRect(0,0,1,1);
 }
@@ -67,12 +66,15 @@ BlogText.prototype.setText = function(text)
         data += '|| document.getElementsByTagName("body")[0]).appendChild(ds);'
         data += '})();'
         data += '</script>'
-        //this.firstInited = true;
     }
-    var fatherNode = document.getElementById('fatherDiv');
-    if (this.frame != null) {
-        fatherNode.removeChild(this.frame);
-    }
+    var fatherNode = document.getElementById(this.fatherName);
+    //if (this.frame != null) {
+    //    fatherNode.removeChild(this.frame);
+    //    if(navigator.userAgent.indexOf("MSIE") > 0)
+    //    {
+    //        CollectGarbage();
+    //    }
+    //}
     this.frame = document.createElement('iframe');
     fatherNode.appendChild(this.frame);
     this.setLevel(this.zIndex);
@@ -85,9 +87,20 @@ BlogText.prototype.setText = function(text)
 BlogText.prototype.setVisible = function(visible)
 {
     if (visible == true) {
-        this.frame.style.display = "block";
+        //this.frame.style.display = "block";
     }
     else {
-        this.frame.style.display = "none";
+        //this.frame.style.display = "none";
+        var fatherNode = document.getElementById(this.fatherName);
+        if (this.frame != null) {
+            var theDoc = this.frame.contentWindow;
+            theDoc.document.write("");
+            theDoc.document.close();
+            fatherNode.removeChild(this.frame);
+            //传说IE会导致内存泄露
+            if (navigator.userAgent.indexOf("MSIE") > 0) {
+                CollectGarbage();
+            }
+        }
     }
 }

@@ -22,7 +22,6 @@ function BlogText()
         this.frame.style.height = this.mRect.h;
         this.frame.style.position = "absolute";
         this.frame.style.border = "0";
-        this.frame.style.display = "none";
         this.frame.style.zIndex = this.zIndex;
     }
 }

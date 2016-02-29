@@ -29,82 +29,82 @@ MessageHelper.prototype.postMessageToServer = function (url, name, value,usernam
         },
         success: function (data) {
             switch (name) {
-                case "MSG_RQL_LOGIN":
+                case MG_TYPE.MSG_RQL_LOGIN:
                     temp.msg_rlt_login(data,username,password);
                     break;
-                case "MSG_RQL_REGISTER":
+                case MG_TYPE.MSG_RQL_REGISTER:
                     temp.msg_rlt_register(data);
                     break;
-                case "MSG_RQL_SET_MOTTO":
+                case MG_TYPE.MSG_RQL_SET_MOTTO:
                     temp.msg_rlt_set_motto(data);
                     break;
-                case "MSG_RQL_GET_MOTTO":
+                case MG_TYPE.MSG_RQL_GET_MOTTO:
                     temp.msg_rlt_get_motto(data);
                     break;
-                case "MSG_RQL_MARK":
+                case MG_TYPE.MSG_RQL_MARK:
                     temp.msg_rlt_mark(data);
                     break;
-                case "MSG_RQL_CANCEL_MARK":
+                case MG_TYPE.MSG_RQL_CANCEL_MARK:
                     temp.msg_rlt_cancel_mark(data);
                     break;
-                case "MSG_RQL_MARKED":
+                case MG_TYPE.MSG_RQL_MARKED:
                     temp.msg_rlt_marked(data);
                     break;
-                case "MSG_RQL_MARK_LIST":
+                case MG_TYPE.MSG_RQL_MARK_LIST:
                     temp.msg_rlt_mark_list(data);
                     break;
-                case "MSG_RQL_ADD_DOCUMENT":
+                case MG_TYPE.MSG_RQL_ADD_DOCUMENT:
                     temp.msg_rlt_add_document(data);
                     break;
-                case "MSG_RQL_GET_DOCUMENT":
+                case MG_TYPE.MSG_RQL_GET_DOCUMENT:
                     temp.msg_rlt_get_document(data);
                     break;
-                case "MSG_RQL_GET_DOCUMENT_LIST":
+                case MG_TYPE.MSG_RQL_GET_DOCUMENT_LIST:
                     temp.msg_rlt_get_document_list(data);
                     break;
-                case "MSG_RQL_GET_DOCUMENT_LIST_BY_TYPE":
+                case MG_TYPE.MSG_RQL_GET_DOCUMENT_LIST_BY_TYPE:
                     temp.msg_rlt_get_document_list_by_type(data);
                     break;
-                case "MSG_RQL_GET_DOCUMENT_LIST_SIZE":
+                case MG_TYPE.MSG_RQL_GET_DOCUMENT_LIST_SIZE:
                     temp.msg_rlt_get_document_list_size(data);
                     break;
-                case "MSG_RQL_GET_DOCUMENT_LIST_BY_TYPE_SIZE":
+                case MG_TYPE.MSG_RQL_GET_DOCUMENT_LIST_BY_TYPE_SIZE:
                     temp.msg_rlt_get_document_list_by_type_size(data);
                     break;
-                case "MSG_RQL_ADD_DOCUMENT_READER":
+                case MG_TYPE.MSG_RQL_ADD_DOCUMENT_READER:
                     temp.msg_rlt_add_document_reader(data);
                     break;
-                case "MSG_RQL_REPLAY_ONE_DOCUMENT":
+                case MG_TYPE.MSG_RQL_REPLAY_ONE_DOCUMENT:
                     temp.msg_rlt_replay_one_document(data);
                     break;
-                case "MSG_RQL_GET_MESSAGE_LIST":
+                case MG_TYPE.MSG_RQL_GET_MESSAGE_LIST:
                     temp.msg_rlt_get_message_list(data);
                     break;
-                case "MSG_RQL_GET_MESSAGE":
+                case MG_TYPE.MSG_RQL_GET_MESSAGE:
                     temp.msg_rlt_get_message(data);
                     break;
-                case "MSG_RQL_MARK_MESSAGE_AS_READ":
+                case MG_TYPE.MSG_RQL_MARK_MESSAGE_AS_READ:
                     temp.msg_rlt_mark_message_as_read(data);
                     break;
-                case "MSG_RQL_SEND_MESSAGE":
+                case MG_TYPE.MSG_RQL_SEND_MESSAGE:
                     temp.msg_rlt_send_message(data);
                     break;
-                case "MSG_RQL_READ_ALL_MESSAGE":
+                case MG_TYPE.MSG_RQL_READ_ALL_MESSAGE:
                     temp.msg_rlt_read_all_message(data);
                     break;
-                case "MSG_RQL_REMOVE_MESSAGE":
+                case MG_TYPE.MSG_RQL_REMOVE_MESSAGE:
                     temp.msg_rlt_remove_message(data);
                     break;
-                case "MSG_RQL_REMOVE_ALL_MESSAGE":
+                case MG_TYPE.MSG_RQL_REMOVE_ALL_MESSAGE:
                     temp.msg_rlt_remove_all_message(data);
                     break;
-                case "MSG_RQL_CHECK_UPLOAD_IMAGE_ACCESS":
+                case MG_TYPE.MSG_RQL_CHECK_UPLOAD_IMAGE_ACCESS:
                     temp.msg_rlt_check_upload_image_access(data);
                     break;
-                case "MSG_RQL_UPLOAD_IMAGE":
+                case MG_TYPE.MSG_RQL_UPLOAD_IMAGE:
                     temp.msg_rlt_upload_image(data);
                     break;
-                case "MSG_RQL_GET_IMAGE":
+                case MG_TYPE.MSG_RQL_GET_IMAGE:
                     temp.msg_rlt_get_image(data);
                     break;
             }

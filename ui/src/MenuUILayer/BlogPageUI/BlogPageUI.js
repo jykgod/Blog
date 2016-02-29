@@ -75,7 +75,10 @@ BlogPageUI.prototype.start = function()
     this.baseNode.addComponent(this.blogListNode);
     this.baseNode.setPosition(0,20);
     var messageHelper = new MessageHelper();
-    messageHelper.Instance.postMessageToServer("/getDocumentListByAuthor","MSG_RQL_GET_DOCUMENT_LIST",{author:"jyk",page:"1"});
+    messageHelper.Instance.postMessageToServer("/getDocumentListByAuthor", MG_TYPE.MSG_RQL_GET_DOCUMENT_LIST, {
+        author: "jyk",
+        page: "1"
+    });
 }
 
 BlogPageUI.prototype.end = function()
@@ -105,7 +108,7 @@ BlogPageUI.prototype.update = function()
 BlogPageUI.prototype.showBlogText = function (id) {
     var messageHelper = new MessageHelper();
     this.blogContent.id = id;
-    messageHelper.Instance.postMessageToServer("/getDocument","MSG_RQL_GET_DOCUMENT",{id:id});
+    messageHelper.Instance.postMessageToServer("/getDocument", MG_TYPE.MSG_RQL_GET_DOCUMENT, {id: id});
 }
 
 BlogPageUI.prototype.setVisible = function (visible) {

@@ -30,7 +30,7 @@ MusicPlayerUI.prototype.Start = function () {
 
     this.MusicList = new List(null);
     var messageHelper = new MessageHelper();
-    messageHelper.postMessageToServer("/getDocumentListByAuthor", "MSG_RQL_GET_DOCUMENT_LIST", {
+    messageHelper.postMessageToServer("/getDocumentListByAuthor", MG_TYPE.MSG_RQL_GET_DOCUMENT_LIST, {
         author: encodeURIComponent("jykMusic"),
         page: "1"
     });

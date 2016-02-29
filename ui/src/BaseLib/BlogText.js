@@ -9,39 +9,32 @@ function BlogText()
     this.id = "";
     this.firstInited = false;
     this.fatherName = "";
-}
-
-BlogText.prototype.setLevel = function(zIndex)
-{
-    this.zIndex = zIndex;
-    this.frame.style.zIndex = zIndex;
-}
-
-
-BlogText.prototype.setRect = function(x,y,w,h)
-{
-    this.mRect = new Rect(x,y,w,h);
-    this.frame.style.left = x;
-    this.frame.style.top = y;
-    this.frame.style.width = w;
-    this.frame.style.height = h;
-    this.frame.style.position = "absolute";
-    this.frame.style.border = "0";
-    this.frame.style.display = "none";
+    this.setLevel = function (zIndex) {
+        this.zIndex = zIndex;
+    }
+    this.setRect = function (x, y, w, h) {
+        this.mRect = new Rect(x, y, w, h);
+    }
+    this.reFreshFramePosition = function () {
+        this.frame.style.left = this.mRect.x;
+        this.frame.style.top = this.mRect.y;
+        this.frame.style.width = this.mRect.w;
+        this.frame.style.height = this.mRect.h;
+        this.frame.style.position = "absolute";
+        this.frame.style.border = "0";
+        this.frame.style.display = "none";
+        this.frame.style.zIndex = this.zIndex;
+    }
 }
 
 BlogText.prototype.createWithFatherName = function(fatherName)
 {
     this.fatherName = fatherName;
-    this.setLevel(0);
-    this.setRect(0,0,1,1);
 }
 
 BlogText.prototype.createWithFatherNameAndPosition = function(fatherName,x,y,w,h,zIndex)
 {
-    var fatherNode = document.getElementById( fatherName );
-    this.frame = document.createElement('iframe');
-    fatherNode.appendChild(this.frame);
+    this.fatherName = fatherName;
     this.setLevel(zIndex);
     this.setRect(x,y,w,h);
 }
@@ -68,17 +61,9 @@ BlogText.prototype.setText = function(text)
         data += '</script>'
     }
     var fatherNode = document.getElementById(this.fatherName);
-    //if (this.frame != null) {
-    //    fatherNode.removeChild(this.frame);
-    //    if(navigator.userAgent.indexOf("MSIE") > 0)
-    //    {
-    //        CollectGarbage();
-    //    }
-    //}
     this.frame = document.createElement('iframe');
     fatherNode.appendChild(this.frame);
-    this.setLevel(this.zIndex);
-    this.setRect(this.mRect.x, this.mRect.y, this.mRect.w, this.mRect.h);
+    this.reFreshFramePosition();
     var theDoc =  this.frame.contentWindow;
     theDoc.document.write(data);
     theDoc.document.close();
@@ -91,7 +76,6 @@ BlogText.prototype.setVisible = function(visible)
     }
     else {
         //this.frame.style.display = "none";
-        alert(this.frame);
         if (this.frame != null) {
             var fatherNode = document.getElementById(this.fatherName);
             var theDoc = this.frame.contentWindow;

@@ -153,7 +153,7 @@ MessageHelper.prototype.msg_rlt_get_document = function (data) {
         var uiManager = UIManager.prototype.getInstance();
         var blogUI = uiManager.getUIByName("BlogPageUI");
         if (blogUI.blogContent != null)
-            blogUI.blogContent.setText(decodeURIComponent(data.body));
+            blogUI.blogContent.setText(decodeURIComponent(data.body, data.title));
     }
 }
 MessageHelper.prototype.msg_rlt_get_document_list = function (data) {

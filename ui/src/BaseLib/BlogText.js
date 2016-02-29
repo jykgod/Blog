@@ -38,7 +38,7 @@ BlogText.prototype.createWithFatherNameAndPosition = function(fatherName,x,y,w,h
     this.setRect(x,y,w,h);
 }
 
-BlogText.prototype.setText = function(text)
+BlogText.prototype.setText = function (text, title)
 {
     var data = '<head><link rel="stylesheet" href="ui/src/BaseLib/highlight/styles/default.css">';
     data +='<script src="ui/src/BaseLib/highlight/highlight.pack.js"></script>';
@@ -46,7 +46,7 @@ BlogText.prototype.setText = function(text)
     data += marked(text) ;
     <!--&lt;!&ndash; 多说评论框 start &ndash;&gt;-->
     if (this.firstInited == false) {
-        data += '<div id="dsDiv" class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址" ></div>';
+        data += '<div id="dsDiv" class="ds-thread" data-thread-key="' + this.id + '" data-title="请替换成文章的标题" data-url="http://121.42.175.182:10200/test.html" ></div>';
         data += '<script type="text/javascript">'
         data += 'var duoshuoQuery = {short_name:"jykblog"};'
         data += '(function() {'

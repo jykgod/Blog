@@ -67,7 +67,7 @@ BlogText.prototype.setText = function(text)
         data += '|| document.getElementsByTagName("body")[0]).appendChild(ds);'
         data += '})();'
         data += '</script>'
-        this.firstInited = true;
+        //this.firstInited = true;
     }
     var fatherNode = document.getElementById('fatherDiv');
     if (this.frame != null) {

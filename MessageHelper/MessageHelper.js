@@ -159,11 +159,20 @@ MessageHelper.prototype.msg_rlt_get_document = function (data) {
 MessageHelper.prototype.msg_rlt_get_document_list = function (data) {
     if(data.return == 200) {
         data = data.data;
-        var uiManager = UIManager.prototype.getInstance();
-        var blogUI = uiManager.getUIByName("BlogPageUI");
-        for (var i = 0; i < data.length; i++) {
-            console.log(data[i].preview);
-            blogUI.addBlogButton(data[i].id, decodeURIComponent(data[i].preview));
+        if (data.author == "jyk") {
+            var uiManager = UIManager.prototype.getInstance();
+            var blogUI = uiManager.getUIByName("BlogPageUI");
+            for (var i = 0; i < data.length; i++) {
+                console.log(data[i].preview);
+                blogUI.addBlogButton(data[i].id, decodeURIComponent(data[i].preview));
+            }
+        }
+        else if (data.autor == "jykMusic") {
+            var uiManager = UIManager.prototype.getInstance();
+            var MusicUI = uiManager.getUIByName("MusicPlayerUI");
+            for (var i = 0; i < data.length; i++) {
+                MusicUI.addMusic(data.id, data.title, data.preview);
+            }
         }
     }
 }

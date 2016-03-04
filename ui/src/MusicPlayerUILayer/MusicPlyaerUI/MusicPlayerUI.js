@@ -31,6 +31,7 @@ MusicPlayerUI.prototype.Start = function () {
 
     this.Background = new Texture();
     this.Background.create(this.mCanvas,"url");
+    this.Background.setRect(0, 0, 100, 100);
 
     this.MusicList = new List(null);
     var messageHelper = new MessageHelper();

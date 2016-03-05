@@ -86,7 +86,7 @@ UIButton.prototype.createWithColorRect = function(canvas ,color , text , font , 
     this.addComponent(this.collider);
 }
 
-UIButton.prototype.createWithTexture = function(canvas ,src ,clipRect , text,font)
+UIButton.prototype.createWithTexture = function(canvas ,src ,clipRect , text,font,labelType)
 {
     BaseObject.prototype.create.call(this,canvas);
     this.texture = new Texture();

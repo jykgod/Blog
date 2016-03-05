@@ -77,5 +77,14 @@ Canvas.prototype = {
 	},
 	update : function(){
 		this.mDrawableManager.draw();
+	},
+	setVisible : function(show){
+		if(show == true)
+		{
+			this.canvas.style.display = "block";
+		}else
+		{
+			this.canvas.style.display = "none";
+		}
 	}
 }

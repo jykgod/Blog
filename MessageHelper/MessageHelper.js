@@ -171,7 +171,7 @@ MessageHelper.prototype.msg_rlt_get_document_list = function (data) {
             var uiManager = UIManager.prototype.getInstance();
             var MusicUI = uiManager.getUIByName("MusicPlayerUI");
             for (var i = 0; i < data.length; i++) {
-                MusicUI.addMusic(data.id, data.title, data.preview);
+                MusicUI.addMusic(data.title, data.body);
             }
         }
     }

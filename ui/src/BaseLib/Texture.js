@@ -75,7 +75,7 @@ Texture.prototype.drawOutLine = function()
 }
 Texture.prototype.drawShadow = function()
 {
-    if( this.mShadowMargin == 0 )
+    if( this.mShadowMargin == 0 || this.img == null || this.mCanvas == null)
         return;
     var fatherPosition = this.getFatherPosition();
     //var tmpColor = this.mCanvas.mContext.fillStyle;

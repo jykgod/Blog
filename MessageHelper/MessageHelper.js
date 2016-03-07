@@ -150,16 +150,24 @@ MessageHelper.prototype.msg_rlt_add_document = function (data) {
 MessageHelper.prototype.msg_rlt_get_document = function (data) {
     if(data.return == 200) {
         data = data.data;
-        var uiManager = UIManager.prototype.getInstance();
-        var blogUI = uiManager.getUIByName("BlogPageUI");
-        if (blogUI.blogContent != null)
-            blogUI.blogContent.setText(decodeURIComponent(data.body, data.title));
+        if (data.author == "jyk") {
+            var uiManager = UIManager.prototype.getInstance();
+            var blogUI = uiManager.getUIByName("BlogPageUI");
+            if (blogUI.blogContent != null)
+                blogUI.blogContent.setText(decodeURIComponent(data.body, data.title));
+        }else if(data.author = "jykMusic")
+        {
+            var uiManager = UIManager.prototype.getInstance();
+            var MusicUI = uiManager.getUIByName("MusicPlayerUI");
+            MusicUI.ChangeToMusicWithTitle( decodeURIComponent(data.title) , decodeURIComponent(data.body) );
+        }
     }
 }
 MessageHelper.prototype.msg_rlt_get_document_list = function (data) {
     if(data.return == 200) {
         data = data.data;
-        if (data.author == "jyk") {
+        if( data.length == 0 ) return;
+        if (data[0].author == "jyk") {
             var uiManager = UIManager.prototype.getInstance();
             var blogUI = uiManager.getUIByName("BlogPageUI");
             for (var i = 0; i < data.length; i++) {
@@ -167,12 +175,14 @@ MessageHelper.prototype.msg_rlt_get_document_list = function (data) {
                 blogUI.addBlogButton(data[i].id, decodeURIComponent(data[i].preview));
             }
         }
-        else if (data.autor == "jykMusic") {
+        else if (data[0].author == "jykMusic") {
             var uiManager = UIManager.prototype.getInstance();
             var MusicUI = uiManager.getUIByName("MusicPlayerUI");
             for (var i = 0; i < data.length; i++) {
-                MusicUI.addMusic(data.title, data.body);
+                MusicUI.addMusic( data[i].id , decodeURIComponent(data[i].title));
             }
+            if( data.length > 0 )
+                this.postMessageToServer("/getDocument", MG_TYPE.MSG_RQL_GET_DOCUMENT, {id: data[0].id});
         }
     }
 }

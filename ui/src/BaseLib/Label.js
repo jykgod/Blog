@@ -5,6 +5,8 @@ function Label() {
     DrawableObject.call(this);
     this.mText = "";
     this.mFont = null;
+    this.textAlign = "center";
+    this.textBaseline = "middle";
 }
 
 for (var i in DrawableObject.prototype) {
@@ -19,8 +21,8 @@ Label.prototype.create = function (canvas, text , font) {
 }
 
 Label.prototype.draw = function () {
-    this.mCanvas.mContext.textAlign="center";
-    this.mCanvas.mContext.textBaseline = "middle";
+    this.mCanvas.mContext.textAlign = this.textAlign;
+    this.mCanvas.mContext.textBaseline = this.textBaseline;
     if(this.mFont != null)
         this.mCanvas.mContext.font= this.mFont;
     this.mCanvas.mContext.fillStyle = this.mColor;

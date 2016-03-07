@@ -3,6 +3,15 @@ function BackGroundUI(manager,canvas)
     UIBase.call(this,manager,canvas,"BackGroundUI");
     this.texture;
     this.colorRect;
+    this.setTexture = function(url)
+    {
+        this.texture.src = url;
+        this.texture.loadTexture();
+        var temp = this;
+        this.texture.doAfterLoad(function(){
+            temp.mCanvas.update();
+        });
+    }
 }
 
 for(var i in UIBase.prototype) {

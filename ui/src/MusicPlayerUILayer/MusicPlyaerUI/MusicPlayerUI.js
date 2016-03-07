@@ -86,6 +86,7 @@ MusicPlayerUI.prototype.start = function () {
     this.Picture.create(this.mCanvas,"");
     this.Picture.setPosition(260,100);
     this.Picture.setSize(window.innerWidth - 260,window.innerHeight - 100);
+    this.Picture.mAlpha = 0.8;
 
     //this.PlayBtn = new UIButton();
     //this.PlayBtn.createWithTexture(this.mCanvas, "url");

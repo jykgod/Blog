@@ -67,6 +67,8 @@ MusicPlayerUI.prototype.onResize = function()
 {
     this.mCanvas.setPosition(0,0,window.innerWidth,window.innerHeight,100);
     this.Background.setSize(window.innerWidth,window.innerHeight);
+    this.Picture.setSize(window.innerWidth - 260,window.innerHeight - 100);
+    this.LyricLabel.setSize(window.innerWidth - 260,window.innerHeight - 100);
 }
 
 MusicPlayerUI.prototype.start = function () {

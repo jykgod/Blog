@@ -62,10 +62,6 @@ function MusicPlayerUI(manager, canvas) {
                 }
                 console.log("find the music");
                 audio.src = now.MusicUrl;
-                if(temp.played)
-                {
-                    temp.playMusic();
-                }
                 temp.mLyricLabel.mText = lyric;
                 temp.mNowPlayedMusicListIndex = playedMusicListIndex;
                 var uiManager = UIManager.prototype.getInstance();
@@ -204,10 +200,21 @@ MusicPlayerUI.prototype.update = function()
             var messageHelper = new MessageHelper();
             messageHelper.postMessageToServer("/getDocument", MG_TYPE.MSG_RQL_GET_DOCUMENT, {id: music.ID});
             this.mNotPlayNext == false;
+        }else
+        {
+            this.playMusic();
         }
     }else
     {
         this.mNotPlayNext = true;
+    }
+    if(this.mPlayed == true && this.mAudio.paused == true)
+    {
+        this.playMusic();
+    }
+    if(this.mPlayed == false && this.mAudio.paused == false)
+    {
+        this.pauseMusic();
     }
     this.mMusicPanel.updatePanelPosition();
 }

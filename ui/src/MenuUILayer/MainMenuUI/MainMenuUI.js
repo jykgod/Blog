@@ -169,20 +169,20 @@ MainMenuUI.prototype.start = function()
     this.buttonPanel.addComponent(texturePageButton);
     this.buttonPanel.addComponent(blogPageButton);
     this.buttonPanel.addComponent(homePageButton);
-    this.buttonPanel.resetPosition();
+    this.buttonPanel.resetPositionAndSize();
     //this.onResize();
     var messageHelper = new MessageHelper();
     //messageHelper.postMessageToServer("http://127.0.0.1:10200/register","MSG_RQL_REGISTER",'{"username":"jyk4","password":"123"}');
-    //messageHelper.postMessageToServer("addDocument", MG_TYPE.MSG_RQL_ADD_DOCUMENT, {
-    //    title: encodeURIComponent("测试"),
-    //    body: encodeURIComponent('# kill me baby\n```c\n#include<stdio.h> \nint main()\n\t{\n\t\tprintf("hello world!");\n\t}\n```'),
-    //    preview: 200
-    //}, "jyk", "123");
     messageHelper.postMessageToServer("addDocument", MG_TYPE.MSG_RQL_ADD_DOCUMENT, {
-            title: encodeURIComponent('写给我第一个喜欢的女孩的歌'),
-            body: encodeURIComponent('演唱：洛天依\n\t作词：ilem\n\t作曲：ilem\n\t编曲：ilem\n\t混缩：ilem\n\t分类：原创\n\t语种：华语\n\t曲风：流行\n\t你温柔的长发，在风中划过嘴角\n\t我幼稚的笑话，为何只有你没笑\n\t你靠着窗发呆，我看你发呆而发呆\n\t女孩，你太可爱，我不知怎么办\n\t感谢你，那样沁人心脾的美丽\n\t感谢你，让我回忆也变得甜\n\t原谅我，有点笨拙的少女心\n\t感谢你，出现在那里\n\t你温柔的长发，在风中划过嘴角\n\t我幼稚的笑话，为何只有你没笑\n\t你靠着窗发呆，我看你发呆而发呆\n\t女孩，你太可爱，我不知怎么办\n\t你问我的答案，是简单还是很难\n\t我看着你的脸，就忘记该怎么算\n\t老师说着未来，我想着未来和未来\n\t女孩，你太可爱，我不想离开\n\t感谢你，那样沁人心脾的美丽\n\t感谢你，让我回忆都变得甜\n\t原谅我，有点笨拙的少女心\n\t感谢你，出现在那里\n\t有一个，早已被你猜到的秘密\n\t请允许，我把你写进我的歌\n\t纸飞机，载着岁月飞散在风里\n\t不知你，还能否想起\n\t原谅我，有点笨拙的少女心'),
-            preview: 0
-        }, "jykMusic", "123");
+        title: encodeURIComponent("测试"),
+        body: encodeURIComponent('# kill me baby\n```c\n#include<stdio.h> \nint main()\n\t{\n\t\tprintf("hello world!");\n\t}\n```'),
+        preview: 200
+    }, "jyk", "123");
+    //messageHelper.postMessageToServer("addDocument", MG_TYPE.MSG_RQL_ADD_DOCUMENT, {
+    //        title: encodeURIComponent('写给我第一个喜欢的女孩的歌'),
+    //        body: encodeURIComponent('测试2'),
+    //        preview: 0
+    //    }, "jykMusic", "123");
     this.baseNode.addComponent(this.buttonPanel);
 
     var loginUI = new LoginUI(this.manager, temp.pageCanvas);

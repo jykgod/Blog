@@ -15,7 +15,7 @@ function BlogPageUI(manager,canvas)
      */
     this.state = 0;
 
-    this.backBtn = null;
+    this.mBackBtn = null;
 }
 
 for(var i in UIBase.prototype)
@@ -48,16 +48,16 @@ BlogPageUI.prototype.start = function()
     this.blogListNode.addComponent(this.blogList);
     this.blogListNode.setPosition(300,0);
 
-    this.backBtn = new UIButton();
-    this.backBtn.createWithColorRect(this.mCanvas,"#aaaaaa","返 回","bold 14px 宋体");
-    this.backBtn.setShadowMargin(5);
-    this.backBtn.colorRect.mAlpha = 0.8;
-    this.backBtn.setSize(100,50);
-    this.backBtn.onClick = function()
+    this.mBackBtn = new UIButton();
+    this.mBackBtn.createWithColorRect(this.mCanvas,"#aaaaaa","返 回","bold 14px 宋体");
+    this.mBackBtn.setShadowMargin(5);
+    this.mBackBtn.colorRect.mAlpha = 0.8;
+    this.mBackBtn.setSize(100,50);
+    this.mBackBtn.onClick = function()
     {
         temp.state = 0;
     }
-    this.backBtn.setVisible(false);
+    this.mBackBtn.setVisible(false);
 
     this.blogContent = new BlogText();
     this.blogContent.createWithFatherNameAndPosition("fatherDiv", 300, 170, innerWidth - 100, innerHeight - 170, 2);
@@ -70,7 +70,7 @@ BlogPageUI.prototype.start = function()
 
     //this.blogList.addComponent();
 
-    this.baseNode.addComponent(this.backBtn);
+    this.baseNode.addComponent(this.mBackBtn);
     this.baseNode.addComponent(this.blogContentBg);
     this.baseNode.addComponent(this.blogListNode);
     this.baseNode.setPosition(0,20);
@@ -94,13 +94,13 @@ BlogPageUI.prototype.update = function()
     {
         this.blogContent.setVisible(true);
         this.blogListNode.setVisible(false);
-        this.backBtn.setVisible(true);
+        this.mBackBtn.setVisible(true);
         this.blogContentBg.setVisible(true);
     }else
     {
         this.blogContent.setVisible(false);
         this.blogListNode.setVisible(true);
-        this.backBtn.setVisible(false);
+        this.mBackBtn.setVisible(false);
         this.blogContentBg.setVisible(false);
     }
 }
@@ -116,21 +116,21 @@ BlogPageUI.prototype.setVisible = function (visible) {
     if (visible == false) {
         this.blogListNode.setVisible(false);
         this.blogContent.setVisible(false);
-        this.backBtn.setVisible(false);
+        this.mBackBtn.setVisible(false);
         this.blogContentBg.setVisible(false);
     }else {
         if(this.state == 1)
         {
             this.blogListNode.setVisible(false);
             this.blogContent.setVisible(true);
-            this.backBtn.setVisible(true);
+            this.mBackBtn.setVisible(true);
             this.blogContentBg.setVisible(true);
         }
         else
         {
             this.blogListNode.setVisible(true);
             this.blogContent.setVisible(false);
-            this.backBtn.setVisible(false);
+            this.mBackBtn.setVisible(false);
             this.blogContentBg.setVisible(false);
         }
     }
@@ -148,8 +148,8 @@ BlogPageUI.prototype.addBlogButton = function(id,text)
     {
         console.log("click blog id:",id);
         temp.state = 1;
-        temp.showBlogText(id)
+        temp.showBlogText(id);
     }
     this.blogList.addComponent(blogButton);
-    this.blogList.resetPosition();
+    this.blogList.resetPositionAndSize();
 }

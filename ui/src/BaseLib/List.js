@@ -73,4 +73,20 @@ function List( cmp )
             now = now.next;
         }
     }
+
+    this.getByIndex = function(index)
+    {
+        if(index >= this.count)
+            return null;
+
+        var now = this.pHead;
+        var i = 0;
+        while(now != null)
+        {
+            if( i == index ) break;
+            now = now.next;
+            i++;
+        }
+        return now.data;
+    }
 }

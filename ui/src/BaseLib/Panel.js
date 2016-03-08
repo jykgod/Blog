@@ -10,7 +10,10 @@ for ( var i in BaseObject.prototype )
     Panel.prototype[i] = BaseObject.prototype[i];
 }
 
-Panel.prototype.resetPosition = function()
+/**
+ * you should add all of the component in the panel then reset the position and the size;
+ */
+Panel.prototype.resetPositionAndSize = function()
 {
     var fix = function(){ }
     fix.x = 0;

@@ -83,9 +83,9 @@ DragPanel.prototype.onMouseMove = function (x, y) {
             if (this.cXMin < this.cXMax) {
                 var num = (x - this.pointerDownPoint.x);
                 if( num > 0 )
-                    resultX -= (num * num * 1.0) / 1000;
-                else
                     resultX += (num * num * 1.0) / 1000;
+                else
+                    resultX -= (num * num * 1.0) / 1000;
                 if (resultX < this.cXMin) resultX = this.cXMin;
                 if (resultX > this.cXMax) resultX = this.cXMax;
             }
@@ -94,9 +94,9 @@ DragPanel.prototype.onMouseMove = function (x, y) {
             if (this.cYMin < this.cYMax) {
                 var num = (y - this.pointerDownPoint.y);
                 if( num > 0 )
-                    resultY -= (num * num * 1.0) / 1000;
-                else
                     resultY += (num * num * 1.0) / 1000;
+                else
+                    resultY -= (num * num * 1.0) / 1000;
                 if (resultY < this.cYMin) resultY = this.cYMin;
                 if (resultY > this.cYMax) resultY = this.cYMax;
             }

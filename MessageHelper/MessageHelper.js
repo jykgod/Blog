@@ -181,6 +181,7 @@ MessageHelper.prototype.msg_rlt_get_document_list = function (data) {
             for (var i = 0; i < data.length; i++) {
                 MusicUI.addMusic( data[i].id , decodeURIComponent(data[i].title));
             }
+            MusicUI.mMusicPanel.resetPositionAndSize();
             if( data.length > 0 )
                 this.postMessageToServer("/getDocument", MG_TYPE.MSG_RQL_GET_DOCUMENT, {id: data[0].id});
         }

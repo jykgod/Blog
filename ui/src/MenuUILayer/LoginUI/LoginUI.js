@@ -37,7 +37,7 @@ function LoginUI(manager,canvas)
     this.usernameLabel = null;
     this.passwordLabel = null;
     this.sureBtn = null;
-    this.backBtn = null;
+    this.mBackBtn = null;
 
     this.updateVisibleUI = function()
     {
@@ -96,7 +96,7 @@ function LoginUI(manager,canvas)
                 this.usernameLabel.setVisible(false);
                 this.passwordLabel.setVisible(false);
                 this.sureBtn.setVisible(false);
-                this.backBtn.setVisible(false);
+                this.mBackBtn.setVisible(false);
             }
             else {
                 this.usernameInput.setVisible(true);
@@ -104,7 +104,7 @@ function LoginUI(manager,canvas)
                 this.usernameLabel.setVisible(true);
                 this.passwordLabel.setVisible(true);
                 this.sureBtn.setVisible(true);
-                this.backBtn.setVisible(true);
+                this.mBackBtn.setVisible(true);
             }
             this.going = false;
         }
@@ -211,14 +211,14 @@ LoginUI.prototype.start = function()
     this.sureBtn.setShadowMargin(5);
     this.sureBtn.setLevel(1);
 
-    this.backBtn = new UIButton();
-    this.backBtn.createWithColorRect(this.mCanvas,"#dd0000","返回","bold 14px 宋体");
-    this.backBtn.setSize(100,50);
-    this.backBtn.colorRect.mAlpha = 0.8;
-    this.backBtn.setPosition(20,360);
-    this.backBtn.setShadowMargin(5);
-    this.backBtn.setLevel(1);
-    this.backBtn.onClick = function(x,y)
+    this.mBackBtn = new UIButton();
+    this.mBackBtn.createWithColorRect(this.mCanvas,"#dd0000","返回","bold 14px 宋体");
+    this.mBackBtn.setSize(100,50);
+    this.mBackBtn.colorRect.mAlpha = 0.8;
+    this.mBackBtn.setPosition(20,360);
+    this.mBackBtn.setShadowMargin(5);
+    this.mBackBtn.setLevel(1);
+    this.mBackBtn.onClick = function(x,y)
     {
         temp.goWhere = 0;
         temp.going = true;
@@ -230,7 +230,7 @@ LoginUI.prototype.start = function()
     this.baseNode.addComponent(this.passwordLabel);
     this.baseNode.addComponent(this.usernameLabel);
     this.baseNode.addComponent(this.sureBtn);
-    this.baseNode.addComponent(this.backBtn);
+    this.baseNode.addComponent(this.mBackBtn);
     this.baseNode.addComponent(this.loggedInNode);
     this.baseNode.setLevel(1000);
     this.going = true;

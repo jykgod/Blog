@@ -11,7 +11,8 @@ for ( var i in BaseObject.prototype )
 }
 
 /**
- * you should add all of the component in the panel then reset the position and the size;
+ * you must add all of the component in the panel then reset the position and the size;
+ * 这里是个坑！因为这个函数不仅对位置进行了重设还对大小进行了重设，所以最好再所有组件都加完了再使用这个函数重设。
  */
 Panel.prototype.resetPositionAndSize = function()
 {

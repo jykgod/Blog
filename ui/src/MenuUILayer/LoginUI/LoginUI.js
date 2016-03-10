@@ -24,7 +24,7 @@ function LoginUI(manager,canvas)
      * if state == 1 means open,else means close
      * @type {number}
      */
-    this.openOrCloseState = 1;
+    this.openOrCloseState = 0;
     this.backGround = null;
     this.translateRect = null;
 
@@ -123,12 +123,12 @@ LoginUI.prototype.start = function()
     this.backGround = new ColorRect();
     this.backGround.create(this.mCanvas , "#3399cc");
     this.backGround.setSize(230,800);
-    this.backGround.setPosition(0,100);
+    this.backGround.setPosition(-200, 100);
 
     this.translateRect = new ColorRect();
     this.translateRect.create(this.mCanvas , "#ff9933");
     this.translateRect.setSize(30,800);
-    this.translateRect.setPosition(200,100);
+    this.translateRect.setPosition(0, 100);
     this.translateRect.setLevel(1);
 
     var collider = new Collider();

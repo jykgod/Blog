@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        //<![CDATA[
+        try {
+            if (!window.CloudFlare) {
+                var CloudFlare = [{
+                    verbose: 0,
+                    p: 0,
+                    byc: 0,
+                    owlid: "cf",
+                    bag2: 1,
+                    mirage2: 0,
+                    oracle: 0,
+                    paths: {cloudflare: "/cdn-cgi/nexp/dok3v=1613a3a185/"},
+                    atok: "738bba8b7a64525f7c4e615ff3975012",
+                    petok: "eac5096c1d5e23b6c1ea50b297bdeac5bd91cb91-1457679909-1800",
+                    zone: "lepture.com",
+                    rocket: "0",
+                    apps: {"abetterbrowser": {"config": "none"}},
+                    sha2test: 0
+                }];
+                !function (a, b) {
+                    a = document.createElement("script"), b = document.getElementsByTagName("script")[0], a.async = !0, a.src = "//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=fb690a32f5/cloudflare.min.js", b.parentNode.insertBefore(a, b)
+                }()
+            }
+        } catch (e) {
+        }
+        ;
+        //]]>
+    </script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-21475122-5']);
+        _gaq.push(['_setCustomVar', 1, 'Repo', 'lepture/editor']);
+        _gaq.push(['_trackPageview']);
+        _gaq.push(['_trackPageLoadTime']);
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            if (location.port) {
+                return;
+            }
+            ga.src = '//www.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <script type="text/javascript" src="marked.js"></script>
+    <script type="text/javascript" src="editor.js"></script>
+    <link rel="stylesheet" href="editor.css"/>
+    <title>Editor</title>
+    <style type="text/css">
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #f9f9f7;
+        }
+
+        .editor-wrapper {
+            max-width: 680px;
+            padding: 10px;
+            margin: 60px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="editor-wrapper">
+    <input class="title" type="text" placeholder="Title"/>
+    <textarea id="editor" placeholder="Content here ...."></textarea>
+</div>
+<!-- only required for loading sample markdown into the textarea -->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
+<script type="text/javascript">
+    (function ($) {
+        $('#editor').load('markdown.md',
+                function (data) {
+                    var editor = new Editor();
+                    editor.render();
+                }
+        );
+    })(Zepto);
+</script>
+</body>
+</html>

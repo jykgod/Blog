@@ -30,7 +30,7 @@ Texture.prototype.loadTexture = function()
 }
 Texture.prototype.waitForLoad = function(cmd)
 {
-    if(this.img == null || this.img.width == 0) return;
+    if(this.img == null || this.img.width == 0 || this.img.height == 0) return;
     cmd();
     clearInterval( this.interval );
 }

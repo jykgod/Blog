@@ -36,7 +36,7 @@ BackGroundUI.prototype.start = function()
 
     this.texture = new Texture();
     this.texture.setSize(window.innerWidth,window.innerHeight);
-    this.texture.create(this.mCanvas,"ui/asset/texture/test1.jpg");
+    this.texture.create(this.mCanvas,"ui/asset/texture/2.jpg");
     this.texture.loadTexture();
     var temp = this;
     this.texture.doAfterLoad(function(){

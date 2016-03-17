@@ -146,6 +146,15 @@ MessageHelper.prototype.msg_rlt_marked = function (data) {
 MessageHelper.prototype.msg_rlt_mark_list = function (data) {
 }
 MessageHelper.prototype.msg_rlt_add_document = function (data) {
+    if(data != null && data.return == 200)
+    {
+        alert("发送成功!");
+    }
+    else
+    {
+        alert("发送失败!");
+    }
+    console.log(data);
 }
 MessageHelper.prototype.msg_rlt_get_document = function (data) {
     if(data.return == 200) {

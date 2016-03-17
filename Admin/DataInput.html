@@ -25,9 +25,9 @@
             }
             console.log(body);
             var messageHelper = new MessageHelper();
-            messageHelper.postMessageToServer("addDocument", MG_TYPE.MSG_RQL_ADD_DOCUMENT, {
-                title: title.value,
-                body: encodeURIComponent(body.value),
+            messageHelper.postMessageToServer("../addDocument", MG_TYPE.MSG_RQL_ADD_DOCUMENT, {
+                title: encodeURIComponent(title.value),
+                body: encodeURIComponent(body),
                 preview: 200
             }, id.value, password.value);
         }

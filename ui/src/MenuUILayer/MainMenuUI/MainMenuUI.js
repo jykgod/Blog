@@ -170,19 +170,7 @@ MainMenuUI.prototype.start = function()
     this.buttonPanel.addComponent(blogPageButton);
     this.buttonPanel.addComponent(homePageButton);
     this.buttonPanel.resetPositionAndSize();
-    //this.onResize();
-    var messageHelper = new MessageHelper();
-    //messageHelper.postMessageToServer("http://127.0.0.1:10200/register","MSG_RQL_REGISTER",'{"username":"jyk4","password":"123"}');
-    //messageHelper.postMessageToServer("addDocument", MG_TYPE.MSG_RQL_ADD_DOCUMENT, {
-    //    title: encodeURIComponent("测试"),
-    //    body: encodeURIComponent('# kill me baby\n```c\n#include<stdio.h> \nint main()\n\t{\n\t\tprintf("hello world!");\n\t}\n```'),
-    //    preview: 200
-    //}, "jyk", "123");
-    //messageHelper.postMessageToServer("addDocument", MG_TYPE.MSG_RQL_ADD_DOCUMENT, {
-    //        title: encodeURIComponent('写给我第一个喜欢的女孩的歌'),
-    //        body: encodeURIComponent('测试2'),
-    //        preview: 0
-    //    }, "jykMusic", "123");
+
     this.baseNode.addComponent(this.buttonPanel);
 
     var loginUI = new LoginUI(this.manager, temp.pageCanvas);

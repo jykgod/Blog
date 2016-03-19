@@ -91,7 +91,7 @@ you can use the generic selector below, but it's slower:
 /* BASICS */
 
 .CodeMirror {
-  height: 300px;
+  height: 10000px;
 }
 .CodeMirror-scroll {
   /* Set scrolling behaviour here */
@@ -405,7 +405,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   }
 }
 .CodeMirror {
-  height: 450px;
+  height: 10000px;
 }
 :-webkit-full-screen {
   background: #f9f9f5;

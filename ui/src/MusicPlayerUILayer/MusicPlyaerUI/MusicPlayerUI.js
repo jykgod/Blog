@@ -34,7 +34,7 @@ function MusicPlayerUI(manager, canvas) {
         btn.createWithColorRect(this.mCanvas,"#dddddd",title,"bold 14px ËÎÌו");
         btn.setShadowMargin(5);
         btn.label.mColor = "#333333";
-        btn.colorRect.mAlpha = 0.8;
+        btn.mColorRect.mAlpha = 0.8;
         btn.setSize(250,50);
         btn.setPosition(0,0);
         btn.onClick = function()
@@ -123,7 +123,7 @@ MusicPlayerUI.prototype.start = function () {
     this.mPlayBtn.createWithColorRect(this.mCanvas,"#FFCC00","Play","bold 14px ËÎÌו");
     this.mPlayBtn.setShadowMargin(5);
     this.mPlayBtn.label.mColor = "#333333";
-    this.mPlayBtn.colorRect.mAlpha = 0.8;
+    this.mPlayBtn.mColorRect.mAlpha = 0.8;
     this.mPlayBtn.setSize(100,50);
     this.mPlayBtn.setPosition(300,0);
     this.mPlayBtn.onClick = function()
@@ -142,7 +142,7 @@ MusicPlayerUI.prototype.start = function () {
     this.mBackBtn.createWithColorRect(this.mCanvas,"#FFCC00","Back","bold 14px ËÎÌו");
     this.mBackBtn.setShadowMargin(5);
     this.mBackBtn.label.mColor = "#333333";
-    this.mBackBtn.colorRect.mAlpha = 0.8;
+    this.mBackBtn.mColorRect.mAlpha = 0.8;
     this.mBackBtn.setSize(100,50);
     this.mBackBtn.setPosition(0,0);
     this.mBackBtn.onClick = function()

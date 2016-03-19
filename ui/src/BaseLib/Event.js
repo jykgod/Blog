@@ -56,7 +56,7 @@ EventUtil.formatEvent = function (oEvent) {
          };
          oEvent.target = oEvent.srcElement;
          //添加事件发生时间属性，IE没有
-         oEvent.time = (new Date).getTime();
+         oEvent.mTime = (new Date).getTime();
    //  }
      return oEvent;
 };

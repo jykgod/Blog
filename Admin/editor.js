@@ -1818,12 +1818,12 @@
       if (!cm.state.focused) onFocus(cm);
 
       var now = +new Date, type = "single";
-      if (lastDoubleClick && lastDoubleClick.time > now - 400 && posEq(lastDoubleClick.pos, start)) {
+      if (lastDoubleClick && lastDoubleClick.mTime > now - 400 && posEq(lastDoubleClick.pos, start)) {
         type = "triple";
         e_preventDefault(e);
         setTimeout(bind(focusInput, cm), 20);
         selectLine(cm, start.line);
-      } else if (lastClick && lastClick.time > now - 400 && posEq(lastClick.pos, start)) {
+      } else if (lastClick && lastClick.mTime > now - 400 && posEq(lastClick.pos, start)) {
         type = "double";
         lastDoubleClick = {time: now, pos: start};
         e_preventDefault(e);

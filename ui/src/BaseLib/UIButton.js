@@ -1,7 +1,7 @@
 function UIButton()
 {
     BaseObject.call(this);
-    this.colorRect = null;
+    this.mColorRect = null;
     this.texture = null;
     this.tempShadowMargin = 0;
     this.label = null;
@@ -27,8 +27,8 @@ for(var i in BaseObject.prototype)
 UIButton.prototype.setSize = function(w,h)
 {
     BaseObject.prototype.setSize.call(this,w,h);
-    if(this.colorRect != null)
-        this.colorRect.setSize(w,h);
+    if(this.mColorRect != null)
+        this.mColorRect.setSize(w,h);
     if(this.texture != null)
         this.texture.setSize(w,h);
     if(this.collider != null)
@@ -43,9 +43,9 @@ UIButton.prototype.setSize = function(w,h)
 UIButton.prototype.createWithColorRect = function(canvas ,color , text , font , labelType)
 {
     BaseObject.prototype.create.call(this,canvas);
-    this.colorRect = new ColorRect();
-    this.colorRect.create(canvas,color);
-    this.colorRect.setLevel(0);
+    this.mColorRect = new ColorRect();
+    this.mColorRect.create(canvas,color);
+    this.mColorRect.setLevel(0);
 
     if(labelType != undefined && labelType != null)
     {
@@ -81,7 +81,7 @@ UIButton.prototype.createWithColorRect = function(canvas ,color , text , font , 
     this.collider.onMouseMove = function(x,y){tmp.preOnMouseMove(x,y);}
     this.collider.onRelease = function(x,y){tmp.preOnRelease(x,y);}
 
-    this.addComponent(this.colorRect);
+    this.addComponent(this.mColorRect);
     this.addComponent(this.label);
     this.addComponent(this.collider);
 }
@@ -144,8 +144,8 @@ UIButton.prototype.preOnMouseDown = function(x,y){
     this.onPressed = true;
     if(this.mShadowMargin != 0)
     {
-        if(this.colorRect != null)
-            this.colorRect.setPosition(this.colorRect.x + this.mShadowMargin, this.colorRect.y + this.mShadowMargin);
+        if(this.mColorRect != null)
+            this.mColorRect.setPosition(this.mColorRect.x + this.mShadowMargin, this.mColorRect.y + this.mShadowMargin);
         if(this.texture != null)
             this.texture.setPosition(this.texture.x + this.mShadowMargin,this.texture.y + this.mShadowMargin);
         if(this.label != null)
@@ -172,8 +172,8 @@ UIButton.prototype.preOnRelease = function(x,y)
     {
         this.setShadowMargin(this.tempShadowMargin);
         this.tempShadowMargin = 0;
-        if(this.colorRect != null)
-            this.colorRect.setPosition(this.colorRect.x - this.mShadowMargin,this.colorRect.y - this.mShadowMargin);
+        if(this.mColorRect != null)
+            this.mColorRect.setPosition(this.mColorRect.x - this.mShadowMargin,this.mColorRect.y - this.mShadowMargin);
         if(this.texture != null)
             this.texture.setPosition(this.texture.x - this.mShadowMargin,this.texture.y - this.mShadowMargin);
         if(this.label != null)
@@ -185,8 +185,8 @@ UIButton.prototype.preOnRelease = function(x,y)
 UIButton.prototype.setShadowMargin = function(margin)
 {
     this.mShadowMargin = margin;
-    if(this.colorRect != null)
-        this.colorRect.mShadowMargin = margin;
+    if(this.mColorRect != null)
+        this.mColorRect.mShadowMargin = margin;
     if(this.texture != null)
         this.texture.mShadowMargin = margin;
 }

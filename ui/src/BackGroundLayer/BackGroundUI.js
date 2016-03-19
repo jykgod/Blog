@@ -2,7 +2,7 @@ function BackGroundUI(manager,canvas)
 {
     UIBase.call(this,manager,canvas,"BackGroundUI");
     this.texture;
-    this.colorRect;
+    this.mColorRect;
     this.setTexture = function(url)
     {
         this.texture.src = url;
@@ -25,7 +25,7 @@ BackGroundUI.prototype.onResize = function()
     this.texture.setSize(window.innerWidth,window.innerHeight);
 
     //this.colorRect.setPosition(0.05 * window.innerWidth,0.15 * window.innerHeight);
-    this.colorRect.setSize(window.innerWidth,window.innerHeight - 150);
+    this.mColorRect.setSize(window.innerWidth,window.innerHeight - 150);
 
     this.mCanvas.update();
 }
@@ -43,17 +43,17 @@ BackGroundUI.prototype.start = function()
         temp.mCanvas.update();
     });
 
-    this.colorRect = new ColorRect();
-    this.colorRect.create(this.mCanvas,"#000000");
-    this.colorRect.mAlpha = 0.5;
-    this.colorRect.setPosition(0,150);
-    this.colorRect.setSize(window.innerWidth,window.innerHeight - 150);
+    this.mColorRect = new ColorRect();
+    this.mColorRect.create(this.mCanvas,"#000000");
+    this.mColorRect.mAlpha = 0.5;
+    this.mColorRect.setPosition(0,150);
+    this.mColorRect.setSize(window.innerWidth,window.innerHeight - 150);
     //this.colorRect.setPosition(0.1 * window.innerWidth,0.15 * window.innerHeight);
     //this.colorRect.setSize(window.innerWidth * 0.9,window.innerHeight * 0.85);
-    this.colorRect.setLevel(1);
+    this.mColorRect.setLevel(1);
 
     this.onResize();
 
     this.baseNode.addComponent(this.texture);
-    this.baseNode.addComponent(this.colorRect);
+    this.baseNode.addComponent(this.mColorRect);
 }

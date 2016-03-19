@@ -56,3 +56,8 @@ Collider.prototype.onRelease = function (x, y) {
     if(this.mFather.onRelease != undefined)
         this.mFather.onRelease(x, y);
 }
+Collider.prototype.onMouseMoveOut = function (x, y)
+{
+    if(this.mFather.onMouseMoveOut != undefined)
+        this.mFather.onMouseMoveOut(x, y);
+}

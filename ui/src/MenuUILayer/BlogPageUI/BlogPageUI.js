@@ -51,7 +51,7 @@ BlogPageUI.prototype.start = function()
     this.mBackBtn = new UIButton();
     this.mBackBtn.createWithColorRect(this.mCanvas,"#aaaaaa","返 回","bold 14px 宋体");
     this.mBackBtn.setShadowMargin(5);
-    this.mBackBtn.colorRect.mAlpha = 0.8;
+    this.mBackBtn.mColorRect.mAlpha = 0.8;
     this.mBackBtn.setSize(100,50);
     this.mBackBtn.onClick = function()
     {

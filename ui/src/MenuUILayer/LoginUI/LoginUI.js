@@ -147,7 +147,7 @@ LoginUI.prototype.start = function()
     this.goLoginBtn = new UIButton();
     this.goLoginBtn.createWithColorRect(this.mCanvas,"#6699ff","登 陆","bold 14px 宋体");
     this.goLoginBtn.setSize(160,40);
-    this.goLoginBtn.colorRect.mAlpha = 0.8;
+    this.goLoginBtn.mColorRect.mAlpha = 0.8;
     this.goLoginBtn.setPosition(10,200);
     this.goLoginBtn.setShadowMargin(5);
     this.goLoginBtn.setLevel(1);
@@ -160,7 +160,7 @@ LoginUI.prototype.start = function()
     this.goRegisterBtn = new UIButton();
     this.goRegisterBtn.createWithColorRect(this.mCanvas,"#6699ff","注 册","bold 14px 宋体");
     this.goRegisterBtn.setSize(160,40);
-    this.goRegisterBtn.colorRect.mAlpha = 0.8;
+    this.goRegisterBtn.mColorRect.mAlpha = 0.8;
     this.goRegisterBtn.setPosition(10,300);
     this.goRegisterBtn.setShadowMargin(5);
     this.goRegisterBtn.setLevel(1);
@@ -206,7 +206,7 @@ LoginUI.prototype.start = function()
     this.sureBtn = new UIButton();
     this.sureBtn.createWithColorRect(this.mCanvas,"#dd0000","","bold 14px 宋体");
     this.sureBtn.setSize(100,50);
-    this.sureBtn.colorRect.mAlpha = 0.8;
+    this.sureBtn.mColorRect.mAlpha = 0.8;
     this.sureBtn.setPosition(20,300);
     this.sureBtn.setShadowMargin(5);
     this.sureBtn.setLevel(1);
@@ -214,7 +214,7 @@ LoginUI.prototype.start = function()
     this.mBackBtn = new UIButton();
     this.mBackBtn.createWithColorRect(this.mCanvas,"#dd0000","返回","bold 14px 宋体");
     this.mBackBtn.setSize(100,50);
-    this.mBackBtn.colorRect.mAlpha = 0.8;
+    this.mBackBtn.mColorRect.mAlpha = 0.8;
     this.mBackBtn.setPosition(20,360);
     this.mBackBtn.setShadowMargin(5);
     this.mBackBtn.setLevel(1);

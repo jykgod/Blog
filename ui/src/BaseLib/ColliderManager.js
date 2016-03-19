@@ -90,6 +90,9 @@ function ColliderManager()
             else if(tmp.level != -90000 && tmp.level != collider.mLevel)
             {
                 return false;
+            }else
+            {
+                collider.onMouseMoveOut( tmp.x , tmp.y );
             }
         });
     }

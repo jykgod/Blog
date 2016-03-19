@@ -31,7 +31,7 @@ MainMenuUI.prototype.start = function()
     homePageButton.createWithColorRect(this.mCanvas,"#66CCFF","主 页","bold 14px 宋体");
     homePageButton.setShadowMargin(5);
     homePageButton.label.mColor = "#333333";
-    homePageButton.colorRect.mAlpha = 0.8;
+    homePageButton.mColorRect.mAlpha = 0.8;
     homePageButton.setSize(100,50);
     homePageButton.onClick = function()
     {
@@ -53,7 +53,7 @@ MainMenuUI.prototype.start = function()
     blogPageButton.createWithColorRect(this.mCanvas,"#BD72F0","博 文","bold 14px 宋体");
     blogPageButton.setShadowMargin(5);
     blogPageButton.label.mColor = "#333333";
-    blogPageButton.colorRect.mAlpha = 0.8;
+    blogPageButton.mColorRect.mAlpha = 0.8;
     blogPageButton.setSize(100,50);
     blogPageButton.onClick = function()
     {
@@ -76,7 +76,7 @@ MainMenuUI.prototype.start = function()
     texturePageButton.createWithColorRect(this.mCanvas,"#CC3333","相 册","bold 14px 宋体");
     texturePageButton.setShadowMargin(5);
     texturePageButton.label.mColor = "#333333";
-    texturePageButton.colorRect.mAlpha = 0.8;
+    texturePageButton.mColorRect.mAlpha = 0.8;
     texturePageButton.setSize(100,50);
     texturePageButton.onClick = function()
     {
@@ -98,7 +98,7 @@ MainMenuUI.prototype.start = function()
     chatPageButton.createWithColorRect(this.mCanvas,"#009933","留言板","bold 14px 宋体");
     chatPageButton.setShadowMargin(5);
     chatPageButton.label.mColor = "#333333";
-    chatPageButton.colorRect.mAlpha = 0.8;
+    chatPageButton.mColorRect.mAlpha = 0.8;
     chatPageButton.setSize(100,50);
     chatPageButton.onClick = function()
     {
@@ -120,7 +120,7 @@ MainMenuUI.prototype.start = function()
     creativePageButton.createWithColorRect(this.mCanvas,"#FF9999","创意空间","bold 14px 宋体");
     creativePageButton.setShadowMargin(5);
     creativePageButton.label.mColor = "#333333";
-    creativePageButton.colorRect.mAlpha = 0.8;
+    creativePageButton.mColorRect.mAlpha = 0.8;
     creativePageButton.setSize(100,50);
     creativePageButton.onClick = function()
     {
@@ -142,7 +142,7 @@ MainMenuUI.prototype.start = function()
     this.MusicButton.createWithColorRect(this.mCanvas,"#FFCC00","Music","bold 14px 宋体");
     this.MusicButton.setShadowMargin(5);
     this.MusicButton.label.mColor = "#333333";
-    this.MusicButton.colorRect.mAlpha = 0.8;
+    this.MusicButton.mColorRect.mAlpha = 0.8;
     this.MusicButton.setSize(100,50);
     this.MusicButton.onClick = function()
     {
@@ -158,6 +158,22 @@ MainMenuUI.prototype.start = function()
             ui.setVisible(true);
         }
     }
+
+    var homePageGfx = new MainMenuBtnGfx(homePageButton);
+    homePageGfx.create();
+    homePageButton.addComponent(homePageGfx);
+    var blogPageGfx = new MainMenuBtnGfx(blogPageButton);
+    blogPageGfx.create();
+    blogPageButton.addComponent(blogPageGfx);
+    var texturePageGfx = new MainMenuBtnGfx(texturePageButton);
+    texturePageGfx.create();
+    texturePageButton.addComponent(texturePageGfx);
+    var chatPageGfx = new MainMenuBtnGfx(chatPageButton);
+    chatPageGfx.create();
+    chatPageButton.addComponent(chatPageGfx);
+    var creativePageGfx = new MainMenuBtnGfx(creativePageButton);
+    creativePageGfx.create();
+    creativePageButton.addComponent(creativePageGfx);
 
     this.buttonPanel = new Panel();
     this.buttonPanel.create(this.mCanvas);

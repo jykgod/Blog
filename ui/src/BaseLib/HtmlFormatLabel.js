@@ -35,7 +35,7 @@ HtmlFormatLabel.prototype.updateImage = function () {
     data += '<div xmlns="http://www.w3.org/1999/xhtml" >';
     data += this.mText;
     data += '</div></foreignObject></svg>';
-    //console.log(data);
+    console.log(data);
     var DOMURL = window.URL || window.webkitURL || window;
     this.img = new Image();
     var svg = new Blob([data], {type: 'image/svg+xml;charset=utf-8'});

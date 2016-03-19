@@ -48,8 +48,8 @@ function MusicPlayerUI(manager, canvas) {
     this.ChangeToMusicWithTitle = function( title , lyric )
     {
         var audio = this.mAudio;
-        console.log("change to music with title:"+title.toString());
-        console.log("music lyric:"+lyric.toString());
+        //console.log("change to music with title:"+title.toString());
+        //console.log("music lyric:"+lyric.toString());
         var temp = this;
         var playedMusicListIndex = 0;
         this.mMusicList.Ergodic(null , function(_null,now)

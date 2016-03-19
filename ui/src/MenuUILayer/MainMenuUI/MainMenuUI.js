@@ -158,22 +158,30 @@ MainMenuUI.prototype.start = function()
             ui.setVisible(true);
         }
     }
-
+    //add gfx to button
     var homePageGfx = new MainMenuBtnGfx(homePageButton);
     homePageGfx.create();
     homePageButton.addComponent(homePageGfx);
+
     var blogPageGfx = new MainMenuBtnGfx(blogPageButton);
     blogPageGfx.create();
     blogPageButton.addComponent(blogPageGfx);
+
     var texturePageGfx = new MainMenuBtnGfx(texturePageButton);
     texturePageGfx.create();
     texturePageButton.addComponent(texturePageGfx);
+
     var chatPageGfx = new MainMenuBtnGfx(chatPageButton);
     chatPageGfx.create();
     chatPageButton.addComponent(chatPageGfx);
+
     var creativePageGfx = new MainMenuBtnGfx(creativePageButton);
     creativePageGfx.create();
     creativePageButton.addComponent(creativePageGfx);
+
+    var musicButtonGfx = new MainMenuBtnGfx(this.MusicButton);
+    musicButtonGfx.create();
+    this.MusicButton.addComponent(musicButtonGfx);
 
     this.buttonPanel = new Panel();
     this.buttonPanel.create(this.mCanvas);

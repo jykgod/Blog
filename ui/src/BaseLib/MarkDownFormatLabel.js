@@ -4,7 +4,6 @@
 function MarkDownFormatLabel()
 {
     HtmlFormatLabel.call(this);
-    this.img;
     this.pText;
    // this.removeProperty("mText");
     Object.defineProperty(this,"mText",{

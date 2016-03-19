@@ -54,6 +54,7 @@ function onResize()
 
 var bgCanvas = new Canvas();
 bgCanvas.createWithFatherNameAndPosition("fatherDiv",0,0,window.innerWidth,window.innerHeight,-100);
+bgCanvas.setUpdateDeltaTime(500);
 var backGroundUI = new BackGroundUI(uiManager,bgCanvas);
 var mainCanvas = new Canvas();
 mainCanvas.createWithFatherNameAndPosition("fatherDiv",0,0,window.innerWidth,window.innerHeight,0);

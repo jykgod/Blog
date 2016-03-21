@@ -38,12 +38,10 @@
         btnRemove.onclick = function()
         {
             console.log("DocID:"+removeId.value + ";id:"+id.value+";password:"+password.value);
-//            var messageHelper = new MessageHelper();
-//            messageHelper.postMessageToServer("../addDocument", MG_TYPE.MSG_RQL_ADD_DOCUMENT, {
-//                title: encodeURIComponent(title.value),
-//                body: encodeURIComponent(body),
-//                preview: 200
-//            }, id.value, password.value);
+            var messageHelper = new MessageHelper();
+            messageHelper.postMessageToServer("../removeDocument", MG_TYPE.MSG_RQL_REMOVE_DOCUMENT, {
+                id: removeId.value
+            }, id.value, password.value);
         }
     </script>
 

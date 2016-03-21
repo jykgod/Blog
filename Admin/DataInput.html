@@ -5,11 +5,15 @@
 <head>
     id:<input id = "id"/>
     password:<input id = "password"/>
+    removeDocId:<input id = "removeDocId"/>
     <button id = "submit" type="submit" style="width: 100px;height: 20px">submit</button>
+    <button id = "remove" type="submit" style="width: 100px;height: 20px">remove</button>
     <script type="text/javascript">
         var btn = document.getElementById("submit");
+        var btnRemove = document.getElementById("remove");
         var id = document.getElementById("id");
         var password = document.getElementById("password");
+        var removeId = document.getElementById("removeDocId");
         //var data = document.getElementById("editor");
         btn.onclick = function()
         {
@@ -31,7 +35,18 @@
                 preview: 200
             }, id.value, password.value);
         }
+        btnRemove.onclick = function()
+        {
+            console.log("DocID:"+removeId.value + ";id:"+id.value+";password:"+password.value);
+//            var messageHelper = new MessageHelper();
+//            messageHelper.postMessageToServer("../addDocument", MG_TYPE.MSG_RQL_ADD_DOCUMENT, {
+//                title: encodeURIComponent(title.value),
+//                body: encodeURIComponent(body),
+//                preview: 200
+//            }, id.value, password.value);
+        }
     </script>
+
     <meta charset="UTF-8">
     <script type="text/javascript">
         //<![CDATA[

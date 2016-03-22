@@ -1,3 +1,4 @@
+var AllColliderManager = new List(null);
 function ColliderManager()
 {
     this.mCanvas;
@@ -9,6 +10,7 @@ function ColliderManager()
     {
         this.mCanvas = canvas;
         addEventFunc( this );
+        AllColliderManager.add(this);
     }
     this.addCollider = function ( collider )
     {
@@ -24,22 +26,17 @@ function ColliderManager()
     }
     this.onClick = function( x , y )
     {
-        var tmp =new function(){
-            this.level = -90000;
-            this.x = x;
-            this.y = y;
-        };
-        this.collderList.Ergodic( tmp , function( tmp , collider )
+        var level = -90000
+        this.collderList.Ergodic( null , function( _null , collider )
         {
             if( collider.getIfVisible() &&
-                collider.pointIn( tmp.x , tmp.y ) &&
-                (tmp.level == -90000 || tmp.level == collider.mLevel))
+                collider.pointIn( x , y ) &&
+                (level == -90000 || level == collider.mLevel))
             {
-                tmp.level = collider.mLevel;
-                collider.onRelease( tmp.x , tmp.y );
-                //collider.onClick( tmp.x , tmp.y );
+                level = collider.mLevel;
+                collider.onRelease( x , y );
             }
-            else if(tmp.level != -90000 && tmp.level != collider.mLevel)
+            else if(level != -90000 && level != collider.mLevel)
             {
                 return false;
             }
@@ -47,21 +44,17 @@ function ColliderManager()
     }
     this.onMouseDown = function( x , y )
     {
-        var tmp =new function(){
-            this.level = -90000;
-            this.x = x;
-            this.y = y;
-        };
-        this.collderList.Ergodic( tmp , function( tmp , collider )
+        var level = -90000;
+        this.collderList.Ergodic( null , function( _null , collider )
         {
             if( collider.getIfVisible() &&
-                collider.pointIn( tmp.x , tmp.y ) &&
-                (tmp.level == -90000 || tmp.level == collider.mLevel))
+                collider.pointIn( x , y ) &&
+                (level == -90000 || level == collider.mLevel))
             {
-                tmp.level = collider.mLevel;
-                collider.onMouseDown( tmp.x , tmp.y );
+                level = collider.mLevel;
+                collider.onMouseDown( x , y );
             }
-            else if(tmp.level != -90000 && tmp.level != collider.mLevel)
+            else if(level != -90000 && level != collider.mLevel)
             {
                 return false;
             }
@@ -69,53 +62,61 @@ function ColliderManager()
     }
     this.onMouseMove = function( x , y )
     {
-        var tmp =new function(){
-            this.x = x;
-            this.y = y;
-            this.level = -90000;
-            this.colliderManager = null;
-        };
-        tmp.colliderManager = this;
+        var level = -90000;
         this.mPointerOnColliders.clear();
-        this.collderList.Ergodic( tmp , function( tmp , collider )
+        this.collderList.Ergodic( this , function( temp , collider )
         {
             if( collider.getIfVisible() &&
-                collider.pointIn( tmp.x , tmp.y ) &&
-                (tmp.level == -90000 || tmp.level == collider.mLevel))
+                collider.pointIn( x , y ) &&
+                (level == -90000 || level == collider.mLevel))
             {
-                tmp.level = collider.mLevel;
-                tmp.colliderManager.mPointerOnColliders.add(collider);
-                collider.onMouseMove( tmp.x , tmp.y );
+                level = collider.mLevel;
+                temp.mPointerOnColliders.add(collider);
+                collider.onMouseMove( x , y );
             }
-            else if(tmp.level != -90000 && tmp.level != collider.mLevel)
+            else
             {
-                return false;
-            }else
-            {
-                collider.onMouseMoveOut( tmp.x , tmp.y );
+                collider.onMouseMoveOut( x , y );
             }
         });
+        AllColliderManager.Ergodic( this , function( temp , colliderManager ){
+            if(temp != colliderManager) {
+                colliderManager.otherCanvasOnMouseMove(x, y);
+            }
+        } );
     }
     this.onMouseUp = function( x , y )
     {
-        var tmp =new function(){
-            this.x = x;
-            this.y = y;
-            this.level = -90000;
-        };
-        this.collderList.Ergodic( tmp , function( tmp , collider )
+        var level = -90000;
+        this.collderList.Ergodic( null , function( _null , collider )
         {
             if( collider.getIfVisible() &&
-                collider.pointIn( tmp.x , tmp.y ) &&
-                (tmp.level == -90000 || tmp.level == collider.mLevel))
+                collider.pointIn( x , y ) &&
+                (level == -90000 || level == collider.mLevel))
             {
-                tmp.level = collider.mLevel;
-                collider.onMouseUp( tmp.x , tmp.y );
+                level = collider.mLevel;
+                collider.onMouseUp( x , y );
             }
-            if( collider.getIfVisible() )
-            {
-                collider.onRelease( tmp.x , tmp.y );
+            collider.onRelease( x , y );
+        });
+        AllColliderManager.Ergodic( this , function( temp , colliderManager ){
+            if(temp != colliderManager) {
+                colliderManager.otherCanvasOnMouseUp(x, y);
             }
+        } );
+    }
+    this.otherCanvasOnMouseUp = function( x , y )
+    {
+        this.collderList.Ergodic( null , function( _null , collider )
+        {
+            collider.onRelease( x , y );
+        });
+    }
+    this.otherCanvasOnMouseMove = function( x , y )
+    {
+        this.collderList.Ergodic( null , function( _null , collider )
+        {
+            collider.onMouseMoveOut( x , y );
         });
     }
 }

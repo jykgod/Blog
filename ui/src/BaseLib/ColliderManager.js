@@ -79,8 +79,10 @@ function ColliderManager()
                 collider.onMouseMoveOut( x , y );
             }
         });
-        AllColliderManager.Ergodic( null , function( _null , colliderManager ){
-            colliderManager.otherCanvasOnMouseMove( x , y );
+        AllColliderManager.Ergodic( this , function( temp , colliderManager ){
+            if(temp != colliderManager) {
+                colliderManager.otherCanvasOnMouseMove(x, y);
+            }
         } );
     }
     this.onMouseUp = function( x , y )
@@ -98,7 +100,9 @@ function ColliderManager()
             collider.onRelease( x , y );
         });
         AllColliderManager.Ergodic( null , function( _null , colliderManager ){
-            colliderManager.otherCanvasOnMouseUp( x , y );
+            if(temp != colliderManager) {
+                colliderManager.otherCanvasOnMouseUp(x, y);
+            }
         } );
     }
     this.otherCanvasOnMouseUp = function( x , y )

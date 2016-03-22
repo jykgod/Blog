@@ -99,7 +99,7 @@ function ColliderManager()
             }
             collider.onRelease( x , y );
         });
-        AllColliderManager.Ergodic( null , function( _null , colliderManager ){
+        AllColliderManager.Ergodic( this , function( temp , colliderManager ){
             if(temp != colliderManager) {
                 colliderManager.otherCanvasOnMouseUp(x, y);
             }

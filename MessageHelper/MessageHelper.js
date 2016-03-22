@@ -180,7 +180,6 @@ MessageHelper.prototype.msg_rlt_get_document_list = function (data) {
             var uiManager = UIManager.prototype.getInstance();
             var blogUI = uiManager.getUIByName("BlogPageUI");
             for (var i = 0; i < data.length; i++) {
-                console.log(data[i].preview);
                 blogUI.addBlogButton(data[i].id, decodeURIComponent(data[i].preview));
             }
         }

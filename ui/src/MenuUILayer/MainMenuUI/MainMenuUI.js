@@ -57,7 +57,6 @@ MainMenuUI.prototype.start = function()
     blogPageButton.setSize(100,50);
     blogPageButton.onClick = function()
     {
-        console.log("shit");
         for(var i = 0;i < temp.pageList.length ; i ++)
         {
             temp.pageList[i].setVisible(false);

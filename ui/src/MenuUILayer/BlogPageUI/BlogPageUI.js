@@ -37,7 +37,6 @@ BlogPageUI.prototype.start = function()
     var temp = this;
     this.blogList = new DragPanel();
     this.blogList.create(this.mCanvas);
-    console.log("start blog page");
     this.blogList.setSize(1000,window.innerHeight - 170);
     this.blogList.offsetY = 20;
     this.blogList.dragMaxBottomFixY = window.innerHeight - 170;

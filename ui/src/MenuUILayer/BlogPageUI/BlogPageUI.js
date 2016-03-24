@@ -140,6 +140,7 @@ BlogPageUI.prototype.addBlogButton = function(id,text)
     var blogButton = new UIButton();
     blogButton.createWithColorRect(this.mCanvas,"#dddddd",text,"bold 24px 宋体",2);
     blogButton.setShadowMargin(10);
+    blogButton.label.mColor = "#333333";
     blogButton.setSize(1000,200);
     var temp = this;
     blogButton.onClick = function()

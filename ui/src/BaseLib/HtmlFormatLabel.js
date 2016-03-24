@@ -37,9 +37,9 @@ HtmlFormatLabel.prototype.updateImage = function () {
     this.img = new Image();
     var svg = new Blob([data], {type: 'image/svg+xml;charset=utf-8'});
     var url = DOMURL.createObjectURL(svg);
-    this.img.onload = function () {
-        DOMURL.revokeObjectURL(url);
-    }
+    //this.img.onload = function () {
+    //    DOMURL.revokeObjectURL(url);
+    //}
     this.img.src = url;
 }
 

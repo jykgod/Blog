@@ -27,12 +27,9 @@ HtmlFormatLabel.prototype.create = function (canvas, text) {
     this.mText = text;
 }
 HtmlFormatLabel.prototype.updateImage = function () {
-    //var data = '<head><link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">';
-    //data +='<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>';
-    //data +='<script>hljs.initHighlightingOnLoad();</script></head>';
     var data = '<svg xmlns="http://www.w3.org/2000/svg" width="' + this.w + '" height = "' + this.h + '">';
     data += '<foreignObject width="100%" height="100%">';
-    data += '<div xmlns="http://www.w3.org/1999/xhtml" >';
+    data += '<div xmlns="http://www.w3.org/1999/xhtml" style="color:'+this.mColor+'">';
     data += this.mText;
     data += '</div></foreignObject></svg>';
     var DOMURL = window.URL || window.webkitURL || window;
@@ -57,10 +54,10 @@ HtmlFormatLabel.prototype.draw = function () {
         this.mCanvas.mContext.drawImage(this.img, this.x + fatherPosition.x, this.y + fatherPosition.y, this.w, this.h);
 }
 
-HtmlFormatLabel.prototype.drawShadow = function () {
-    return;
-}
+//HtmlFormatLabel.prototype.drawShadow = function () {
+//    return;
+//}
 
-HtmlFormatLabel.prototype.drawOutLine = function () {
-    return;
-}
+//HtmlFormatLabel.prototype.drawOutLine = function () {
+//    return;
+//}

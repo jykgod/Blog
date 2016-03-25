@@ -38,7 +38,22 @@ BlogText.prototype.createWithFatherNameAndPosition = function(fatherName,x,y,w,h
     this.setRect(x,y,w,h);
 }
 
-BlogText.prototype.setText = function (text, title)
+BlogText.prototype.setNormalText = function ( text )
+{
+    var data = '<head><link rel="stylesheet" href="ui/src/BaseLib/highlight/styles/default.css">';
+    data +='<script src="ui/src/BaseLib/highlight/highlight.pack.js"></script>';
+    data +='<script>hljs.initHighlightingOnLoad();</script></head>';
+    data += marked(text) ;
+    var fatherNode = document.getElementById(this.fatherName);
+    this.frame = document.createElement('iframe');
+    fatherNode.appendChild(this.frame);
+    this.reFreshFramePosition();
+    var theDoc =  this.frame.contentWindow;
+    theDoc.document.write(data);
+    theDoc.document.close();
+}
+
+BlogText.prototype.setBlogText = function (text, title)
 {
     var data = '<head><link rel="stylesheet" href="ui/src/BaseLib/highlight/styles/default.css">';
     data +='<script src="ui/src/BaseLib/highlight/highlight.pack.js"></script>';

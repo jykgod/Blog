@@ -62,7 +62,7 @@ function MusicPlayerUI(manager, canvas) {
                 }
                 console.log("find the music");
                 audio.src = now.MusicUrl;
-                temp.mLyricLabel.mText = lyric;
+                temp.mLyricLabel.setNormalText( lyric );
                 temp.mNowPlayedMusicListIndex = playedMusicListIndex;
                 var uiManager = UIManager.prototype.getInstance();
                 var bgUI = uiManager.getUIByName("BackGroundUI");
@@ -150,17 +150,20 @@ MusicPlayerUI.prototype.start = function () {
         temp.setVisible(false);
     }
 
-    this.mLyricLabel = new MarkDownFormatLabel();
-    this.mLyricLabel.create(this.mCanvas, "");
-    this.mLyricLabel.setLevel(20);
-    this.mLyricLabel.setPosition( 50 , 200 );
-    this.mLyricLabel.setSize(window.innerWidth -50 ,window.innerHeight - 200);
-
+    //this.mLyricLabel = new MarkDownFormatLabel();
+    //this.mLyricLabel.create(this.mCanvas, "");
+    //this.mLyricLabel.setLevel(20);
+    //this.mLyricLabel.setPosition( 50 , 200 );
+    //this.mLyricLabel.setSize(window.innerWidth -50 ,window.innerHeight - 200);
+    //
     this.mBackground = new ColorRect();
     this.mBackground.create(this.mCanvas,"#000000");
     this.mBackground.mAlpha = 0.8;
     this.mBackground.setSize(window.innerWidth,window.innerHeight);
     this.mBackground.setLevel(-100);
+
+    this.mLyricLabel = new BlogText();
+    this.mLyricLabel.createWithFatherNameAndPosition("fatherDiv", 50, 200, window.innerWidth -50 ,window.innerHeight - 200, 101);
 
     this.mMusicList = new List(null);
 
@@ -223,4 +226,5 @@ MusicPlayerUI.prototype.setVisible = function(show)
 {
     UIBase.prototype.setVisible.call(this,show);
     this.mCanvas.setVisible(show);
+    this.mLyricLabel.setVisible(show);
 }

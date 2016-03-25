@@ -94,7 +94,7 @@ MusicPlayerUI.prototype.onResize = function()
     this.mCanvas.setPosition(0,0,window.innerWidth,window.innerHeight,100);
     this.mBackground.setSize(window.innerWidth,window.innerHeight);
     this.mPicture.setSize(window.innerWidth ,window.innerHeight - 180);
-    this.mLyricLabel.setSize(window.innerWidth - 50,window.innerHeight - 200);
+    this.mLyricLabel.setRect(window.innerWidth - 50,window.innerHeight - 200);
     this.mMusicPanel.dragMaxRightFixX = window.innerWidth;
 }
 

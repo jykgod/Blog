@@ -73,6 +73,7 @@ BlogPageUI.prototype.start = function()
     this.baseNode.addComponent(this.blogContentBg);
     this.baseNode.addComponent(this.blogListNode);
     this.baseNode.setPosition(0,20);
+    this.addBlogButton("1",'<hr>asdas<hr>');
     var messageHelper = new MessageHelper();
     messageHelper.Instance.postMessageToServer("/getDocumentListByAuthor", MG_TYPE.MSG_RQL_GET_DOCUMENT_LIST, {
         author: "jyk",

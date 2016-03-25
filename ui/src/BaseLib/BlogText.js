@@ -61,7 +61,7 @@ BlogText.prototype.setBlogText = function (text, title)
     data += marked(text) ;
     <!--&lt;!&ndash; 多说评论框 start &ndash;&gt;-->
     if (this.firstInited == false) {
-        data += '<div id="dsDiv" class="ds-thread" data-thread-key="' + this.id + '" data-title="请替换成文章的标题" data-url="http://121.42.175.182:10200/test.html" ></div>';
+        data += '<div id="dsDiv" class="ds-thread" data-thread-key="' + this.id + '" data-title="请替换成文章的标题" data-url="http://121.42.175.182:10200/Blog.html" ></div>';
         data += '<script type="text/javascript">'
         data += 'var duoshuoQuery = {short_name:"jykblog"};'
         data += '(function() {'

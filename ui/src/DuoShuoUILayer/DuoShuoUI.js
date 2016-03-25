@@ -6,7 +6,7 @@ function DuoShuoUI()
     this.div = document.getElementById("dsDiv");
     this.div.dataThreadKey = "0";
     this.div.dataTitle = "";
-    this.div.dataUrl = "http://121.42.175.182/home/blog_clone/test.html";
+    this.div.dataUrl = "http://121.42.175.182/home/blog_clone/Blog.html";
     this.div.style.display = "none";
     this.div.style.position = "absolute";
     this.addTo = function( fatherNode )

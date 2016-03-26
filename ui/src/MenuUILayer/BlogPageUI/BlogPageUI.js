@@ -61,7 +61,7 @@ BlogPageUI.prototype.start = function()
     this.blogContent = new BlogText();
     this.blogContent.createWithFatherNameAndPosition("fatherDiv", 300, 170, innerWidth - 100, innerHeight - 170, 2);
     this.blogContentBg = new ColorRect();
-    this.blogContentBg.create(this.mCanvas,"#dddddd");
+    this.blogContentBg.create(this.mCanvas,"#000000");
     this.blogContentBg.setLevel(100);
     this.blogContentBg.setPosition(300,0);
     this.blogContentBg.setSize(innerWidth - 300, innerHeight);

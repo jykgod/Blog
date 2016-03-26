@@ -24,6 +24,20 @@ function BlogText()
         this.frame.style.border = "0";
         this.frame.style.zIndex = this.zIndex;
     }
+    this.clearIframe = function(){
+        if (this.frame != null) {
+            var fatherNode = document.getElementById(this.fatherName);
+            var theDoc = this.frame.contentWindow;
+            theDoc.document.write("");
+            theDoc.document.close();
+            fatherNode.removeChild(this.frame);
+            this.frame = null;
+            //传说IE会导致内存泄露
+            if (navigator.userAgent.indexOf("MSIE") > 0) {
+                CollectGarbage();
+            }
+        }
+    }
 }
 
 BlogText.prototype.createWithFatherName = function(fatherName)
@@ -40,6 +54,7 @@ BlogText.prototype.createWithFatherNameAndPosition = function(fatherName,x,y,w,h
 
 BlogText.prototype.setNormalText = function ( text )
 {
+    this.clearIframe();
     var data = '<head><link rel="stylesheet" href="ui/src/BaseLib/highlight/styles/default.css">';
     data +='<script src="ui/src/BaseLib/highlight/highlight.pack.js"></script>';
     data +='<script>hljs.initHighlightingOnLoad();</script></head>';
@@ -55,6 +70,7 @@ BlogText.prototype.setNormalText = function ( text )
 
 BlogText.prototype.setBlogText = function (text, title)
 {
+    this.clearIframe();
     var data = '<head><link rel="stylesheet" href="ui/src/BaseLib/highlight/styles/default.css">';
     data +='<script src="ui/src/BaseLib/highlight/highlight.pack.js"></script>';
     data +='<script>hljs.initHighlightingOnLoad();</script></head>';

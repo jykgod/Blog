@@ -5,6 +5,7 @@ HtmlFormatLabel = function () {
     DrawableObject.call(this);
     this.img = null;
     this.pText = "";
+    this.mFont = "14px";
     this.deleteInvalidTag = function( data , tag )
     {
         var re = "";
@@ -44,7 +45,7 @@ HtmlFormatLabel.prototype.create = function (canvas, text) {
 HtmlFormatLabel.prototype.updateImage = function () {
     var data = '<svg xmlns="http://www.w3.org/2000/svg" width="' + this.w + '" height = "' + this.h + '">';
     data += '<foreignObject width="100%" height="100%">';
-    data += '<div xmlns="http://www.w3.org/1999/xhtml" style="color:'+this.mColor+'">';
+    data += '<div xmlns="http://www.w3.org/1999/xhtml" style="color:'+this.mColor+';font-size:"'+this.mFont+'>';
     data += this.mText;
     data += '</div></foreignObject></svg>';
     //console.log(data);

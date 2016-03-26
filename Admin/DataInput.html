@@ -7,6 +7,9 @@
     password:<input id = "password"/>
     removeDocId:<input id = "removeDocId"/>
     <button id = "submit" type="submit" style="width: 100px;height: 20px">submit</button>
+    preview:
+    <iframe id = "iframe" srcdoc='<textarea id = "jykPreview"/>'>
+    </iframe>
     <button id = "remove" type="submit" style="width: 100px;height: 20px">remove</button>
     <script type="text/javascript">
         var btn = document.getElementById("submit");
@@ -14,25 +17,28 @@
         var id = document.getElementById("id");
         var password = document.getElementById("password");
         var removeId = document.getElementById("removeDocId");
-        //var data = document.getElementById("editor");
         btn.onclick = function()
         {
             var title = document.getElementById("title");
             var data = document.getElementsByClassName("CodeMirror-code");
             var body = "";
+            var preview = document.getElementById("iframe");
+            preview = preview.contentWindow.document.getElementById("jykPreview");
+
             for(var i = 0; i< data[0].childNodes.length;i++) {
-                //console.log(data[0].childNodes[i].textContent);
                 if( i != 0 )
                 body += ( '\n' + data[0].childNodes[i].textContent );
                 else
                 body = data[0].childNodes[i].textContent;
             }
+            var previewLen = encodeURIComponent(preview.value).length;
             console.log(body);
+            console.log(previewLen);
             var messageHelper = new MessageHelper();
             messageHelper.postMessageToServer("../addDocument", MG_TYPE.MSG_RQL_ADD_DOCUMENT, {
                 title: encodeURIComponent(title.value),
                 body: encodeURIComponent(body),
-                preview: 1000
+                preview: previewLen
             }, id.value, password.value);
         }
         btnRemove.onclick = function()

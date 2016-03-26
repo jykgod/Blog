@@ -145,7 +145,7 @@ BlogPageUI.prototype.addBlogButton = function(id,text)
     var temp = this;
     blogButton.onClick = function()
     {
-        console.log("click blog id:",id);
+        //console.log("click blog id:",id);
         temp.state = 1;
         temp.showBlogText(id);
     }

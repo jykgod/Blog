@@ -86,21 +86,25 @@ BlogText.prototype.setBlogText = function (text, title)
 BlogText.prototype.setVisible = function(visible)
 {
     if (visible == true) {
-        //this.frame.style.display = "block";
+        if (this.frame != null) {
+            this.frame.style.display = "block";
+        }
     }
     else {
-        //this.frame.style.display = "none";
         if (this.frame != null) {
-            var fatherNode = document.getElementById(this.fatherName);
-            var theDoc = this.frame.contentWindow;
-            theDoc.document.write("");
-            theDoc.document.close();
-            fatherNode.removeChild(this.frame);
-            this.frame = null;
-            //传说IE会导致内存泄露
-            if (navigator.userAgent.indexOf("MSIE") > 0) {
-                CollectGarbage();
-            }
+            this.frame.style.display = "none";
         }
+        //if (this.frame != null) {
+        //    var fatherNode = document.getElementById(this.fatherName);
+        //    var theDoc = this.frame.contentWindow;
+        //    theDoc.document.write("");
+        //    theDoc.document.close();
+        //    fatherNode.removeChild(this.frame);
+        //    this.frame = null;
+        //    //传说IE会导致内存泄露
+        //    if (navigator.userAgent.indexOf("MSIE") > 0) {
+        //        CollectGarbage();
+        //    }
+        //}
     }
 }

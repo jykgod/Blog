@@ -179,7 +179,7 @@ MessageHelper.prototype.msg_rlt_get_document_list = function (data) {
         if (data[0].author == "jyk") {
             var uiManager = UIManager.prototype.getInstance();
             var blogUI = uiManager.getUIByName("BlogPageUI");
-            for (var i = 0; i < data.length; i++) {
+            for (var i = data.length - 1; i >= 0; i--) {
                 blogUI.addBlogButton(data[i].id, decodeURIComponent(data[i].preview));
             }
         }
